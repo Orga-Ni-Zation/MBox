@@ -47,6 +47,16 @@ export class SessionService {
       .catch(this.handleError);
   }
 
+  FBlogin():Observable<User>{
+    console.log("I clicked")
+    return this.http.get(`${this.BASE_URL}/facebook`)
+    .map(res => {
+      this.user = res.json();
+      return this.user;
+    })
+    .catch(this.handleError);
+  }
+
   logout():Observable<object>{
     return this.http.get(`${this.BASE_URL}/logout`, this.options)
       .map(res => {
@@ -64,6 +74,15 @@ export class SessionService {
       })
       .catch(this.handleError);
   }
+
+  // isFBLoggedIn():Observable<User>{
+  //   return this.http.get(`${this.BASE_URL}/facebook`)
+  //   .map(res => {
+  //     this.user = res.json();
+  //     return this.user;
+  //   })
+  //   .catch(this.handleError);
+  // }
 
   getPrivateData():Observable<object>{
     return this.http.get(`${this.BASE_URL}/private`, this.options)
