@@ -1,5 +1,6 @@
 const express = require('express');
 const passport = require('passport');
+const path = require('path');
 const bcrypt = require('bcrypt');
 
 // Our user model
@@ -12,7 +13,6 @@ function returnMessage(message){
 }
 //authRoutes.post('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
-    console.log(req.body);
     var name = req.body.newUser.name;
     var lastName=  req.body.newUser.lastName;
     var birthday= req.body.newUser.birthday;
@@ -125,11 +125,20 @@ authRoutes.get('/loggedin', ensureLoginOrJsonError(), (req, res, next) => {
   return res.status(200).json(req.user);
 });
 
-/* Secret route */
-authRoutes.get('/private', ensureLoginOrJsonError(), (req, res, next) => {
-  return res.json({
-    message: 'This is a private message'
-  });
+
+authRoutes.get('/facebook',
+  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
+
+authRoutes.get('/facebook/user',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+      console.log(req)
+      res.status(200).json({"hola":"hola"});
+    });
+
+authRoutes.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect('/');
 });
 
 module.exports = authRoutes;

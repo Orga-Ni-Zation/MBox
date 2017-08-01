@@ -31,6 +31,14 @@ export class LoginFormComponent implements OnInit {
       );
   }
 
+  fbLogin(){
+    this.session.fblogin()
+      .subscribe(
+        (user) => console.log(user),
+        (err) => this.error = err
+      );
+  }
+
   signup() {
     this.session.signup(this.user)
       .subscribe(

@@ -20,15 +20,14 @@ export class SessionService {
   options:object = {withCredentials:true};
 
   constructor(private http:Http) {
-    this.isLoggedIn().subscribe( (user:User) =>{
-      console.log(`Welcome again user ${user.username}`)
-      this.user = user;
-      this.startLoginCompleted = true;
-    }, e => this.startLoginCompleted = true);
+    // this.isLoggedIn().subscribe( (user:User) =>{
+    //   console.log(`Welcome again user ${user.username}`)
+    //   this.user = user;
+    //   this.startLoginCompleted = true;
+    // }, e => this.startLoginCompleted = true);
   }
 
   handleError(e) {
-    console.error("Error en la llamada a la API");
     return Observable.throw(e.json().message);
   }
 
@@ -45,6 +44,15 @@ export class SessionService {
         return this.user;
       })
       .catch(this.handleError);
+  }
+
+  fblogin():Observable<User>{
+    return this.http.get(`${this.BASE_URL}/facebook`)
+    .map(res => {
+      this.user = res.json();
+      return this.user;
+    })
+    .catch(this.handleError);
   }
 
   logout():Observable<object>{
@@ -64,6 +72,15 @@ export class SessionService {
       })
       .catch(this.handleError);
   }
+
+  // isFBLoggedIn():Observable<User>{
+  //   return this.http.get(`${this.BASE_URL}/facebook`)
+  //   .map(res => {
+  //     this.user = res.json();
+  //     return this.user;
+  //   })
+  //   .catch(this.handleError);
+  // }
 
   getPrivateData():Observable<object>{
     return this.http.get(`${this.BASE_URL}/private`, this.options)
