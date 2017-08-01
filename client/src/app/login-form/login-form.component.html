@@ -2,12 +2,32 @@
 <form>
   <h2> Login or Signup </h2>
   <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
+  <input type="text" [(ngModel)]="user.username" name="username"/>
   <br>
   <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
+  <input type="password" [(ngModel)]="user.password" name="password"/>
+  <br>
+  <label> Name </label>
+  <input type="text" [(ngModel)]="user.name" name="name"/>
+  <br>
+  <label> Last Name </label>
+  <input type="text" [(ngModel)]="user.lastName" name="lastName"/>
+  <br>
+  <label for="birthday">Date</label>
+  <input type="date" [(ngModel)]="user.birthday" name="birthday" id="birthday" class="form-control" >
+  <br>
+  <label> Email </label>
+  <input type="text" [(ngModel)]="user.email" name="email"/>
+  <br>
+  <label for="gender">Gender</label>
+              <select [(ngModel)]="user.gender"  name="gender">
+                <option value="unknown">Select Gender</option>
+               <option value="male">Male</option>
+                <option value="female">Female</option>
 
+              </select>
   <button (click)="login()"> login </button>
+  <a href="/signup">signup</a>
   <button (click)="signup()"> signup </button>
 </form>
 <p class="error"> {{ error }} </p>

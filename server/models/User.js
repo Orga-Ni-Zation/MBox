@@ -8,17 +8,24 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
+  gender: {
+    type: String,
+   enum: ["male", "female", "unknown"],
+    default: "unknown"
+  },
   membership: {
     type: String,
     enum: ['single',
-           'monthly']
+           'monthly'],
+
   },
   role: {
     type: String,
     enum: [
       'admin',
       'user',
-    ]
+    ],
+    default: "user"
   }
 }, {
   timestamps: {

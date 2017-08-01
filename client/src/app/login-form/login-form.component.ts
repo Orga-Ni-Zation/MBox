@@ -7,14 +7,24 @@ import { SessionService } from '../../services/session.service';
 })
 export class LoginFormComponent implements OnInit {
   error: string;
-  username:string;
-  password:string;
+  user = {
+    username: '',
+    password: '',
+    name: '',
+    lastName: '',
+    email: '',
+    gender: '',
+    menbership: '',
+    role: '',
+    birthday: '',
+  }
+
   constructor(private session: SessionService) { }
   ngOnInit() {
   }
 
   login() {
-    this.session.login(this.username,this.password)
+    this.session.login(this.user.username,this.user.password)
       .subscribe(
         (user) => console.log(user),
         (err) => this.error = err
@@ -22,7 +32,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   signup() {
-    this.session.signup(this.username, this.password)
+    this.session.signup(this.user)
       .subscribe(
         (user) => console.log(user),
         (err) => this.error = err

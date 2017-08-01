@@ -10,12 +10,20 @@ const authRoutes = express.Router();
 function returnMessage(message){
   return (req,res,next) => res.status(500).json({error:true, message:message});
 }
-authRoutes.get('/signup',returnMessage("This should be a POST"));
+//authRoutes.post('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
-  const {
-    username,
-    password
-  } = req.body;
+    console.log(req.body);
+    var name = req.body.newUser.name;
+    var lastName=  req.body.newUser.lastName;
+    var birthday= req.body.newUser.birthday;
+    var username= req.body.newUser.username;
+    var password= req.body.newUser.password;
+    var email=  req.body.newUser.email;
+    var gender= req.body.newUser.gender;
+    var membership= req.body.newUser.membership;
+
+
+
 
   if (!username || !password) {
     res.status(400).json({
@@ -38,9 +46,18 @@ authRoutes.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const theUser = new User({
+      name,
+      lastName,
+      gender,
       username,
-      password: hashPass
-    }).save().then(user => {
+      password: hashPass,
+      email,
+      membership,
+      birthday,
+
+    });
+    console.log(theUser);
+    theUser.save().then(user => {
       req.login(user, (err) => {
         if (err) {
           res.status(500).json({
