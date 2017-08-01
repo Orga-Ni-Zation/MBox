@@ -20,20 +20,19 @@ export class SessionService {
   options:object = {withCredentials:true};
 
   constructor(private http:Http) {
-    this.isLoggedIn().subscribe( (user:User) =>{
-      console.log(`Welcome again user ${user.username}`)
-      this.user = user;
-      this.startLoginCompleted = true;
-    }, e => this.startLoginCompleted = true);
+    // this.isLoggedIn().subscribe( (user:User) =>{
+    //   console.log(`Welcome again user ${user.username}`)
+    //   this.user = user;
+    //   this.startLoginCompleted = true;
+    // }, e => this.startLoginCompleted = true);
   }
 
   handleError(e) {
-    console.error("Error en la llamada a la API");
     return Observable.throw(e.json().message);
   }
 
-  signup(username:string, password:string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/signup`, {username,password}, this.options)
+  signup(newUser):Observable<User> {
+    return this.http.post(`${this.BASE_URL}/signup`, {newUser}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -47,8 +46,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  FBlogin():Observable<User>{
-    console.log("I clicked")
+  fblogin():Observable<User>{
     return this.http.get(`${this.BASE_URL}/facebook`)
     .map(res => {
       this.user = res.json();

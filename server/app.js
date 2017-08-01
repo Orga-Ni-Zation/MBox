@@ -22,10 +22,8 @@ mongoose.connect(dbUrl)
 
 const app = express();
 
-
-
 var whitelist = [
-    'http://localhost:4200',
+    'http://localhost:4200'
 ];
 var corsOptions = {
     origin: function(origin, callback){
@@ -60,8 +58,25 @@ app.use(session({
   cookie : { httpOnly: true, maxAge: 2419200000 }
 }));
 
+passport.serializeUser((loggedInUser, cb) => {
+  cb(null, loggedInUser._id);
+});
+
+passport.deserializeUser((userIdFromSession, cb) => {
+  User.findById(userIdFromSession, (err, userDocument) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+
+    cb(null, userDocument);
+  });
+});
+
 const passportLocalStrategy = require('./passport/local');
 passportLocalStrategy(passport);
+const passportFacebookStrategy = require('./passport/facebook');
+passportFacebookStrategy(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());

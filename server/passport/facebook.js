@@ -2,16 +2,15 @@ const passport      = require("passport");
 const User =  require('../models/User');
 const FbStrategy = require('passport-facebook').Strategy;
 const path = require('path');
-var debug = require('debug')('mbox:'+path.basename(__filename));
 
-passport.use(new FbStrategy({
+module.exports = function (passport) {
+  passport.use(new FbStrategy({
   clientID: "2154216471471670",
   clientSecret: "24ce611d4ab1fe8e3d1c428d49382997",
-  callbackURL: "/facebook/callback",
-  profileFields: ['name', 'email',],
-
-}, (accessToken, refreshToken, profile, done) => {
-  debug(profile);
+  callbackURL: "http://localhost:3000/api/auth/facebook/user",
+  profileFields: ['user_friends', 'manage_pages']
+  }, (accessToken, refreshToken, profile, done) => {
+  console.log(accessToken);
   User.findOne({ provider_id: profile.id }, (err, user) => {
     if (err) {
       return done(err);
@@ -37,4 +36,4 @@ passport.use(new FbStrategy({
 
 }));
 
-module.exports = authRoutes;
+}

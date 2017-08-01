@@ -1,6 +1,5 @@
 const express = require('express');
 const passport = require('passport');
-const FbStrategy = require('passport-facebook').Strategy;
 const path = require('path');
 const bcrypt = require('bcrypt');
 
@@ -12,12 +11,19 @@ const authRoutes = express.Router();
 function returnMessage(message){
   return (req,res,next) => res.status(500).json({error:true, message:message});
 }
-authRoutes.get('/signup',returnMessage("This should be a POST"));
+//authRoutes.post('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
-  const {
-    username,
-    password
-  } = req.body;
+    var name = req.body.newUser.name;
+    var lastName=  req.body.newUser.lastName;
+    var birthday= req.body.newUser.birthday;
+    var username= req.body.newUser.username;
+    var password= req.body.newUser.password;
+    var email=  req.body.newUser.email;
+    var gender= req.body.newUser.gender;
+    var membership= req.body.newUser.membership;
+
+
+
 
   if (!username || !password) {
     res.status(400).json({
@@ -40,9 +46,18 @@ authRoutes.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const theUser = new User({
+      name,
+      lastName,
+      gender,
       username,
-      password: hashPass
-    }).save().then(user => {
+      password: hashPass,
+      email,
+      membership,
+      birthday,
+
+    });
+    console.log(theUser);
+    theUser.save().then(user => {
       req.login(user, (err) => {
         if (err) {
           res.status(500).json({
@@ -111,16 +126,15 @@ authRoutes.get('/loggedin', ensureLoginOrJsonError(), (req, res, next) => {
 });
 
 
-authRoutes.get("/facebook", passport.authenticate("facebook",
-  { session: false, scope: ['user_friends', 'user_actions.books', 'user_about_me',
-    'public_profile', 'email', 'user_actions.fitness', 'user_actions.music',
-    'user_actions.video', 'user_birthday', 'user_likes', 'rsvp_event', 'pages_messaging_subscriptions',
-    'pages_messaging_payments', 'pages_messaging_phone_number']}));
+authRoutes.get('/facebook',
+  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
 
-authRoutes.get("/facebook/callback", passport.authenticate("facebook", {
-  successRedirect: "/mbox",
-  failureRedirect: "/"
-}));
+authRoutes.get('/facebook/user',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+      console.log(req)
+      res.status(200).json({"hola":"hola"});
+    });
 
 authRoutes.get("/logout", (req, res, next) => {
   req.logout();
