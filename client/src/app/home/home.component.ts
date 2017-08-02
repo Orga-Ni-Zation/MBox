@@ -8,10 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+error: any;
+  constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.session.logout()
+      .subscribe(
+        (user) => console.log("Ha hecho logout --->" + user),
+        (err) => this.error = err
+      );
+    this.router.navigate(['']);
   }
 
 }

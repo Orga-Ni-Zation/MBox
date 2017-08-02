@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (user) => {
           console.log(user);
-          this.router.navigate(['/index']);
+          this.router.navigate(['/home']);
         },
         (err) => this.error = err
       );
