@@ -22,7 +22,6 @@ authRoutes.post('/signup', (req, res, next) => {
     var gender= req.body.newUser.gender;
     var membership= req.body.newUser.membership;
 
-
   if (!username || !password) {
     res.status(400).json({
       message: 'Provide username and password'
