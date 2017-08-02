@@ -10,33 +10,10 @@ export class LoginFormComponent implements OnInit {
   user = {
     username: '',
     password: '',
-    name: '',
-    lastName: '',
-    email: '',
-    gender: '',
-    menbership: '',
-    role: '',
-    birthday: '',
   }
 
   constructor(private session: SessionService) { }
   ngOnInit() {
-  }
-
-  login() {
-    this.session.login(this.user.username,this.user.password)
-      .subscribe(
-        (user) => console.log(user),
-        (err) => this.error = err
-      );
-  }
-
-  fbLogin(){
-    this.session.fblogin()
-      .subscribe(
-        (user) => console.log(user),
-        (err) => this.error = err
-      );
   }
 
   signup() {
