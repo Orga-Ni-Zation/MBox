@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 
 // Our user model
 const User = require('../models/User');
-
 const authRoutes = express.Router();
 
 function returnMessage(message){
@@ -21,9 +20,6 @@ authRoutes.post('/signup', (req, res, next) => {
     var email=  req.body.newUser.email;
     var gender= req.body.newUser.gender;
     var membership= req.body.newUser.membership;
-
-
-
 
   if (!username || !password) {
     res.status(400).json({
@@ -132,7 +128,7 @@ authRoutes.get('/facebook',
 authRoutes.get('/facebook/user',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-      console.log(req)
+      console.log(req);
       res.status(200).json({"hola":"hola"});
     });
 
