@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema   = mongoose.Schema;
 
-const interestSchema = new Schema({
-  interests: {
+var InterestSchema = new Schema({
+	interests: {
     type: String,
    enum: ["technology", "sport", "bracelates","pets","romance","movies","fragances","books","rings","collars", "unknown"],
     default: "unknown"
@@ -18,6 +18,4 @@ timestamps: {
 }
 });
 
-
-const Interests = mongoose.model('Interest', interestSchema);
-module.exports = Interests;
+module.exports = mongoose.model('Interest', InterestSchema);

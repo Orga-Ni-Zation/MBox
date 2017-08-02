@@ -4,7 +4,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 // Our user model
-const User = require('../models/User');
+const User = require('../User/UserModel');
 
 const authRoutes = express.Router();
 
@@ -21,8 +21,6 @@ authRoutes.post('/signup', (req, res, next) => {
     var email=  req.body.newUser.email;
     var gender= req.body.newUser.gender;
     var membership= req.body.newUser.membership;
-
-
 
 
   if (!username || !password) {
@@ -55,9 +53,7 @@ authRoutes.post('/signup', (req, res, next) => {
       membership,
       birthday,
 
-    });
-    console.log(theUser);
-    theUser.save().then(user => {
+    }).save().then(user => {
       req.login(user, (err) => {
         if (err) {
           res.status(500).json({
@@ -100,7 +96,7 @@ authRoutes.post('/login', (req, res, next) => {
       // We are now logged in (notice req.user)
       res.status(200).json(req.user);
     });
-  });
+  })(req, res, next);
 });
 
 
@@ -125,20 +121,11 @@ authRoutes.get('/loggedin', ensureLoginOrJsonError(), (req, res, next) => {
   return res.status(200).json(req.user);
 });
 
-
-authRoutes.get('/facebook',
-  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
-
-authRoutes.get('/facebook/user',
-    passport.authenticate('facebook', { failureRedirect: '/login' }),
-    function(req, res) {
-      console.log(req)
-      res.status(200).json({"hola":"hola"});
-    });
-
-authRoutes.get("/logout", (req, res, next) => {
-  req.logout();
-  res.redirect('/');
+/* Secret route */
+authRoutes.get('/private', ensureLoginOrJsonError(), (req, res, next) => {
+  return res.json({
+    message: 'This is a private message'
+  });
 });
 
 module.exports = authRoutes;

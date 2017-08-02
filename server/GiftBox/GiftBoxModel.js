@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Schema   = mongoose.Schema;
 
-const giftBoxSchema = new Schema({
-  productID: {
+const GiftBoxSchema = new Schema({
+	productID: {
     type: Schema.Types.ObjectId,
     ref: 'Product'
   },
@@ -13,6 +13,4 @@ timestamps: {
 }
 });
 
-
-const GiftBox = mongoose.model('GiftBox', giftBoxSchema);
-module.exports = GiftBox;
+module.exports = mongoose.model('GiftBox', GiftBoxSchema);

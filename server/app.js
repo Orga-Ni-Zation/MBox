@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').load();
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -6,10 +6,12 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
-const mongoose     = require('mongoose');
 const session    = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose     = require('mongoose');
 const passport   = require('passport');
 const cors = require("cors");
+const app = express();
 
 const dbUrl = process.env.MONGO_URL;
 console.time('db');
@@ -19,8 +21,6 @@ mongoose.connect(dbUrl)
     console.timeEnd('db');
   })
   .catch( e => console.log(e));
-
-const app = express();
 
 var whitelist = [
     'http://localhost:4200'
@@ -44,6 +44,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -56,27 +60,13 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie : { httpOnly: true, maxAge: 2419200000 }
+  // store: new MongoStore({mongooseConnection: mongoose.connection, autoRemove:'ignore'})
 }));
 
-passport.serializeUser((loggedInUser, cb) => {
-  cb(null, loggedInUser._id);
-});
-
-passport.deserializeUser((userIdFromSession, cb) => {
-  User.findById(userIdFromSession, (err, userDocument) => {
-    if (err) {
-      cb(err);
-      return;
-    }
-
-    cb(null, userDocument);
-  });
-});
 
 const passportLocalStrategy = require('./passport/local');
 passportLocalStrategy(passport);
-const passportFacebookStrategy = require('./passport/facebook');
-passportFacebookStrategy(passport);
+
 
 app.use(passport.initialize());
 app.use(passport.session());

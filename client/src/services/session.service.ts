@@ -20,11 +20,11 @@ export class SessionService {
   options:object = {withCredentials:true};
 
   constructor(private http:Http) {
-    // this.isLoggedIn().subscribe( (user:User) =>{
-    //   console.log(`Welcome again user ${user.username}`)
-    //   this.user = user;
-    //   this.startLoginCompleted = true;
-    // }, e => this.startLoginCompleted = true);
+    this.isLoggedIn().subscribe( (user:User) =>{
+      console.log(`Welcome again user ${user.username}`)
+      this.user = user;
+      this.startLoginCompleted = true;
+    }, e => this.startLoginCompleted = true);
   }
 
   handleError(e) {
@@ -46,20 +46,11 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  fblogin():Observable<User>{
-    return this.http.get(`${this.BASE_URL}/facebook`)
-    .map(res => {
-      this.user = res.json();
-      return this.user;
-    })
-    .catch(this.handleError);
-  }
-
   logout():Observable<object>{
     return this.http.get(`${this.BASE_URL}/logout`, this.options)
       .map(res => {
-        res.json();
         this.user = undefined;
+        res.json();
       })
       .catch(this.handleError);
   }
@@ -72,15 +63,6 @@ export class SessionService {
       })
       .catch(this.handleError);
   }
-
-  // isFBLoggedIn():Observable<User>{
-  //   return this.http.get(`${this.BASE_URL}/facebook`)
-  //   .map(res => {
-  //     this.user = res.json();
-  //     return this.user;
-  //   })
-  //   .catch(this.handleError);
-  // }
 
   getPrivateData():Observable<object>{
     return this.http.get(`${this.BASE_URL}/private`, this.options)
