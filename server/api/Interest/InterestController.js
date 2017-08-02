@@ -52,7 +52,7 @@ module.exports = {
 			userID : req.body.userID
 
         });
-
+        console.log(Interest);
         Interest.save(function (err, Interest) {
             if (err) {
                 return res.status(500).json({
@@ -84,7 +84,7 @@ module.exports = {
 
             Interest.interests = req.body.interests ? req.body.interests : Interest.interests;
 			Interest.userID = req.body.userID ? req.body.userID : Interest.userID;
-			
+
             Interest.save(function (err, Interest) {
                 if (err) {
                     return res.status(500).json({

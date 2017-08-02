@@ -2,11 +2,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var InterestSchema = new Schema({
-	interests: {
-    type: String,
-   enum: ["technology", "sport", "bracelates","pets","romance","movies","fragances","books","rings","collars", "unknown"],
-    default: "unknown"
-  },
+	interests: String,
   userID: {
     type: Schema.Types.ObjectId,
     ref: 'User'
