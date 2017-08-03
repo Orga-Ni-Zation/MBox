@@ -14,15 +14,16 @@ exports.listUser= function(req, res, next){
 };
 
 exports.signUp = function(req, res, next) {
-    let name = req.body.name;
-    let lastName=  req.body.lastName;
-    let birthday= req.body.birthday;
-    let username= req.body.username;
-    let password= req.body.password;
-    let email=  req.body.email;
-    let gender= req.body.gender;
-    let membership= req.body.membership;
-
+    let name = req.body.newUser.name;
+    let lastName=  req.body.newUser.lastName;
+    let birthday= req.body.newUser.birthday;
+    let username= req.body.newUser.username;
+    let password= req.body.newUser.password;
+    let email=  req.body.newUser.email;
+    let gender= req.body.newUser.gender;
+    let membership= req.body.newUser.membership;
+console.log(req.body.newUser)
+console.log(username,password,email);
     if (!username || !password || !email) {
       res.status(400).json({ message: 'Provide all the information' });
       return;
@@ -103,6 +104,7 @@ exports.editUser = function(req, res ,next) {
 };
 
 exports.logOut = function(req, res ,next) {
+  console.log("he llegado a logout");
   req.logout();
   res.status(200).json({ message: 'Success' });
 };
