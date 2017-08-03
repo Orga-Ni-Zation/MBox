@@ -47,12 +47,14 @@ module.exports = {
      * ProductController.create()
      */
     create: function (req, res) {
-        var Product = new ProductModel({
+
+      var Product = new ProductModel({
 			name : req.body.name,
 			imageUrl : req.body.imageUrl,
 			price : req.body.price
-
         });
+console.log(req.body);
+        console.log(Product);
 
         Product.save(function (err, Product) {
             if (err) {
@@ -86,7 +88,7 @@ module.exports = {
             Product.name = req.body.name ? req.body.name : Product.name;
 			Product.imageUrl = req.body.imageUrl ? req.body.imageUrl : Product.imageUrl;
 			Product.price = req.body.price ? req.body.price : Product.price;
-			
+
             Product.save(function (err, Product) {
                 if (err) {
                     return res.status(500).json({

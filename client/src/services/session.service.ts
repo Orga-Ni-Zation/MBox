@@ -16,7 +16,7 @@ export interface User{
 export class SessionService {
   user:User; // The current logged in user
   startLoginCompleted:boolean = false;
-  BASE_URL:string=`${environment.BASE_URL}/api/auth`;
+  BASE_URL:string=`${environment.BASE_URL}/auth`;
   options:object = {withCredentials:true};
 
   constructor(private http:Http) {

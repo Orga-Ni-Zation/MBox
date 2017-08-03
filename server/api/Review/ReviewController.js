@@ -1,15 +1,7 @@
 var ReviewModel = require('./ReviewModel.js');
 
-/**
- * ReviewController.js
- *
- * @description :: Server-side logic for managing Reviews.
- */
 module.exports = {
 
-    /**
-     * ReviewController.list()
-     */
     list: function (req, res) {
         ReviewModel.find(function (err, Reviews) {
             if (err) {
@@ -22,9 +14,6 @@ module.exports = {
         });
     },
 
-    /**
-     * ReviewController.show()
-     */
     show: function (req, res) {
         var id = req.params.id;
         ReviewModel.findOne({_id: id}, function (err, Review) {
@@ -43,9 +32,7 @@ module.exports = {
         });
     },
 
-    /**
-     * ReviewController.create()
-     */
+
     create: function (req, res) {
         var Review = new ReviewModel({
 			title : req.body.title,
@@ -67,9 +54,7 @@ module.exports = {
         });
     },
 
-    /**
-     * ReviewController.update()
-     */
+
     update: function (req, res) {
         var id = req.params.id;
         ReviewModel.findOne({_id: id}, function (err, Review) {
@@ -85,12 +70,12 @@ module.exports = {
                 });
             }
 
-            Review.title = req.body.title ? req.body.title : Review.title;
+      Review.title = req.body.title ? req.body.title : Review.title;
 			Review.review = req.body.review ? req.body.review : Review.review;
 			Review.stars = req.body.stars ? req.body.stars : Review.stars;
 			Review.userID = req.body.userID ? req.body.userID : Review.userID;
 			Review.giftBoxID = req.body.giftBoxID ? req.body.giftBoxID : Review.giftBoxID;
-			
+
             Review.save(function (err, Review) {
                 if (err) {
                     return res.status(500).json({
@@ -104,9 +89,6 @@ module.exports = {
         });
     },
 
-    /**
-     * ReviewController.remove()
-     */
     remove: function (req, res) {
         var id = req.params.id;
         ReviewModel.findByIdAndRemove(id, function (err, Review) {
