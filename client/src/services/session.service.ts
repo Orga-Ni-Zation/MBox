@@ -16,7 +16,7 @@ export interface User{
 export class SessionService {
   user:User; // The current logged in user
   startLoginCompleted:boolean = false;
-  BASE_URL:string=`${environment.BASE_URL}/auth`;
+  BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
 
   constructor(private http:Http) {
@@ -32,13 +32,14 @@ export class SessionService {
   }
 
   signup(newUser):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/signup`, {newUser}, this.options)
+    return this.http.post(`${this.BASE_URL}/user/signup`, {newUser}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   login(username:string, password:string):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/login`, {username,password}, this.options)
+    console.log(username,password);
+    return this.http.post(`${this.BASE_URL}/user/login`, {username,password}, this.options)
       .map(res => {
         this.user = res.json();
         return this.user;
@@ -47,7 +48,8 @@ export class SessionService {
   }
 
   logout():Observable<object>{
-    return this.http.get(`${this.BASE_URL}/logout`, this.options)
+console.log("hemos entrado================")
+    return this.http.get(`${this.BASE_URL}/user/logout`, this.options)
       .map(res => {
         this.user = undefined;
         res.json();
@@ -56,7 +58,7 @@ export class SessionService {
   }
 
   isLoggedIn():Observable<User>{
-    return this.http.get(`${this.BASE_URL}/loggedin`, this.options)
+    return this.http.get(`${this.BASE_URL}/user/loggedin`, this.options)
       .map(res => {
         this.user = res.json();
         return this.user;
@@ -65,7 +67,7 @@ export class SessionService {
   }
 
   getPrivateData():Observable<object>{
-    return this.http.get(`${this.BASE_URL}/private`, this.options)
+    return this.http.get(`${this.BASE_URL}/user/private`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

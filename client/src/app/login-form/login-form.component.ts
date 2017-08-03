@@ -22,7 +22,6 @@ export class LoginFormComponent implements OnInit {
        (err) => this.error = err
      );
    this.router.navigate(['/home']);
-   console.log(`${this.username} is logged`)
  }
 
 }

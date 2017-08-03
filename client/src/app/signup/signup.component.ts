@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     this.session.signup(this.user)
       .subscribe(
         (user) => {
-          console.log(user);
+          console.log("el usuario es : "+user);
           this.router.navigate(['/home']);
         },
         (err) => this.error = err
