@@ -16,6 +16,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { Router } from '@angular/router';
 import { EditComponent } from './edit/edit.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditComponent } from './edit/edit.component';
     ShopListComponent,
     ShopDetailComponent,
     EditComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
