@@ -49,7 +49,7 @@ export class SessionService {
 
   logout():Observable<object>{
 console.log("hemos entrado================")
-    return this.http.get(`${this.BASE_URL}/user/logout`, this.options)
+    return this.http.post(`${this.BASE_URL}/user/logout`, this.options)
       .map(res => {
         this.user = undefined;
         res.json();
