@@ -1,15 +1,8 @@
 var FreightModel = require('./FreightModel.js');
 
-/**
- * FreightController.js
- *
- * @description :: Server-side logic for managing Freights.
- */
+
 module.exports = {
 
-    /**
-     * FreightController.list()
-     */
     list: function (req, res) {
         FreightModel.find(function (err, Freights) {
             if (err) {
@@ -22,9 +15,7 @@ module.exports = {
         });
     },
 
-    /**
-     * FreightController.show()
-     */
+
     show: function (req, res) {
         var id = req.params.id;
         FreightModel.findOne({_id: id}, function (err, Freight) {
@@ -43,9 +34,7 @@ module.exports = {
         });
     },
 
-    /**
-     * FreightController.create()
-     */
+
     create: function (req, res) {
         var Freight = new FreightModel({
 			userID : req.body.userID,
@@ -68,9 +57,7 @@ module.exports = {
         });
     },
 
-    /**
-     * FreightController.update()
-     */
+
     update: function (req, res) {
         var id = req.params.id;
         FreightModel.findOne({_id: id}, function (err, Freight) {
@@ -92,7 +79,7 @@ module.exports = {
 			Freight.address = req.body.address ? req.body.address : Freight.address;
 			Freight.date = req.body.date ? req.body.date : Freight.date;
 			Freight.membership = req.body.membership ? req.body.membership : Freight.membership;
-			
+
             Freight.save(function (err, Freight) {
                 if (err) {
                     return res.status(500).json({
@@ -106,9 +93,7 @@ module.exports = {
         });
     },
 
-    /**
-     * FreightController.remove()
-     */
+    
     remove: function (req, res) {
         var id = req.params.id;
         FreightModel.findByIdAndRemove(id, function (err, Freight) {

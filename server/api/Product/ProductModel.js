@@ -5,10 +5,11 @@ const ProductSchema = new Schema({
 	name: String,
 	imageUrl: {
 		type: String,
-		default: "https://s-media-cache-ak0.pinimg.com/originals/c0/c0/db/c0c0dbcc7433a245360cac8e071cce61.jpg" },
+		default: "https://s-media-cache-ak0.pinimg.com/originals/c0/c0/db/c0c0dbcc7433a245360cac8e071cce61.jpg"
+	},
 	description: String,
+	price: Number,
 	priceCategory: {
-		price: Number,
 		type: String,
 	 enum: ["low","medium","high"]
 	},

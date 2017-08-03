@@ -1,15 +1,9 @@
 var ProductModel = require('./ProductModel.js');
 
-/**
- * ProductController.js
- *
- * @description :: Server-side logic for managing Products.
- */
+
 module.exports = {
 
-    /**
-     * ProductController.list()
-     */
+
     list: function (req, res) {
         ProductModel.find(function (err, Products) {
             if (err) {
@@ -22,9 +16,7 @@ module.exports = {
         });
     },
 
-    /**
-     * ProductController.show()
-     */
+
     show: function (req, res) {
         var id = req.params.id;
         ProductModel.findOne({_id: id}, function (err, Product) {
@@ -43,15 +35,16 @@ module.exports = {
         });
     },
 
-    /**
-     * ProductController.create()
-     */
+
     create: function (req, res) {
 
       var Product = new ProductModel({
 			name : req.body.name,
 			imageUrl : req.body.imageUrl,
-			price : req.body.price
+			price : req.body.price,
+      description: req.body.description,
+      priceCategory: req.body.priceCategory,
+
         });
 console.log(req.body);
         console.log(Product);
@@ -67,9 +60,7 @@ console.log(req.body);
         });
     },
 
-    /**
-     * ProductController.update()
-     */
+
     update: function (req, res) {
         var id = req.params.id;
         ProductModel.findOne({_id: id}, function (err, Product) {
@@ -88,6 +79,9 @@ console.log(req.body);
             Product.name = req.body.name ? req.body.name : Product.name;
 			Product.imageUrl = req.body.imageUrl ? req.body.imageUrl : Product.imageUrl;
 			Product.price = req.body.price ? req.body.price : Product.price;
+      Product.description = req.body.description ? req.body.description : Product.description;
+      Product.priceCategory = req.body.priceCategory ? req.body.priceCategory : Product.priceCategory;
+
 
             Product.save(function (err, Product) {
                 if (err) {
