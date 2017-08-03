@@ -1,15 +1,8 @@
 var GiftBoxModel = require('./GiftBoxModel.js');
 
-/**
- * GiftBoxController.js
- *
- * @description :: Server-side logic for managing GiftBoxs.
- */
+
 module.exports = {
 
-    /**
-     * GiftBoxController.list()
-     */
     list: function (req, res) {
         GiftBoxModel.find(function (err, GiftBoxs) {
             if (err) {
@@ -22,9 +15,7 @@ module.exports = {
         });
     },
 
-    /**
-     * GiftBoxController.show()
-     */
+
     show: function (req, res) {
         var id = req.params.id;
         GiftBoxModel.findOne({_id: id}, function (err, GiftBox) {
@@ -43,9 +34,7 @@ module.exports = {
         });
     },
 
-    /**
-     * GiftBoxController.create()
-     */
+
     create: function (req, res) {
         var GiftBox = new GiftBoxModel({
 			productID : req.body.productID
@@ -63,9 +52,7 @@ module.exports = {
         });
     },
 
-    /**
-     * GiftBoxController.update()
-     */
+
     update: function (req, res) {
         var id = req.params.id;
         GiftBoxModel.findOne({_id: id}, function (err, GiftBox) {
@@ -82,7 +69,7 @@ module.exports = {
             }
 
             GiftBox.productID = req.body.productID ? req.body.productID : GiftBox.productID;
-			
+
             GiftBox.save(function (err, GiftBox) {
                 if (err) {
                     return res.status(500).json({
@@ -96,9 +83,7 @@ module.exports = {
         });
     },
 
-    /**
-     * GiftBoxController.remove()
-     */
+  
     remove: function (req, res) {
         var id = req.params.id;
         GiftBoxModel.findByIdAndRemove(id, function (err, GiftBox) {
