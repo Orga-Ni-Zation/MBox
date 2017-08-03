@@ -22,7 +22,6 @@ authRoutes.post('/signup', (req, res, next) => {
     var gender= req.body.newUser.gender;
     var membership= req.body.newUser.membership;
 
-
   if (!username || !password) {
     res.status(400).json({
       message: 'Provide username and password'
@@ -127,5 +126,17 @@ authRoutes.get('/private', ensureLoginOrJsonError(), (req, res, next) => {
     message: 'This is a private message'
   });
 });
+
+authRoutes.get('/edit', (req, res, next) => {
+  console.log(req);
+
+  console.log('edit 3');
+  res.json({});
+  //return res.json({
+  //  message: 'This is a private message'
+  //});
+  // req.edit()
+});
+
 
 module.exports = authRoutes;

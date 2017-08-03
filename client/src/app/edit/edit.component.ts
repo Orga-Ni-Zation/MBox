@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { RouterModule, Routes, Router } from '@angular/router';
+
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class SignupComponent implements OnInit {
+export class EditComponent implements OnInit {
   error: string;
   user = {
     username: '',
@@ -22,19 +23,13 @@ export class SignupComponent implements OnInit {
 
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
-  }
-
-
-
-  signup() {
-    this.session.signup(this.user)
+      console.log('1 ng on init')
+      this.session.signup('new name')
       .subscribe(
         (user) => {
-          console.log(user);
+          console.log('2'+user);
           this.router.navigate(['/home']);
         },
         (err) => this.error = err
       );
-  }
-
-}
+  }}

@@ -7,13 +7,15 @@ import { OrderComponent } from './order/order.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
+import { EditComponent } from './edit/edit.component'
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent},
-  { path: 'login', component: LoginFormComponent },
+  { path: '', component: IndexComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'index', component: IndexComponent},
+  { path: 'login', component: LoginFormComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'subscription', component: SubscriptionComponent},
   { path: 'shoplist', component: ShopListComponent},
   { path: 'shopdetails', component: ShopDetailComponent},
+  { path: 'EditComponent', component: EditComponent},
 ]

@@ -46,6 +46,17 @@ export class SessionService {
       .catch(this.handleError);
   }
 
+  edit(name: string):Observable<User> {
+    console.log('paso 2')
+    return this.http.get(`${this.BASE_URL}/edit`, this.options)
+      .map(res => {
+        this.user = res.json();
+        console.log(this.user);
+        return this.user;
+      })
+      .catch(this.handleError);
+  }
+
   logout():Observable<object>{
     return this.http.get(`${this.BASE_URL}/logout`, this.options)
       .map(res => {
