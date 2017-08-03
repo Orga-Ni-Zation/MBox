@@ -13,16 +13,7 @@ error: any;
 
   ngOnInit() {
   }
-  edit() {
-    console.log('1 ng on init')
-    this.session.edit('new name')
-    .subscribe(
-      (user) => {
-        //this.router.navigate(['/edit']);//
-      },
-      (err) => this.error = err
-    );
-  }
+  
 
   logout() {
     this.session.logout()

@@ -9,7 +9,8 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
   error: string;
-  user = {
+  user: any;
+  info = {
     username: '',
     password: '',
     name: '',
@@ -23,13 +24,19 @@ export class EditComponent implements OnInit {
 
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
-      console.log('1 ng on init')
-      this.session.signup('new name')
-      .subscribe(
-        (user) => {
-          console.log('2'+user);
-          this.router.navigate(['/home']);
-        },
-        (err) => this.error = err
-      );
-  }}
+    this.session.isLoggedIn().subscribe( result => this.successCb(result));
+  }
+  edit(){
+
+    this.session.edit(this.info, this.user);
+    this.router.navigate(['/home']);
+  }
+  errorCb(err) {
+    this.error = err;
+    this.user = null;
+  }
+  successCb(result) {
+    this.user = result;
+    this.error = null;
+  }
+}

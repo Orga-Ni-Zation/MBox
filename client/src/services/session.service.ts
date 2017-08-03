@@ -47,9 +47,9 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  edit(name: string):Observable<User> {
+  edit(formInfo,user):Observable<User> {
     console.log('paso 2')
-    return this.http.get(`${this.BASE_URL}/edit`, this.options)
+    return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo ,this.options)
       .map(res => {
         this.user = res.json();
         console.log(this.user);

@@ -14,3 +14,7 @@ router.delete('/:id/edit', controller.removeUser);
 router.get('/private', controller.private);
 
 module.exports = router;
+
+function ensureLoginOrJsonError(error = "Unauthorized") {
+  return (req, res, next) => req.isAuthenticated() ? next() : res.status(403).json({ error: error});
+}
