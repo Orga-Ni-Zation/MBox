@@ -7,6 +7,7 @@ import { OrderComponent } from './order/order.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
+import { ProductListtComponent } from './product-list/product-list.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent},
