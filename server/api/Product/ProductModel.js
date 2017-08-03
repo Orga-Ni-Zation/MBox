@@ -8,6 +8,10 @@ const ProductSchema = new Schema({
 		default: "https://s-media-cache-ak0.pinimg.com/originals/c0/c0/db/c0c0dbcc7433a245360cac8e071cce61.jpg"
 	},
 	description: String,
+	category:{
+		type: String,
+		enum: ["male", "female", "technology", "accesory", "toy", "sport", "kitchen", "pet", "gamer", "antiques", ]
+	},
 	price: Number,
 	priceCategory: {
 		type: String,
