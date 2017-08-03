@@ -22,7 +22,7 @@ exports.signUp = function(req, res, next) {
     let email=  req.body.newUser.email;
     let gender= req.body.newUser.gender;
     let membership= req.body.newUser.membership;
-console.log(req.body.newUser)
+console.log(req.body.newUser);
 console.log(username,password,email);
     if (!username || !password || !email) {
       res.status(400).json({ message: 'Provide all the information' });

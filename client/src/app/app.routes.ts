@@ -7,7 +7,8 @@ import { OrderComponent } from './order/order.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
-import { ProductListtComponent } from './product-list/product-list.component';
+import { EditComponent } from './edit/edit.component'
+import { ProductListComponent } from './product-list/product-list.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -17,4 +18,6 @@ export const routes: Routes = [
   { path: 'subscription', component: SubscriptionComponent},
   { path: 'shoplist', component: ShopListComponent},
   { path: 'shopdetails', component: ShopDetailComponent},
+  { path: 'edit', component: EditComponent},
+  { path: 'ProductListComponent', component: ProductListComponent}
 ]

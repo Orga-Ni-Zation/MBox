@@ -47,6 +47,17 @@ export class SessionService {
       .catch(this.handleError);
   }
 
+  edit(id,user):Observable<User> {
+    console.log('paso 2')
+    return this.http.put(`${this.BASE_URL}${id}/user/edit`,user, this.options)
+      .map(res => {
+        this.user = res.json();
+        console.log(this.user);
+        return this.user;
+      })
+      .catch(this.handleError);
+  }
+
   logout():Observable<object>{
 console.log("hemos entrado================")
     return this.http.post(`${this.BASE_URL}/user/logout`, this.options)

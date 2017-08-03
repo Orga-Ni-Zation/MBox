@@ -15,7 +15,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { Router } from '@angular/router';
-import { ProductListtComponent } from './product-listt/product-listt.component';
+import { EditComponent } from './edit/edit.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ProductListtComponent } from './product-listt/product-listt.component';
     SubscriptionComponent,
     ShopListComponent,
     ShopDetailComponent,
-    ProductListtComponent,
+    ProductListComponent,
+    EditComponent
+
   ],
   imports: [
     BrowserModule,
