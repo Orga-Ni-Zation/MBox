@@ -15,7 +15,6 @@ error: any;
   }
 
 
-
   logout() {
     this.session.logout()
       .subscribe(
@@ -24,6 +23,6 @@ error: any;
       );
     this.router.navigate(['']);
   }
-  
+
 
 }

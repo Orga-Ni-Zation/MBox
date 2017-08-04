@@ -1,3 +1,31 @@
 <p>
-  order works!
+  aqui podemos hace un order
 </p>
+
+
+<div class="box-single">
+  <h2>single box: 25 Euros</h2>
+
+<img [width]="400" src="http://cdn.shopify.com/s/files/1/0317/1509/products/Mystery_Box_grande.jpg?v=1418408240" alt="">
+</div>
+<form>
+
+  <label>Receiver Name </label>
+  <input type="text" [(ngModel)]="receiverName" name="receiverName" placeholder="Receiver Name" />
+  <br>
+  <label> Address </label>
+  <input type="address" [(ngModel)]="address" name="address" placeholder="" />
+  <br>
+  <label> Name </label>
+  <input type="text" [(ngModel)]="user.name" name="name" />
+  <br>
+  <label for="date">Date</label>
+  <input type="date" [(ngModel)]="date" name="date" id="birthday" class="form-control">
+  <br>
+
+
+  <button (click)=""> signup </button> <br>
+
+
+</form>
+<p class="error"> {{ error }} </p>

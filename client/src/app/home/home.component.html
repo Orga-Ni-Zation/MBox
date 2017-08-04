@@ -1,8 +1,10 @@
 <p>
   home works!
 </p>
-
 <button type="button" name="button" (click)="logout()">Logout</button>
-<a href="/subscription">My Subscription</a>
-<a href="/edit">My edit</a>
+<a [routerLink]="['/subscription']" >My subscription</a>
+<a [routerLink]="['/edit']" >edit my profile</a>
+<a [routerLink]="['/order']" >Order</a>
+
+<app-order></app-order>
 <app-shop-list></app-shop-list>

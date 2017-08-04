@@ -24,25 +24,18 @@ export class EditComponent implements OnInit {
 
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
-      this.successCb(this.session.user);
-    }
-    edit(){
-
-      this.session.edit(this.user._id, this.info)
-          .subscribe(
-            (user) => this.successCb(user),
-            (err) => this.errorCb(err)
-
-          );
-          this.router.navigate(['/home'])
-    }
-    errorCb(err) {
-      this.error = err;
-      this.user = null;
-    }
-
-    successCb(user) {
-      this.user = user;
-      this.error = null;
-    }
+    this.session.isLoggedIn().subscribe( result => this.successCb(result));
   }
+  edit(){
+    this.session.edit(this.info, this.user);
+    this.router.navigate(['/home']);
+  }
+  errorCb(err) {
+    this.error = err;
+    this.user = null;
+  }
+  successCb(result) {
+    this.user = result;
+    this.error = null;
+  }
+}
