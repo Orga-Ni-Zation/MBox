@@ -11,7 +11,6 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
 import { OrderComponent } from './order/order.component';
-import { SubscriptionComponent } from './subscription/subscription.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { Router } from '@angular/router';
@@ -26,7 +25,6 @@ import { ProductListComponent } from './product-list/product-list.component';
     HomeComponent,
     IndexComponent,
     OrderComponent,
-    SubscriptionComponent,
     ShopListComponent,
     ShopDetailComponent,
     EditComponent,

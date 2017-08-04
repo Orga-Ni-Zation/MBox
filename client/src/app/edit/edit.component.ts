@@ -27,9 +27,11 @@ export class EditComponent implements OnInit {
     this.session.isLoggedIn().subscribe( result => this.successCb(result));
   }
   edit(){
-
-    this.session.edit(this.info, this.user);
-    this.router.navigate(['/home']);
+    this.session.edit(this.info, this.user)
+     .subscribe( (user) => {
+    //   console.log(user);
+      this.router.navigate(['/home']);
+    });
   }
   errorCb(err) {
     this.error = err;

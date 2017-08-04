@@ -22,15 +22,14 @@ mongoose.connect(dbUrl)
   })
   .catch( e => console.log(e));
 
-var whitelist = [
-    'http://localhost:4200'
-];
+var whitelist = ['http://localhost:4200'];
 var corsOptions = {
     origin: function(origin, callback){
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
         callback(null, originIsWhitelisted);
     },
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE']
 };
 app.use(cors(corsOptions));
 

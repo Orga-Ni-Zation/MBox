@@ -13,12 +13,6 @@ const UserSchema = new Schema({
    enum: ["male", "female", "unknown"],
     default: "unknown"
   },
-  membership: {
-    type: String,
-    enum: ['single',
-           'monthly'],
-
-  },
   role: {
     type: String,
     enum: [
