@@ -11,9 +11,9 @@ const GiftBoxSchema = new Schema({
 	},{type: Schema.Types.ObjectId,
 		ref: 'Product'
 }],
+	recieve :  { type: String},
 	address : { type: String },
-	delivery: { type: Date},
-	recieve :  { type: String}
+	delivery : { type: Date}
 }, {
 timestamps: {
   createdAt: 'created_at',
