@@ -10,14 +10,14 @@ import { ProductService } from '../../services/product.service'
 })
 
 export class ProductListComponent implements OnInit {
-newProduct:Object = {
-  user: this.session.user._id,
-  status: 'sent',
-  date: new Date(),
-  hour: new Date()
+  newProduct: Object = {
+    user: this.session.user._id,
+    status: 'sent',
+    date: new Date(),
+    hour: new Date()
   }
 
-  constructor( private session: SessionService,
+  constructor(private session: SessionService,
     private product: ProductService) { }
 
   ngOnInit() {
@@ -27,11 +27,11 @@ newProduct:Object = {
     console.log(this.newProduct)
     this.product.createProduct(this.newProduct)
       .subscribe(
-        (product) => {
-          console.log('Denuncia creada => Entro en this.complaint componente crearProducto =>')
-          console.log(this.product)
-        },
-        (err) => console.log(err)
+      (product) => {
+        console.log('Denuncia creada => Entro en this.complaint componente crearProducto =>')
+        console.log(this.product)
+      },
+      (err) => console.log(err)
       )
   }
 }
