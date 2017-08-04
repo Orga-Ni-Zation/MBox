@@ -5,22 +5,22 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../environments/environment';
 
-export interface User{
-  _id:string,
-  username:string,
-  updated_at:Date,
-  created_at:Date
+export interface User {
+  _id: string,
+  username: string,
+  updated_at: Date,
+  created_at: Date
 }
 
 @Injectable()
 export class SessionService {
-  user:User; // The current logged in user
-  startLoginCompleted:boolean = false;
-  BASE_URL:string=`${environment.BASE_URL}`;
-  options:object = {withCredentials:true};
+  user: User; // The current logged in user
+  startLoginCompleted: boolean = false;
+  BASE_URL: string = `${environment.BASE_URL}`;
+  options: object = { withCredentials: true };
 
   constructor(private http: Http) {
-    this.isLoggedIn().subscribe( (user:User) =>{
+    this.isLoggedIn().subscribe((user: User) => {
       console.log(`Welcome again user ${user.username}`)
       this.user = user;
       this.startLoginCompleted = true;
@@ -31,15 +31,15 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  signup(newUser):Observable<User> {
+  signup(newUser): Observable<User> {
     return this.http.post(`${this.BASE_URL}/user/signup`, newUser, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
-  login(username:string, password:string):Observable<User> {
-    console.log(username,password);
-    return this.http.post(`${this.BASE_URL}/user/login`, {username,password}, this.options)
+  login(username: string, password: string): Observable<User> {
+    console.log(username, password);
+    return this.http.post(`${this.BASE_URL}/user/login`, { username, password }, this.options)
       .map(res => {
         this.user = res.json();
         return this.user;
@@ -47,12 +47,12 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  edit(formInfo,user){
-  return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo ,this.options)
-     .map((res) => res.json());
+  edit(formInfo, user) {
+    return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo, this.options)
+      .map((res) => res.json());
   }
 
-  logout():Observable<object>{
+  logout(): Observable<object> {
     console.log("hemos entrado 8================D")
     return this.http.post(`${this.BASE_URL}/user/logout`, this.options)
       .map(res => {
@@ -62,7 +62,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  isLoggedIn():Observable<User>{
+  isLoggedIn(): Observable<User> {
     return this.http.get(`${this.BASE_URL}/user/loggedin`, this.options)
       .map(res => {
         this.user = res.json();
@@ -71,7 +71,7 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  getPrivateData():Observable<object>{
+  getPrivateData(): Observable<object> {
     return this.http.get(`${this.BASE_URL}/user/private`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
