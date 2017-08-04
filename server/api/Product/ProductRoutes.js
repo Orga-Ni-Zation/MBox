@@ -4,8 +4,8 @@ var ProductController = require('./ProductController.js');
 
 
 router.get('/', ProductController.list);
+router.post('/new', ProductController.create);
 router.get('/:id', ProductController.show);
-router.post('/', ProductController.create);
 router.put('/:id', ProductController.update);
 router.delete('/:id', ProductController.remove);
 

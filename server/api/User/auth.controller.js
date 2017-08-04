@@ -14,15 +14,14 @@ exports.listUser= function(req, res, next){
 };
 
 exports.signUp = function(req, res, next) {
-    let name = req.body.newUser.name;
-    let lastName=  req.body.newUser.lastName;
-    let birthday= req.body.newUser.birthday;
-    let username= req.body.newUser.username;
-    let password= req.body.newUser.password;
-    let email=  req.body.newUser.email;
-    let gender= req.body.newUser.gender;
-    let membership= req.body.newUser.membership;
-console.log(req.body.newUser);
+  let username= req.body.username;
+    let lastName=  req.body.lastName;
+    let birthday= req.body.birthday;
+    let password= req.body.password;
+    let email=  req.body.email;
+    let gender= req.body.gender;
+    let membership= req.body.membership;
+
 console.log(username,password,email);
     if (!username || !password || !email) {
       res.status(400).json({ message: 'Provide all the information' });
@@ -39,15 +38,15 @@ console.log(username,password,email);
     const hashPass = bcrypt.hashSync(password, salt);
 
     const theUser = new User({
-      name,
+      username,
       lastName,
       gender,
-      username,
       password: hashPass,
       email,
       membership,
       birthday
     });
+    console.log(theUser);
     theUser.save((err) => {
       if (err) {
         res.status(400).json({ message: 'Something went wrong' });
@@ -58,7 +57,6 @@ console.log(username,password,email);
           res.status(500).json({ message: 'Something went wrong' });
           return;
         }
-
         res.status(200).json(req.user);
       });
 
@@ -84,14 +82,13 @@ exports.logIn = function(req, res, next){
 
 exports.editUser = function(req, res ,next) {
   const updates = {
-    username:      req.body.info.username,
-    email:         req.body.info.email,
-    password:      req.body.info.password,
-    name: req.body.info.name,
-    lastName: req.body.info.lastName,
-    gender: req.body.info.gender,
-    membership: req.body.info.membership,
-    birthday: req.body.info.birthday
+    username:      req.body.username,
+    email:         req.body.email,
+    password:      req.body.password,
+    lastName: req.body.lastName,
+    gender: req.body.gender,
+    membership: req.body.membership,
+    birthday: req.body.birthday
 
   };
   console.log("============================", req.params.id);

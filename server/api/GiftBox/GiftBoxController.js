@@ -36,8 +36,10 @@ module.exports = {
 
 
     create: function (req, res) {
+      console.log(req.body);
         var GiftBox = new GiftBoxModel({
-			productID : req.body.productID
+            userId: req.body.userId,
+			       productID : req.body.productID
 
         });
 
@@ -83,7 +85,7 @@ module.exports = {
         });
     },
 
-  
+
     remove: function (req, res) {
         var id = req.params.id;
         GiftBoxModel.findByIdAndRemove(id, function (err, GiftBox) {

@@ -10,10 +10,9 @@ import { RouterModule, Routes, Router } from '@angular/router';
 export class EditComponent implements OnInit {
   error: string;
   user: any;
-  info = {
+  formInfo = {
     username: '',
     password: '',
-    name: '',
     lastName: '',
     email: '',
     gender: '',
@@ -27,7 +26,7 @@ export class EditComponent implements OnInit {
     this.session.isLoggedIn().subscribe( result => this.successCb(result));
   }
   edit(){
-    this.session.edit(this.info, this.user);
+    this.session.edit(this.formInfo, this.user).subscribe( result => console.log(result));
     this.router.navigate(['/home']);
   }
   errorCb(err) {

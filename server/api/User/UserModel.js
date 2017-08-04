@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
+const TYPES = require('./interest-types');
 
 const UserSchema = new Schema({
-	name: String,
+	username: String,
   lastName: String,
-  birthday: Date,
-  username: String,
   password: String,
   email: String,
   gender: {
@@ -20,7 +19,10 @@ const UserSchema = new Schema({
       'user',
     ],
     default: "user"
-  }
+  },
+	interest : {
+	type: String, enum: TYPES,
+	}
 }, {
   timestamps: {
     createdAt: 'created_at',

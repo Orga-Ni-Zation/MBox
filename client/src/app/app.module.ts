@@ -12,11 +12,13 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
 import { OrderComponent } from './order/order.component';
-import { ShopListComponent } from './shop-list/shop-list.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { Router } from '@angular/router';
 import { EditComponent } from './edit/edit.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { NewProductComponent } from './new-product/new-product.component';
+import { DetailProductComponent } from './detail-product/detail-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { ProductListComponent } from './product-list/product-list.component';
     HomeComponent,
     IndexComponent,
     OrderComponent,
-    ShopListComponent,
     ShopDetailComponent,
     ProductListComponent,
-    EditComponent
+    EditComponent,
+    NewProductComponent,
+    DetailProductComponent,
+    EditProductComponent
 
   ],
   imports: [

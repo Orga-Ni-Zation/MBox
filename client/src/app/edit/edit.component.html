@@ -5,16 +5,13 @@
 <form>
   <h2> Your profile </h2>
   <label> Username </label>
-  <input type="text" [(ngModel)]="info.username" name="username" placeholder="Jose" />
-  <br>
-  <label> Name </label>
-  <input type="text" [(ngModel)]="info.name" name="name" />
+  <input type="text" [(ngModel)]="formInfo.username" name="username" placeholder="Jose" />
   <br>
   <label> Last Name </label>
-  <input type="text" [(ngModel)]="info.lastName" name="lastName" />
+  <input type="text" [(ngModel)]="formInfo.lastName" name="lastName" />
   <br>
   <label> Email </label>
-  <input type="text" [(ngModel)]="info.email" name="email" />
+  <input type="text" [(ngModel)]="formInfo.email" name="email" />
   <br>
   <button type="button" name="button" (click)='edit()'>edit</button>
 </form>

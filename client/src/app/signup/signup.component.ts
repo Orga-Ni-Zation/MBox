@@ -8,7 +8,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   error: string;
-  user = {
+  formInfo = {
     username: '',
     password: '',
     name: '',
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
 
 
   signup() {
-    this.session.signup(this.user)
+    this.session.signup(this.formInfo)
       .subscribe(
         (user) => {
           console.log("el usuario es : "+user);

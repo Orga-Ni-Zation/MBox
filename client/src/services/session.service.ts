@@ -32,7 +32,7 @@ export class SessionService {
   }
 
   signup(newUser):Observable<User> {
-    return this.http.post(`${this.BASE_URL}/user/signup`, {newUser}, this.options)
+    return this.http.post(`${this.BASE_URL}/user/signup`, newUser, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -47,23 +47,13 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  edit(formInfo,user):Observable<any> {
-    console.log('paso 2');
-    console.log(formInfo)
-    console.log(user)
-    console.log('URL', `${this.BASE_URL}/user/${user._id}/edit`);
-    return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo ,this.options)
-      .map(res => {
-        console.log('Res', res);
-        this.user = res.json();
-        console.log(this.user);
-        return this.user;
-      })
-      // .catch(this.handleError);
+  edit(formInfo,user){
+  return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo ,this.options)
+     .map((res) => res.json());
   }
 
   logout():Observable<object>{
-console.log("hemos entrado 8================D")
+    console.log("hemos entrado 8================D")
     return this.http.post(`${this.BASE_URL}/user/logout`, this.options)
       .map(res => {
         this.user = undefined;
