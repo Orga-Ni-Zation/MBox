@@ -9,8 +9,8 @@ const ProductSchema = new Schema({
 	},
 	description: String,
 	category:{
-		type: String,
-		enum: ["male", "female", "technology", "accesory", "toy", "sport", "kitchen", "pet", "gamer", "antiques", ]
+		type: Array,
+		enum: ["male", "female", "technology", "accesory", "toy", "sport", "kitchen", "pet", "gamer", "antiques", 'fashion']
 	},
 	price: Number,
 	priceCategory: {

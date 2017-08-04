@@ -1,36 +1,28 @@
 const mongoose = require('mongoose');
-const User = require('../User/UserModel');
+const User = require('../api/User/UserModel');
 mongoose.connect(`mongodb://localhost/mbox`);
 
-const admin = [ {
+const admins = [ {
     name: "Fernando",
     lastName: "Palma",
-    birthday: 1989/03/09,
     username: "ferpalma",
-    password: "codo",
+    password: "dedo",
     email: "ferpalma21",
-    gender: {
-      enum: "male"
-    },
-    role: {
-      enum: [
-        'admin',
-      ],
-    }
+    gender: "male",
+    role: 'admin',
   },{
     name: "Daniele",
     lastName: "Germani",
-    birthday: 1985/10/09,
     username: "danigermani",
     password: "importanti",
     email: "danigermani",
-    gender: {
-      enum: "male"
-    },
-    role: {
-      enum: [
-        'admin',
-      ],
-    }
+    gender: "male",
+    role: 'admin'
   }
 ];
+
+User.create(admins, (err, admins) => {
+  if (err){ throw(err); }
+  console.log("Success", admins);
+  mongoose.connection.close();
+});

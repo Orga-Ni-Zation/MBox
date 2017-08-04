@@ -84,22 +84,24 @@ exports.logIn = function(req, res, next){
 
 exports.editUser = function(req, res ,next) {
   const updates = {
-    username:      req.body.username,
-    email:         req.body.email,
-    password:      req.body.password,
-    name: req.body.name,
-    lastName: req.body.lastName,
-    gender: req.body.gender,
-    membership: req.body.membership,
-    birthday: req.body.birthday
+    username:      req.body.info.username,
+    email:         req.body.info.email,
+    password:      req.body.info.password,
+    name: req.body.info.name,
+    lastName: req.body.info.lastName,
+    gender: req.body.info.gender,
+    membership: req.body.info.membership,
+    birthday: req.body.info.birthday
 
   };
-  console.log(updates);
+  console.log("============================", req.params.id);
   User.findByIdAndUpdate(req.params.id, updates, (err) => {
     if (err) {
+      console.log('error');
       return res.status(400).json({ message: "Unable to update User", err});
+    }else{
+      res.json({ message: 'User updated successfully'});
     }
-    res.json({ message: 'User updated successfully'});
   });
 };
 

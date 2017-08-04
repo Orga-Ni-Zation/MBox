@@ -19,7 +19,7 @@ export class SessionService {
   BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
 
-  constructor(private http:Http) {
+  constructor(private http: Http) {
     this.isLoggedIn().subscribe( (user:User) =>{
       console.log(`Welcome again user ${user.username}`)
       this.user = user;
@@ -47,19 +47,23 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  edit(formInfo,user):Observable<User> {
-    console.log('paso 2')
+  edit(formInfo,user):Observable<any> {
+    console.log('paso 2');
+    console.log(formInfo)
+    console.log(user)
+    console.log('URL', `${this.BASE_URL}/user/${user._id}/edit`);
     return this.http.put(`${this.BASE_URL}/user/${user._id}/edit`, formInfo ,this.options)
       .map(res => {
+        console.log('Res', res);
         this.user = res.json();
         console.log(this.user);
         return this.user;
       })
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   logout():Observable<object>{
-console.log("hemos entrado================")
+console.log("hemos entrado 8================D")
     return this.http.post(`${this.BASE_URL}/user/logout`, this.options)
       .map(res => {
         this.user = undefined;

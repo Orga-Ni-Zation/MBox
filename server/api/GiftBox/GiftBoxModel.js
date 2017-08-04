@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const GiftBoxSchema = new Schema({
-	productID: {
+	productsID: [{
     type: Schema.Types.ObjectId,
     ref: 'Product'
-  },
+  },{type: Schema.Types.ObjectId,
+		ref: 'Product'
+	},{type: Schema.Types.ObjectId,
+		ref: 'Product'
+}],
 }, {
 timestamps: {
   createdAt: 'created_at',

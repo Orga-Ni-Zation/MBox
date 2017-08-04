@@ -10,7 +10,7 @@ router.post('/login', controller.logIn);
 router.put('/:id/edit', controller.editUser);
 router.get('/loggedin' , controller.logStill);
 router.post('/logout', controller.logOut);
-router.delete('/:id/edit', controller.removeUser);
+router.delete('/:id/delete', controller.removeUser);
 router.get('/private', controller.private);
 
 module.exports = router;
