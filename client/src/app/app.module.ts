@@ -19,6 +19,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductService } from '../services/product.service';
+import { ReviewService } from '../services/review.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [SessionService,OrdersService],
+  providers: [SessionService,OrdersService, ProductService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

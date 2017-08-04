@@ -18,14 +18,14 @@ export const routes: Routes = [
   { path: 'edit', component: EditComponent},
   { path: 'home', component: HomeComponent,
         children: [
-          { path: 'order', component: OrderComponent}
+          { path: 'order', component: OrderComponent},
           { path: 'shopdetails', component: ShopDetailComponent},
         ]
-      }
+      },
 
   { path: 'product', component: ProductListComponent,
     children: [
-      { path: 'new', component: NewProductComponent}
+      { path: 'new', component: NewProductComponent},
       { path: 'detail', component: DetailProductComponent},
       { path: 'edit', component: EditProductComponent},
   ]}
