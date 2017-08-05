@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
+import { SessionService } from '../../services/session.service'
 
 @Component({
   selector: 'app-order',
@@ -10,19 +11,22 @@ import { OrdersService } from '../../services/orders.service';
 export class OrderComponent implements OnInit {
   error: string;
   formInfo = {
-    userId: {},
+    userId:'',
+    productID:'',
     recieve: '',
     address: '',
     delivery: Date,
   }
-  constructor(private orders: OrdersService, private router: Router) { }
+  user:any;
+  constructor(private orders: OrdersService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+      this.session.isLoggedIn().subscribe( result => this.user=result)
   }
 
   createBox(){
-    console.log("creando caja");
-    console.log(this.formInfo);
+    
+    this.formInfo.userId= this.user._id;
     this.orders.createBox(this.formInfo)
       .subscribe(
         (order) => {

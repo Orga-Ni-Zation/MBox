@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 error: any;
+user: any;
   constructor(private session: SessionService, private router: Router) { }
 
   ngOnInit() {
+    this.session.isLoggedIn().subscribe( result => this.user=result)
   }
 
 

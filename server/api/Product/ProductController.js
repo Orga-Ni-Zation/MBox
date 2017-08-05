@@ -16,6 +16,23 @@ module.exports = {
         });
     },
 
+    listbycategory: function (req, res) {
+      var id = req.params.id;
+      ProductModel.findOne({_id: id}, function (err, Product) {
+        if (err) {
+          return res.status(500).json({
+            message: 'Error when getting Product.',
+            error: err
+          });
+        }
+        if (!Product) {
+          return res.status(404).json({
+            message: 'No such Product'
+          });
+        }
+        return res.json(Product);
+      });
+    },
 
     show: function (req, res) {
         var id = req.params.id;

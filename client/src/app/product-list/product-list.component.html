@@ -12,6 +12,9 @@
   <label>Price</label>
   <input type="number" [(ngModel)]="formInfo.price" name="price" />
   <br>
+  <label for="imageUrl">image Url</label>
+  <input type="imageUrl" [(ngModel)]="formInfo.imageUrl" name="imageUrl" placeholder="Url" />
+  <br>
   <label for="priceCategory">Price Category</label>
   <select [(ngModel)]="formInfo.priceCategory" name="priceCategory">
                 <option value="unknown">Select Category</option>
@@ -37,6 +40,7 @@
 
               </select> <br>
   <button (click)="addProduct()"> Crear Product </button> <br>
+  <button (click)="editProduct()"> edit Product </button> 
 
 
 </form>
