@@ -36,13 +36,13 @@ module.exports = {
 
 
     create: function (req, res) {
-      console.log(req.body);
         var GiftBox = new GiftBoxModel({
-            userId: req.body.userId,
-			       productID : req.body.productID
-
+             userId: req.body.userId,
+			       productID : req.body.productID,
+             address: req.body.address,
+             recieve: req.body.recieve,
+             delivery: req.body.delivery
         });
-
         GiftBox.save(function (err, GiftBox) {
             if (err) {
                 return res.status(500).json({
