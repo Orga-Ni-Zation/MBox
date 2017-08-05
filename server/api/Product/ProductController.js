@@ -18,19 +18,20 @@ module.exports = {
 
     listbycategory: function (req, res) {
        var categorySearch = req.params.category;
-      ProductModel.find({category: categorySearch}, function (err, Product) {
+      ProductModel.find({category: categorySearch}, function (err, product) {
+
         if (err) {
           return res.status(500).json({
             message: 'Error when getting Product by category.',
             error: err
           });
         }
-        if (!Product) {
+        if (!product) {
           return res.status(404).json({
             message: 'No such Product'
           });
         }
-        return res.json(Product);
+        res.status(200).json(product);
       });
     },
 

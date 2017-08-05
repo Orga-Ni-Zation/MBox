@@ -26,13 +26,12 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
       this.session.isLoggedIn().subscribe( result => this.user=result)
-      this.product.listProductByCategory("male").subscribe ( result => this.toGetTheProductId=result)
+      // this.product.listProductByCategory("male")
+      // .subscribe ( result => {
+      //   this.toGetTheProductId=result})
   }
 
   createBox(){
-    console.log(this.toGetTheProductId[0]);
-    this.formInfo.userId= this.user._id;
-    this.formInfo.productID = this.toGetTheProductId[0];
     this.orders.createBox(this.formInfo)
       .subscribe(
         (order) => {
