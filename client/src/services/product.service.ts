@@ -37,6 +37,14 @@ export class ProductService {
         .catch(this.handleError)
     }
 
+    listProductByCategory(category):Observable<Product>{
+      return this.http.get(`${this.BASE_URL}/product/${category}`, this.options)
+        .map(res => {
+          this.productList = res.json();
+        })
+        .catch(this.handleError)
+    }
+
     createProduct(newProduct):Observable<Product>{
       return this.http.post(`${this.BASE_URL}/product/new`, newProduct, this.options)
         .map(res => {

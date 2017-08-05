@@ -39,4 +39,10 @@ error: string;
       (err) => console.log(err)
       )
   }
+
+  listByCategory(){
+    this.product.listProductByCategory(this.formInfo.category).subscribe( (category) => {
+      console.log('buscando...')
+    })
+  }
 }
