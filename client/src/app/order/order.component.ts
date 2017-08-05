@@ -10,10 +10,8 @@ import { OrdersService } from '../../services/orders.service';
 export class OrderComponent implements OnInit {
   error: string;
   formInfo = {
-    userId: {},
     recieve: '',
     address: '',
-    delivery: Date,
   }
   constructor(private orders: OrdersService, private router: Router) { }
 

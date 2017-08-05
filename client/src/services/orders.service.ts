@@ -6,11 +6,11 @@ import { environment } from '../environments/environment';
 import { Observable } from 'rxjs/Rx';
 
 export interface GU{
-  _id:string;
+  // _id:string;
+  userId: {};
   productsID: Array<any>;
   recieve: string;
   address: string;
-  delivery: Date;
 }
 @Injectable()
 export class OrdersService {
