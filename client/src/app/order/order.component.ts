@@ -34,5 +34,10 @@ export class OrderComponent implements OnInit {
   listBoxes(){
     this.orders.listBoxes().subscribe()
   }
+<<<<<<< HEAD
 
+=======
+  // return this.http.get(`${BASE_URL}/api/plate/${location}`, this.options)
+  //     .map(res => res.json());
+>>>>>>> 0c21376b43575e2242be17705a8c172017bc6f0a
 }
