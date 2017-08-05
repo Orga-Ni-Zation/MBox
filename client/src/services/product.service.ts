@@ -38,8 +38,11 @@ export class ProductService {
     }
 
     listProductByCategory(category):Observable<Product>{
+      console.log('holaaaa 8==========D'+category)
       return this.http.get(`${this.BASE_URL}/product/${category}`, this.options)
         .map(res => {
+          console.log('Entro en el map de la respueta en servicio category =>')
+          console.log(res)
           this.productList = res.json();
         })
         .catch(this.handleError)

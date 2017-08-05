@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
+import { ProductService } from '../../services/product.service'
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,13 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 error: any;
 user: any;
-  constructor(private session: SessionService, private router: Router) { }
+toGetTheProductId:any;
+
+  constructor(private session: SessionService, private product: ProductService,private router: Router) { }
 
   ngOnInit() {
-    this.session.isLoggedIn().subscribe( result => this.user=result)
+    this.session.isLoggedIn().subscribe( result => this.user=result);
+    // this.product.listProductByCategory({category: 'category'}).subscribe ( result => this.toGetTheProductId=result)
   }
 
 

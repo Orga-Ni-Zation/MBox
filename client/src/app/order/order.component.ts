@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
 import { SessionService } from '../../services/session.service'
+import { ProductService } from '../../services/product.service'
+
 
 @Component({
   selector: 'app-order',
@@ -17,15 +19,20 @@ export class OrderComponent implements OnInit {
     address: '',
   }
   user:any;
-  constructor(private orders: OrdersService, private session: SessionService, private router: Router) { }
+  toGetTheProductId:any;
+
+
+  constructor(private orders: OrdersService, private product : ProductService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
       this.session.isLoggedIn().subscribe( result => this.user=result)
+      this.product.listProductByCategory("male").subscribe ( result => this.toGetTheProductId=result)
   }
 
   createBox(){
-
+    console.log(this.toGetTheProductId[0]);
     this.formInfo.userId= this.user._id;
+    this.formInfo.productID = this.toGetTheProductId[0];
     this.orders.createBox(this.formInfo)
       .subscribe(
         (order) => {
