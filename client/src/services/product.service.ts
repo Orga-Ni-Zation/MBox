@@ -24,6 +24,7 @@ export class ProductService {
     BASE_URL: string=`${environment.BASE_URL}`;
     options: object = {withCredentials:true};
     productList: Array<object> = [];
+  
 
     constructor(private http:Http) { }
 
@@ -31,6 +32,13 @@ export class ProductService {
 
     listProduct():Observable<Product>{
       return this.http.get(`${this.BASE_URL}/product`, this.options)
+        .map(res => {
+          this.productList = res.json();
+        })
+        .catch(this.handleError)
+    }
+    listProductByCategory(category):Observable<Product>{
+      return this.http.get(`${this.BASE_URL}/product${category}/`, this.options)
         .map(res => {
           this.productList = res.json();
         })

@@ -15,7 +15,6 @@ export class OrderComponent implements OnInit {
     productID:'',
     recieve: '',
     address: '',
-    delivery: Date,
   }
   user:any;
   constructor(private orders: OrdersService, private session: SessionService, private router: Router) { }
@@ -25,7 +24,7 @@ export class OrderComponent implements OnInit {
   }
 
   createBox(){
-    
+
     this.formInfo.userId= this.user._id;
     this.orders.createBox(this.formInfo)
       .subscribe(
