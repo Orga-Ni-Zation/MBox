@@ -4,12 +4,15 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 export interface Product{
+  _id :string,
   name: String,
   imageUrl: String,
   description: String,
   category: Array<any>,
   price: Number,
-  priceCategory: Array<String>
+  priceCategory: Array<String>,
+  updated_at:Date,
+  created_at:Date
 }
 
 

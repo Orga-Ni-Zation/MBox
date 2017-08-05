@@ -21,23 +21,18 @@ export class OrderComponent implements OnInit {
   }
 
   createBox(){
-    this.orders.orderBox(this.formInfo)
+    console.log("creando caja");
+    console.log(this.formInfo);
+    this.orders.createBox(this.formInfo)
       .subscribe(
-        (user) => {
+        (order) => {
           console.log('la caja fue ordenada');
           this.router.navigate(['/home']);
         },
-        (err) => this.error = err
+        (err) => console.log(err)
       )
   }
 
-  listBoxes(){
-    this.orders.listBoxes().subscribe()
-  }
-<<<<<<< HEAD
 
-=======
-  // return this.http.get(`${BASE_URL}/api/plate/${location}`, this.options)
-  //     .map(res => res.json());
->>>>>>> 0c21376b43575e2242be17705a8c172017bc6f0a
+
 }

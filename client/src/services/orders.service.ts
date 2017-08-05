@@ -6,32 +6,55 @@ import { environment } from '../environments/environment';
 import { Observable } from 'rxjs/Rx';
 
 export interface GU{
-  userId:string;
+  _id:string;
   productsID: Array<any>;
   recieve: string;
-  delivery: Date;
   address: string;
+  delivery: Date;
 }
 @Injectable()
 export class OrdersService {
   gu : GU;
   BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
+  guList : Array<object> = []
+
   constructor( private http: Http ) { }
 
-  orderBox(newBox){
-    return this.http.post(`${this.BASE_URL}/new`, newBox, this.options)
-    .map(res => res.json())
+  createBox(newBox): Observable<GU>{
+    return this.http.post(`${this.BASE_URL}/giftbox/new`, newBox, this.options)
+    .map(res => {
+      console.log('map despues de la respuesta del post servicio order');
+      console.log(res.json())
+    })
+    .catch(this.handleError);
   }
 
-  listBoxes(){
-    return this.http.get(`${this.BASE_URL}`, this.options)
-    .map(res => res.json());
+  editBox(formInfo, order){
+    return this.http.put(`${this.BASE_URL}/giftbox/${order._id}/edit`, formInfo, this.options)
+    .map(res => {
+      console.log('map despues de la respuesta del PUT servicio order');
+      console.log(res.json())
+    })
+    .catch(this.handleError);
   }
+
+  listBoxes():Observable<GU>{
+    return this.http.get(`${this.BASE_URL}/order`, this.options)
+    .map(res => res.json()
+  )
+    .catch(this.handleError);
+  }
+
 
   detailBox(id){
     return this.http.get(`${this.BASE_URL}:id}`, this.options)
      .map(res => res.json());
   }
 
+  handleError(e) {
+    console.log('Errrrrooooorrr =>' + e);
+    console.log('Error en la llamada al endpoint Order');
+    return Observable.throw(e.json().message);
+  }
 }
