@@ -4,12 +4,16 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 export interface Product{
+  _id:string,
   name: String,
   imageUrl: String,
   description: String,
   category: Array<any>,
   price: Number,
-  priceCategory: Array<String>
+  priceCategory: Array<String>,
+  updated_at:Date,
+  created_at:Date
+
 }
 
 
@@ -23,15 +27,10 @@ export class ProductService {
 
     constructor(private http:Http) { }
 
-    handleError(e) {
-      console.log('ERROR => ' + e)
-      console.error("Error en la llamada al endpoint Product");
-      return Observable.throw(e.json().message);
-    }
 
 
     listProduct():Observable<Product>{
-      return this.http.get(`${this.BASE_URL}product`, this.options)
+      return this.http.get(`${this.BASE_URL}/product`, this.options)
         .map(res => {
           this.productList = res.json();
         })
@@ -39,7 +38,7 @@ export class ProductService {
     }
 
     createProduct(newProduct):Observable<Product>{
-      return this.http.post(`${this.BASE_URL}new`, newProduct, this.options)
+      return this.http.post(`${this.BASE_URL}/product/new`, newProduct, this.options)
         .map(res => {
           console.log('map después de la respuesta del post servicio Product =>')
           console.log(res.json())
@@ -55,5 +54,10 @@ export class ProductService {
     // return this.http.delete(`${this.BASE_URL}/product/${product._id}/delete`, formInfo ,this.options)
     //    .map((res) => res.json());
     // }
+    handleError(e) {
+      console.log('ERROR => ' + e)
+      console.error("Error en la llamada al endpoint Product");
+      return Observable.throw(e.json().message);
+    }
 
   }

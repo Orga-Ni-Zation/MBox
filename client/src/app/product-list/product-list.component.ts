@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { ProductService } from '../../services/product.service'
+import { RouterModule, Routes, Router } from '@angular/router';
 
 
 @Component({
@@ -10,25 +11,29 @@ import { ProductService } from '../../services/product.service'
 })
 
 export class ProductListComponent implements OnInit {
-  newProduct: Object = {
-    user: this.session.user._id,
-    status: 'sent',
-    date: new Date(),
-    hour: new Date()
+error: string;
+  formInfo= {
+    name: '',
+    imageUrl: '',
+    description:'',
+    category:'',
+    price:'',
+    priceCategory:'',
+
   }
 
   constructor(private session: SessionService,
-    private product: ProductService) { }
+    private product: ProductService,private router: Router) { }
 
   ngOnInit() {
   }
   addProduct() {
     console.log('Funcion addProduct dentro del componente =>')
-    console.log(this.newProduct)
-    this.product.createProduct(this.newProduct)
+    console.log(this.formInfo)
+    this.product.createProduct(this.formInfo)
       .subscribe(
       (product) => {
-        console.log('Denuncia creada => Entro en this.complaint componente crearProducto =>')
+        console.log('Producto creado => Entro en this.complaint componente crearProducto =>')
         console.log(this.product)
       },
       (err) => console.log(err)
