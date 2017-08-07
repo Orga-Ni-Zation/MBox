@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   lastName: String,
   password: String,
   email: String,
+	birthday: Date,
   gender: {
     type: String,
    enum: ["male", "female", "unknown"],

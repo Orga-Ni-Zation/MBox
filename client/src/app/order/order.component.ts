@@ -14,7 +14,7 @@ export class OrderComponent implements OnInit {
   error: string;
   formInfo = {
     userId:'',
-    productID:'',
+    // productID:'',
     recieve: '',
     address: '',
   }
@@ -32,6 +32,11 @@ export class OrderComponent implements OnInit {
   }
 
   createBox(){
+    this.formInfo.userId = this.user._id;
+    console.log(this.formInfo.userId);
+    // this.formInfo.productID = this.toGetTheProductId._id;
+    // console.log(this.formInfo.productID);
+
     this.orders.createBox(this.formInfo)
       .subscribe(
         (order) => {
