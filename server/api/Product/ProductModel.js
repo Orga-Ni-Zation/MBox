@@ -10,8 +10,9 @@ const ProductSchema = new Schema({
 	description: String,
 	category:{
 		type: Array,
-		enum: ["male", "female", "technology", "accesory", "toy", "sport", "kitchen", "pet", "gamer", "antiques", 'fashion']
+		enum: ["technology", "accesory", "toy", "sport", "kitchen", "pet", "gamer", "antiques", 'fashion']
 	},
+	gender:['male', 'female', 'both'],
 	price: Number,
 	priceCategory: {
 		type: String,

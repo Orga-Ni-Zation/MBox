@@ -17,7 +17,8 @@ export class SignupComponent implements OnInit {
     gender: '',
     menbership: '',
     role: '',
-    birthday: ''
+    birthday: '',
+    interests: [''],
   }
 
   constructor(private session: SessionService, private router: Router) { }

@@ -15,6 +15,12 @@
   <label for="imageUrl">image Url</label>
   <input type="imageUrl" [(ngModel)]="formInfo.imageUrl" name="imageUrl" placeholder="Url" />
   <br>
+  <label for="gender">Product Gender</label>
+  <select [(ngModel)]='formInfo.gender' class="gender-product" name="genderProduct">
+                <option value="male">Male</option>
+                <option value="female">female</option>
+                <option value="both">Both</option>
+  </select>
   <label for="priceCategory">Price Category</label>
   <select [(ngModel)]="formInfo.priceCategory" name="priceCategory">
                 <option value="unknown">Select Category</option>

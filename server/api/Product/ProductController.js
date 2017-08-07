@@ -62,6 +62,7 @@ module.exports = {
 			price : req.body.price,
       description: req.body.description,
       category: req.body.category,
+      gender: req.body.gender,
       priceCategory: req.body.priceCategory,
 
         });
@@ -99,8 +100,9 @@ console.log(req.body);
 			Product.imageUrl = req.body.imageUrl ? req.body.imageUrl : Product.imageUrl;
 			Product.price = req.body.price ? req.body.price : Product.price;
       Product.description = req.body.description ? req.body.description : Product.description;
-      Product.priceCategory = req.body.priceCategory ? req.body.priceCategory : Product.priceCategory;
+      Product.gender = req.body.gender ? req.body.gender : Product.gender;
       Product.category = req.body.category ? req.body.category : Product.category;
+      Product.priceCategory = req.body.priceCategory ? req.body.priceCategory : Product.priceCategory;
 
             Product.save(function (err, Product) {
                 if (err) {

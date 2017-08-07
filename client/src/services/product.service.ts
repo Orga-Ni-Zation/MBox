@@ -10,6 +10,7 @@ export interface Product{
   description: String,
   category: Array<any>,
   price: Number,
+  gender: Array<any>,
   priceCategory: Array<String>,
   updated_at:Date,
   created_at:Date

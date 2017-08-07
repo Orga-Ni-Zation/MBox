@@ -21,6 +21,7 @@ exports.signUp = function(req, res, next) {
     let email=  req.body.email;
     let gender= req.body.gender;
     let membership= req.body.membership;
+    let interests = req.body.interests;
 
 console.log(username,password,email);
     if (!username || !password || !email) {
