@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     role: '',
     birthday: ''
   }
-
+  
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
   }

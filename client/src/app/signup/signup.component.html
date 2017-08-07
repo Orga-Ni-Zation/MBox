@@ -1,3 +1,82 @@
+<div class="container">
+    	<h1 class="well">Signup</h1>
+        <a href="/signup">Signup</a>
+		<div class="col-lg-12 well">
+				<div class="row">
+					<div class="col-sm-6 form-group">
+
+						<label>User Name</label>
+						<input type="text" [(ngModel)]="formInfo.username" name="username" placeholder="username.." class="form-control">
+            <p class="error"> {{ error }} </p>
+					</div>
+					<div class="col-sm-6 form-group">
+						<label>Password</label>
+						<input type="password" [(ngModel)]="formInfo.password" name="password" placeholder="password.." class="form-control">
+            <p class="error"> {{ error }} </p>
+					</div>
+				</div>
+        <div class="row">
+
+          <div class="col-sm-6 form-group">
+            <label> Complete Name </label>
+            <input type="text" [(ngModel)]="formInfo.lastName" name="lastName" class="form-control" />
+
+          </div>
+          <div class="col-sm-6 form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" [(ngModel)]="formInfo.birthday" name="birthday" id="birthday" class="form-control">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <label> Email </label>
+            <input type="text" [(ngModel)]="formInfo.email" name="email" class="form-control"/>
+              <p class="error"> {{ error }} </p>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label for="gender">Gender</label>
+            <select  [(ngModel)]="formInfo.gender" name="gender" class="form-control">
+                          <option value="unknown">Select Gender</option>
+                         <option value="male">Male</option>
+                          <option value="female">Female</option>
+
+                        </select>
+          </div>
+        </div>
+
+				<div class="row">
+				  <div class="col-sm-12 text-center">
+            <button class="btn btn-block btn-info" (click)="signup()"> Signup </button>
+				  </div>
+				</div>
+				<div class="or-text">
+					<div class="or-text-row">
+						<div class="or-text-line">
+							<button type="button" class="btn btn-default btn-circle" disabled="disabled">or</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary"><i class="fa fa-facebook"></i>Sign in with Facebook</button>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="btn-group">
+							<button type="button" class="btn btn-danger"><i class="fa fa-google-plus"></i>Sign in with GooglePlus</button>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><i class="fa fa-linkedin"></i>Sign in with Linkedin</button>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
 <h1> Authentication Sample </h1>
 <form>
   <h2> Signup </h2>
@@ -14,10 +93,10 @@
   <input type="date" [(ngModel)]="formInfo.birthday" name="birthday" id="birthday" class="form-control">
   <br>
   <label> Email </label>
-  <input type="text" [(ngModel)]="formInfo.email" name="email" />
+  <input type="email" [(ngModel)]="formInfo.email" name="email" class="form-control"/>
   <br>
   <label for="gender">Gender</label>
-  <select [(ngModel)]="formInfo.gender" name="gender">
+  <select [(ngModel)]="formInfo.gender" name="gender" class="form-control">
                 <option value="unknown">Select Gender</option>
                <option value="male">Male</option>
                 <option value="female">Female</option>

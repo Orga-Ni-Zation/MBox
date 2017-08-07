@@ -17,8 +17,8 @@ module.exports = {
     },
 
     listbycategory: function (req, res) {
-       var category = req.params.category;
-      ProductModel.find({category: category}, function (err, Product) {
+       var categorySearch = req.params.category;
+      ProductModel.find({category: categorySearch}, function (err, Product) {
         if (err) {
           return res.status(500).json({
             message: 'Error when getting Product by category.',

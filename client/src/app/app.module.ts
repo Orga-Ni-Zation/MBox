@@ -22,6 +22,10 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,8 @@ import { ReviewService } from '../services/review.service';
     EditComponent,
     NewProductComponent,
     DetailProductComponent,
-    EditProductComponent
+    EditProductComponent,
+
 
   ],
   imports: [
@@ -45,6 +50,7 @@ import { ReviewService } from '../services/review.service';
     RouterModule.forRoot(routes),
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
