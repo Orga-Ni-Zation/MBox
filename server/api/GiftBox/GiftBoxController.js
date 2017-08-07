@@ -1,4 +1,6 @@
 var GiftBoxModel = require('./GiftBoxModel.js');
+const User = require('../User/UserModel');
+const ProductModel = require('../Product/ProductModel');
 
 
 module.exports = {
@@ -36,22 +38,53 @@ module.exports = {
 
 
     create: function (req, res) {
-        var GiftBox = new GiftBoxModel({
-             userId: req.body.userId,
-			       productID : req.body.productID,
-             address: req.body.address,
-             recieve: req.body.recieve,
-             delivery: req.body.delivery
-        });
-        GiftBox.save(function (err, GiftBox) {
+        console.log(req.body);
+        console.log(id);
+        User.findOne({_id: req.body.id}, {interest:1, _id:0}, (err, userInterests) => {
+          ProductModel.find({ category: { $in: userInterests.interest } }, function (err, product) {
             if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating GiftBox',
-                    error: err
-                });
+              return res.status(500).json({
+                message: 'Error when getting Product by category.',
+                error: err
+              });
             }
-            return res.status(201).json(GiftBox);
+            if (!product) {
+              return res.status(404).json({
+                message: 'No such Product'
+              });
+            }
+            productsIDs = product[Math.floor(Math.random()*product.length)]._id.toString();
+            var giftBox = new GiftBoxModel({
+                 userId: req.body.userId,
+                 address: req.body.address,
+                 recieve: req.body.recieve,
+                 delivery: req.body.delivery
+            });
+            giftBox.save(function (err, GiftBox) {
+                if (err) {
+                    return res.status(500).json({
+                        message: 'Error when creating GiftBox',
+                        error: err
+                    });
+                }
+                GiftBoxModel.update({_id:giftBox._id}, {$push: {productsID: productsIDs}}, (err, giftBox) => {
+                  res.status(201).json(GiftBox);
+                });
+            });
+          });
         });
+
+
+
+        // GiftBox.save(function (err, GiftBox) {
+        //     if (err) {
+        //         return res.status(500).json({
+        //             message: 'Error when creating GiftBox',
+        //             error: err
+        //         });
+        //     }
+        //     return res.status(201).json(GiftBox);
+        // });
     },
 
 

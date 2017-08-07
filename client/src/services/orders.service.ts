@@ -23,10 +23,7 @@ export class OrdersService {
 
   createBox(newBox): Observable<GU>{
     return this.http.post(`${this.BASE_URL}/giftbox/new`, newBox, this.options)
-    .map(res => {
-      console.log('map despues de la respuesta del post servicio order');
-      console.log(res.json())
-    })
+    .map(res => res.json())
     .catch(this.handleError);
   }
 

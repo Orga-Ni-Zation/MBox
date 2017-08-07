@@ -20,15 +20,16 @@ exports.listUser = function(req, res, next) {
 exports.signUp = function(req, res, next) {
   let username = req.body.username;
   let lastName = req.body.lastName;
-  let password = req.body.password;
   let birthday = req.body.birthday;
+  let password = req.body.password;
   let email = req.body.email;
+  let gender = req.body.gender;
+  let interests = req.body.interests;
   let country = req.body.country;
   let address = req.body.address;
-  let phone = req.body.phone;
-  let gender = req.body.gender;
-  let interest = req.body.interest;
-  let role = req.body.role;
+  let phone = req.body.address;
+
+
 
   console.log(username, password, email);
   if (!username || !password || !email) {
@@ -53,14 +54,17 @@ exports.signUp = function(req, res, next) {
 
     const theUser = new User({
       username,
+      email,
+      password: hashPass,
       lastName,
       gender,
-      password: hashPass,
-      email,
       birthday,
       country,
       address,
       phone,
+    
+
+
 
 
     });
@@ -108,17 +112,15 @@ exports.logIn = function(req, res, next) {
 
 exports.editUser = function(req, res, next) {
   const updates = {
-     username : req.body.username,
-     lastName : req.body.lastName,
-     password : req.body.password,
-      birthday : req.body.birthday,
-     email : req.body.email,
-     country : req.body.country,
-     address : req.body.address,
-     phone : req.body.phone,
-     gender : req.body.gender,
-     //interest : req.body.interest,
-     
+    username:      req.body.username,
+    email:         req.body.email,
+    password:      req.body.password,
+    lastName: req.body.lastName,
+    gender: req.body.gender,
+    birthday: req.body.birthday,
+    country: req.body.country,
+    address: req.body.address,
+    phone: req.body.phone,
 
   };
   console.log("============================", req.params.id);

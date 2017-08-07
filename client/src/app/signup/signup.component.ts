@@ -15,12 +15,10 @@ export class SignupComponent implements OnInit {
     email: '',
     gender: '',
     birthday: '',
-    country:'',
-    address:'',
+    interests: [''],
     phone:'',
-    role:'',
-    interest:[''],
-
+    address:'',
+    country:'',
   }
 
   constructor(private session: SessionService, private router: Router) { }

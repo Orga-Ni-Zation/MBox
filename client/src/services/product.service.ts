@@ -10,6 +10,7 @@ export interface Product{
   description: String,
   category: Array<any>,
   price: Number,
+  gender: Array<any>,
   priceCategory: Array<String>,
   updated_at:Date,
   created_at:Date
@@ -40,7 +41,8 @@ export class ProductService {
     listProductByCategory(category):Observable<Product>{
       return this.http.get(`${this.BASE_URL}/product${category}/`, this.options)
         .map(res => {
-          this.productList = res.json();
+          console.log(res.json())
+          return res.json();
         })
         .catch(this.handleError)
     }

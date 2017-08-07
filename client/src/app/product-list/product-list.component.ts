@@ -17,6 +17,7 @@ error: string;
     imageUrl: '',
     description:'',
     category:'',
+    gender:'',
     price:'',
     priceCategory:'',
 
