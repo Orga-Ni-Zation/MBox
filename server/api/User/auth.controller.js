@@ -44,7 +44,6 @@ console.log(username,password,email);
       gender,
       password: hashPass,
       email,
-      membership,
       birthday
     });
     console.log(theUser);
@@ -88,7 +87,6 @@ exports.editUser = function(req, res ,next) {
     password:      req.body.password,
     lastName: req.body.lastName,
     gender: req.body.gender,
-    membership: req.body.membership,
     birthday: req.body.birthday
 
   };
