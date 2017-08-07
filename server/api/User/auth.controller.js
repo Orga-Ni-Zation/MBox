@@ -14,13 +14,12 @@ exports.listUser= function(req, res, next){
 };
 
 exports.signUp = function(req, res, next) {
-  let username= req.body.username;
+    let username= req.body.username;
     let lastName=  req.body.lastName;
     let birthday= req.body.birthday;
     let password= req.body.password;
     let email=  req.body.email;
     let gender= req.body.gender;
-    let membership= req.body.membership;
     let interests = req.body.interests;
 
 console.log(username,password,email);

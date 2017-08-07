@@ -38,10 +38,10 @@ module.exports = {
 
 
     create: function (req, res) {
-        console.log(req.body);
-        console.log(id);
-        User.findOne({_id: req.body.id}, {interest:1, _id:0}, (err, userInterests) => {
-          ProductModel.find({ category: { $in: userInterests.interest } }, function (err, product) {
+        // console.log(req.body);
+        // User.findOne({_id: req.body.id}, {interest:1, _id:0}, (err, userInterests) => {
+          ProductModel.find({ category: { $in: interest } }, function (err, product) {
+            console.log(category);
             if (err) {
               return res.status(500).json({
                 message: 'Error when getting Product by category.',
@@ -72,7 +72,7 @@ module.exports = {
                 });
             });
           });
-        });
+        // });
 
 
 
