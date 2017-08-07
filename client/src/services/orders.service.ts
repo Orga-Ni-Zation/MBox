@@ -22,6 +22,7 @@ export class OrdersService {
   constructor( private http: Http ) { }
 
   createBox(newBox): Observable<GU>{
+    console.log('mandando la petición a giftbox/new')
     return this.http.post(`${this.BASE_URL}/giftbox/new`, newBox, this.options)
     .map(res => res.json())
     .catch(this.handleError);

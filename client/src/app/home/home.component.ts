@@ -17,7 +17,6 @@ toGetTheProductId:any;
 
   ngOnInit() {
     this.session.isLoggedIn().subscribe( result => this.user=result);
-    // this.product.listProductByCategory({category: 'category'}).subscribe ( result => this.toGetTheProductId=result)
   }
 
 

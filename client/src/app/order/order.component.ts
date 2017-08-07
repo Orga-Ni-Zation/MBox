@@ -19,7 +19,6 @@ export class OrderComponent implements OnInit {
     address: '',
   }
   user:any;
-  //toGetTheProductId:any;
 
 
   constructor(private orders: OrdersService, private product : ProductService, private session: SessionService, private router: Router) { }
@@ -29,10 +28,9 @@ export class OrderComponent implements OnInit {
   }
 
   createBox(){
+    // console.log(this.formInfo.userId)
     this.formInfo.userId = this.user._id;
     console.log(this.formInfo.userId);
-    // console.log(this.toGetTheProductId);
-    // this.formInfo.productID = this.toGetTheProductId._id;
 
     this.orders.createBox(this.formInfo)
       .subscribe(

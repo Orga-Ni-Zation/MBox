@@ -14,8 +14,8 @@ const ProductSchema = new Schema({
 	},
 	gender: {
     type: String,
-   enum: ["male", "female", "unknown"],
-    default: "unknown"
+   enum: ["male", "female", "both"],
+    default: "both"
   },
 	price: Number,
 	priceCategory: {
