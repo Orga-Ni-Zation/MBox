@@ -11,15 +11,18 @@ export class SignupComponent implements OnInit {
   formInfo = {
     username: '',
     password: '',
-    name: '',
     lastName: '',
     email: '',
     gender: '',
-    menbership: '',
-    role: '',
-    birthday: ''
+    birthday: '',
+    country:'',
+    address:'',
+    phone:'',
+    role:'',
+    interest:[''],
+
   }
-  
+
   constructor(private session: SessionService, private router: Router) { }
   ngOnInit() {
   }
