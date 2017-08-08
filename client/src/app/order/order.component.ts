@@ -14,7 +14,6 @@ export class OrderComponent implements OnInit {
   error: string;
   formInfo = {
     userId:'',
-    //productID: [''],
     recieve: '',
     address: '',
   }
