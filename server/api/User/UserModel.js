@@ -7,6 +7,10 @@ const UserSchema = new Schema({
   lastName: String,
   password: String,
   email: String,
+	birthday: Date,
+	country:String,
+	address:String,
+	phone:String,
   gender: {
     type: String,
    enum: ["male", "female", "unknown"],
@@ -21,7 +25,7 @@ const UserSchema = new Schema({
     default: "user"
   },
 	interest : {
-	type: String, enum: TYPES,
+	type: Array, enum: TYPES, default: TYPES
 	}
 }, {
   timestamps: {

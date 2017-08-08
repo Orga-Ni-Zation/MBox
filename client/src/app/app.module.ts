@@ -21,6 +21,13 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
+import { OrderListComponent } from './order-list/order-list.component';
+import { DetailOrderComponent } from './detail-order/detail-order.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,16 +42,19 @@ import { ReviewService } from '../services/review.service';
     EditComponent,
     NewProductComponent,
     DetailProductComponent,
-    EditProductComponent
-
+    EditProductComponent,
+    OrderListComponent,
+    DetailOrderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
+    
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

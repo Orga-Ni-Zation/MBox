@@ -11,13 +11,15 @@ export class SignupComponent implements OnInit {
   formInfo = {
     username: '',
     password: '',
-    name: '',
     lastName: '',
     email: '',
     gender: '',
-    menbership: '',
     role: '',
-    birthday: ''
+    birthday: '',
+    interests: [''],
+    phone:'',
+    address:'',
+    country:'',
   }
 
   constructor(private session: SessionService, private router: Router) { }

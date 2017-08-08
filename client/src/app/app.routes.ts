@@ -10,23 +10,22 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { DetailOrderComponent } from './detail-order/detail-order.component';
 
 export const routes: Routes = [
-  { path: '', component: IndexComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: '', component: IndexComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'edit', component: EditComponent},
-  { path: 'home', component: HomeComponent,
-        children: [
-          { path: 'order', component: OrderComponent},
-          { path: 'shopdetails', component: ShopDetailComponent},
-        ]
-      },
-
-  { path: 'product', component: ProductListComponent,
-    children: [
-      { path: 'new', component: NewProductComponent},
-      { path: 'detail', component: DetailProductComponent},
-      { path: 'edit', component: EditProductComponent},
-  ]}
+  { path: 'edit', component: EditComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'shopdetails', component: ShopDetailComponent },
+  { path: 'product', component: ProductListComponent },
+  { path: 'new', component: NewProductComponent },
+  { path: 'product/:id', component: DetailProductComponent },
+  { path: 'editproduct', component: EditProductComponent },
+  { path: 'orderslist', component: OrderListComponent },
+  { path: 'orderdetail/:id', component: DetailOrderComponent },
+  // { path: '**', redirectTo: '' }
 ]
