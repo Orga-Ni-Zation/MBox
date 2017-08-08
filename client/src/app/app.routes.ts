@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { OrderListComponent } from './order-list/order-list.component'
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -23,5 +24,6 @@ export const routes: Routes = [
   { path: 'new', component: NewProductComponent },
   { path: 'detail', component: DetailProductComponent },
   { path: 'editproduct', component: EditProductComponent },
-   { path: '**', redirectTo: '' }
+  { path: 'orderslist', component: OrderListComponent },
+  { path: '**', redirectTo: '' }
 ]
