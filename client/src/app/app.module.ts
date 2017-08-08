@@ -51,6 +51,7 @@ import { DetailOrderComponent } from './detail-order/detail-order.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
+    
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
   bootstrap: [AppComponent],

@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'shopdetails', component: ShopDetailComponent },
   { path: 'product', component: ProductListComponent },
   { path: 'new', component: NewProductComponent },
-  { path: 'detail', component: DetailProductComponent },
+  { path: 'product/:id', component: DetailProductComponent },
   { path: 'editproduct', component: EditProductComponent },
   { path: 'orderslist', component: OrderListComponent },
   { path: 'orderdetail/:id', component: DetailOrderComponent },

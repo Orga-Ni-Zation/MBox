@@ -24,6 +24,7 @@ export class OrderListComponent implements OnInit {
     this.session.isLoggedIn().subscribe( result => this.user = result);
     this.allBoxes = this.orders.listBoxes();
       console.log('se están imprimiendo las ordenes de giftbox');
+      console.log(this.allBoxes)
   }
 
   listBoxes(){

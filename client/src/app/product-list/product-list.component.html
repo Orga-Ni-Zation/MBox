@@ -1,53 +1,39 @@
-
-<p>
-  product-listt works!
-</p>
+<div class="" *ngFor="let product of allProducts">
 <div class="container">
-    <div class="row">
-		<div class="col-md-12">
-                <div id="Carousel" class="carousel slide">
-
-                <ol class="carousel-indicators">
-                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#Carousel" data-slide-to="1"></li>
-                    <li data-target="#Carousel" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-
-                <div class="item active">
-                	<div class="row">
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	</div><!--.row-->
-                </div><!--.item-->
-
-                <div class="item">
-                	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	</div><!--.row-->
-                </div><!--.item-->
-
-                <div class="item">
-                	<div class="row">
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                		<div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-                	</div><!--.row-->
-                </div><!--.item-->
-
-                </div><!--.carousel-inner-->
-                  <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
-                  <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
-                </div><!--.Carousel-->
-
-		</div>
+	<div class="row">
+		<div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <a [routerLink]="[product._id]">
+                            <img src="{{product.imageUrl}}" class="img-responsive img-box img-thumbnail">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9">
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <div class="row-picture">
+                                    <a [routerLink]="[product._id]" title="sintret">
+                                        <img class="circle img-thumbnail img-box" src="http://www.anp.com.uy/wps/wcm/connect/c50219bd-cff2-4e4b-9d7c-49fae769a4df/informacion+%281%29.jpg?MOD=AJPERES&CACHEID=c50219bd-cff2-4e4b-9d7c-49fae769a4df" alt="sintret">
+                                    </a>
+                                </div>
+                                <div class="row-content">
+                                    <div class="list-group-item-heading">
+                                        <a [routerLink]="[product._id]" title="sintret">
+                                            <small>{{product.name}}</small>
+                                        </a>
+                                    </div>
+                                    <small>
+                                        <i class="glyphicon glyphicon-euro"></i> {{product.price}}
+                                        <br>
+                                        <span class="explore"><i class="glyphicon glyphicon-th"> {{product.priceCategory}}</i> <a href="#"></a></span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><a [routerLink]="['/detail']">{{product.name}}</a></h4>
+                        <p>{{product.description}}</p>
+                    </div>
+                </div>
+                <hr>
 	</div>
-</div><!--.container-->
+</div>
+</div>

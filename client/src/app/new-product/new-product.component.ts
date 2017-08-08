@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { ProductService } from '../../services/product.service'
 import { RouterModule, Routes, Router } from '@angular/router';
+import $ from 'jquery'
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -31,8 +32,9 @@ error: string;
     this.product.createProduct(this.formInfo)
       .subscribe(
       (product) => {
-        console.log('Producto creado => Entro en this.complaint componente crearProducto =>')
+        console.log('Producto creado => Entro en this.product componente crearProducto =>')
         console.log(this.product)
+        this.router.navigate(['/']);
       },
       (err) => console.log(err)
       )
