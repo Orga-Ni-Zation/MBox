@@ -23,9 +23,9 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a [routerLink]="['/signup']" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        	<li><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				<li *ngIf="session.user && session.startLoginCompleted"><a [routerLink]="['/signup']" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li *ngIf="session.user && session.startLoginCompleted"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        	<li *ngIf="session.user && session.startLoginCompleted"><a [routerLink]="['/']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 			</ul>
 		</div>
 	</div>

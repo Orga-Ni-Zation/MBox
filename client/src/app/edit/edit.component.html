@@ -1,75 +1,88 @@
-<div class="container">
-<br>
-<br>
-	<div class="row" id="main">
-        <div class="col-md-4 well" id="leftPanel">
-            <div class="row">
-                <div class="col-md-12">
-                	<div>
-        				<img src="https://ignaciosantiago.com/wp-content/uploads/2012/04/errores-perfil-linkedin-2.jpg" alt="Texto Alternativo" class="img-circle img-thumbnail">
-        				<h2>Gopinath Perumal</h2>
-        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        				tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-warning">
+<div *ngIf="user" class="container ">
+	<div class="container">
+		<br>
+		<br>
+		<div class="row" id="main">
+			<div class="col-md-4 well" id="leftPanel">
+				<div class="row">
+					<div class="col-md-12">
+						<div>
+							<img src="https://ignaciosantiago.com/wp-content/uploads/2012/04/errores-perfil-linkedin-2.jpg" alt="Texto Alternativo" class="img-circle img-thumbnail">
+							<h2>{{user.lastName}}</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<div class="btn-group">
+								<button type="button" class="btn btn-warning">
                                 Social</button>
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+								<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span><span class="sr-only">Social</span>
                             </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
-                                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Github</a></li>
-                            </ul>
-                        </div>
-        			</div>
-        		</div>
-            </div>
-        </div>
-        <div class="col-md-8 well" id="rightPanel">
-            <div class="row">
-    <div class="col-md-12">
-    	<form role="form">
-			<h2>Edit your profile.<small>It's always easy</small></h2>
-			<hr class="colorgraph">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-                        <input type="text" [(ngModel)]="formInfo.username" name="username" id="first_name" class="form-control input-lg" placeholder="UserName" tabindex="1">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="text" [(ngModel)]="formInfo.lastName" name="lastName"id="last_name" class="form-control input-lg" placeholder="Complite Name" tabindex="2">
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Twitter</a></li>
+									<li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+									<li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Github</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="form-group">
-				<input type="text" [(ngModel)]="formInfo.email" name="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="text" [(ngModel)]="formInfo.password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+			<div class="col-md-8 well" id="rightPanel">
+				<div class="row">
+					<div class="col-md-12">
+						<form role="form">
+							<h2>Edit your profile.<small>It's always easy</small></h2>
+							<hr class="colorgraph">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" [(ngModel)]="formInfo.username" name="username" id="first_name" class="form-control input-lg" placeholder="{{user.username}}" tabindex="1">
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" [(ngModel)]="formInfo.password" name="password" id="password" class="form-control input-lg" placeholder="******" tabindex="5">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="text" [(ngModel)]="formInfo.email" name="email" class="form-control input-lg" placeholder="{{user.email}}" tabindex="4">
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" [(ngModel)]="formInfo.lastName" name="lastName" id="last_name" class="form-control input-lg" placeholder="{{user.lastName}}" tabindex="2">
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="date" [(ngModel)]="formInfo.birthday" name="birthday" id="password_confirmation" class="form-control input-lg" placeholder="{{user.birthday}}" tabindex="6">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" [(ngModel)]="formInfo.phone" name="phone" id="phone" class="form-control input-lg" placeholder="{{user.phone}}" tabindex="2">
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" [(ngModel)]="formInfo.address" name="address" id="address" class="form-control input-lg" placeholder="{{user.address}}" tabindex="6">
+									</div>
+								</div>
+							</div>
+							<hr class="colorgraph">
+							<div class="row">
+								<div class="col-xs-12 col-md-6"></div>
+								<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg" type="button" name="button" (click)='edit()'>Edit</button></div>
+								<p class="error"> {{ error }} </p>
+							</div>
+						</form>
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="date" [(ngModel)]="formInfo.birthday" name="birthday"  id="password_confirmation" class="form-control input-lg" placeholder="Birthday" tabindex="6">
-					</div>
-				</div>
 			</div>
-			<hr class="colorgraph">
-			<div class="row">
-				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg"type="button" name="button" (click)='edit()'>Edit</button></div>
-				<p class="error"> {{ error }} </p>
-			</div>
-		</form>
+		</div>
 	</div>
-</div>
-</div>
-</div>
 </div>

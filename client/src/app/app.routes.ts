@@ -12,21 +12,16 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 export const routes: Routes = [
-  { path: '', component: IndexComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: '', component: IndexComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'edit', component: EditComponent},
-  { path: 'home', component: HomeComponent,
-        children: [
-          { path: 'order', component: OrderComponent},
-          { path: 'shopdetails', component: ShopDetailComponent},
-        ]
-      },
-
-  { path: 'product', component: ProductListComponent,
-    children: [
-      { path: 'new', component: NewProductComponent},
-      { path: 'detail', component: DetailProductComponent},
-      { path: 'edit', component: EditProductComponent},
-  ]}
+  { path: 'edit', component: EditComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'shopdetails', component: ShopDetailComponent },
+  { path: 'product', component: ProductListComponent },
+  { path: 'new', component: NewProductComponent },
+  { path: 'detail', component: DetailProductComponent },
+  { path: 'editproduct', component: EditProductComponent },
+   { path: '**', redirectTo: '' }
 ]

@@ -1,3 +1,4 @@
+
 <div *ngIf="user" class="container ">
 <div class="container" style="margin-top: 30px;">
     <div class="profile-head">
@@ -15,12 +16,12 @@
 
         <div class="col-md-5 col-sm-5 col-xs-12">
             <h5>{{user.lastName}}</h5>
-          
+
             <ul>
                 <li><span class="glyphicon glyphicon-briefcase"></span> 31 years</li>
-                <li><span class="glyphicon glyphicon-map-marker"></span> India</li>
-                <li><span class="glyphicon glyphicon-home"></span> Chamiers Towers (East Wing), 5<sup>th</sup> Floor, No: 37,<br/>    Chamiers Road, Teynampet, Chennai-600018 </li>
-                <li><span class="glyphicon glyphicon-phone"></span> <a href="#" title="call">(+91) 9840550049</a></li>
+                <li><span class="glyphicon glyphicon-map-marker"></span> {{user.country}}</li>
+                <li><span class="glyphicon glyphicon-home"></span>{{user.address}}</li>
+                <li><span class="glyphicon glyphicon-phone"></span> <a href="#" title="call">{{user.phone}}</a></li>
                 <li><span class="glyphicon glyphicon-envelope"></span><a href="#" title="mail">{{user.email}}</a></li>
             </ul>
         </div>
@@ -28,15 +29,3 @@
     <!--profile-head close-->
 </div>
 </div>
-
-
-
-<p>
-  home works!
-</p>
-<button type="button" name="button" (click)="logout()">Logout</button>
-<a [routerLink]="['/subscription']" >My subscription</a>
-<a [routerLink]="['/edit']" >edit my profile</a>
-<a [routerLink]="['/order']" >Order</a>
-
-<app-order></app-order>

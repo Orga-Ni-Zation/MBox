@@ -28,22 +28,5 @@ error: string;
 
   ngOnInit() {
   }
-  addProduct() {
-    console.log('Funcion addProduct dentro del componente =>')
-    console.log(this.formInfo)
-    this.product.createProduct(this.formInfo)
-      .subscribe(
-      (product) => {
-        console.log('Producto creado => Entro en this.complaint componente crearProducto =>')
-        console.log(this.product)
-      },
-      (err) => console.log(err)
-      )
-  }
 
-  listByCategory(){
-    this.product.listProductByCategory(this.formInfo.category).subscribe( (category) => {
-      console.log('buscando...')
-    })
-  }
 }
