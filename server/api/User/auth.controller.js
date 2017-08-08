@@ -27,7 +27,7 @@ exports.signUp = function(req, res, next) {
   let interests = req.body.interests;
   let country = req.body.country;
   let address = req.body.address;
-  let phone = req.body.address;
+  let phone = req.body.phone;
 
 
 
@@ -62,7 +62,7 @@ exports.signUp = function(req, res, next) {
       country,
       address,
       phone,
-    
+
 
 
 
