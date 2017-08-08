@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { ProductService } from '../../services/product.service'
 import { RouterModule, Routes, Router } from '@angular/router';
-import $ from 'jquery'
+
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
