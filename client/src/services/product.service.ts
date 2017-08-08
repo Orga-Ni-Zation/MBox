@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment'
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 export interface Product{
   _id:string,
@@ -31,15 +34,15 @@ export class ProductService {
 
 
 
-    listProduct():Observable<Product>{
+    listProduct(){
       return this.http.get(`${this.BASE_URL}/product`, this.options)
-        .map(res => {
-          this.productList = res.json();
-        })
+        .map(res => res.json()
+        )
         .catch(this.handleError)
     }
+
     listProductByCategory(category):Observable<Product>{
-      return this.http.get(`${this.BASE_URL}/product/${category}/`, this.options)
+      return this.http.get(`${this.BASE_URL}/product/category/${category}/`, this.options)
         .map(res => {
           console.log(res.json())
           return res.json();
@@ -55,10 +58,16 @@ export class ProductService {
         })
         .catch(this.handleError)
     }
+
     edit(formInfo,product){
     return this.http.put(`${this.BASE_URL}/product/${product._id}/edit`, formInfo ,this.options)
        .map((res) => res.json());
     }
+
+    getProductById(id) {
+     return this.http.get(`${this.BASE_URL}/product/${id}`,this.options)
+       .map((res) => res.json());
+   }
 
     // deleteProduct(formInfo,product){
     // return this.http.delete(`${this.BASE_URL}/product/${product._id}/delete`, formInfo ,this.options)

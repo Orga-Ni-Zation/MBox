@@ -37,8 +37,8 @@ export class OrdersService {
     .catch(this.handleError);
   }
 
-  listBoxes():Observable<GU>{
-    return this.http.get(`${this.BASE_URL}/order`, this.options)
+  listBoxes(){
+    return this.http.get(`${this.BASE_URL}/giftbox`, this.options)
     .map(res => res.json()
   )
     .catch(this.handleError);

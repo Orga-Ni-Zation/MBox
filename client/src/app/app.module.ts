@@ -21,8 +21,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
-import { NguiAutoCompleteModule } from '@ngui/auto-complete';
-import { FileUploader } from "ng2-file-upload";
+import { OrderListComponent } from './order-list/order-list.component';
 
 
 
@@ -42,7 +41,7 @@ import { FileUploader } from "ng2-file-upload";
     NewProductComponent,
     DetailProductComponent,
     EditProductComponent,
-
+    OrderListComponent
 
   ],
   imports: [
@@ -50,8 +49,7 @@ import { FileUploader } from "ng2-file-upload";
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    NguiAutoCompleteModule,
-    FileUploader
+    
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
   bootstrap: [AppComponent],
