@@ -27,6 +27,14 @@ const products = [{
   price: 15,
   priceCategory: ['high'],
 },{
+  name: 'Lazio Jersey',
+  image: "https://ae01.alicdn.com/kf/HTB1AUbSOVXXXXa1XFXXq6xXFXXXE/Marca-de-f-brica-famosa-de-Negocios-Hombres-de-Cuero-Genuino-Cartera-Peque-a-Ultra-Delgado.jpg_50x50.jpg",
+  description: 'Exclusive Fashion Wallet for Men',
+  category: ['sport', 'fashion'],
+  gender: ['male'],
+  price: 15,
+  priceCategory: ['medium'],
+},{
   name: 'watch',
   image: "http://image.pandawhole.com/4/a/3/4cb896ef-f87a-4bb9-b274-3993c3ca43a4.JPG",
   description: 'Exclusive hipster watch for women',

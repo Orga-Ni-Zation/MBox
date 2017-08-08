@@ -43,10 +43,6 @@ module.exports = {
          console.log(userId);
          User.findOne({_id: userId}, (err, user) => {
            const {interest, gender} = user;
-          //  getProductRandom(interest,gender);
-          //  getProductRandom(interest,gender);
-          //  getProductRandom(interest,gender);
-
           ProductModel.find({
             gender : gender,
             category: { $in: interest },
@@ -56,14 +52,30 @@ module.exports = {
                console.log(randomProductLow);
                const randomProductLowId = randomProductLow._id;
                console.log(randomProductLowId);
-                
-
+         ProductModel.find({
+           gender : gender,
+           category: { $in: interest },
+           priceCategory: ['medium']
+         },  (err, products) => {
+              const randomProductMedium = products[Math.floor(Math.random()*products.length)];
+              console.log(randomProductMedium);
+              const randomProductMediumId = randomProductLow._id;
+              console.log(randomProductMediumId);
+        ProductModel.find({
+          gender : gender,
+          category: { $in: interest },
+          priceCategory: ['high']
+        },  (err, products) => {
+             const randomProductHigh = products[Math.floor(Math.random()*products.length)];
+             console.log(randomProductHigh);
+             const randomProductHighId = randomProductLow._id;
+             console.log(randomProductHighId);
                var giftBox = new GiftBoxModel({
                     userId: req.body.userId,
                     address: req.body.address,
                     recieve: req.body.recieve,
                     delivery: req.body.delivery,
-                    products: [randomProductLowId]
+                    productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
                });
                giftBox.save(function (err, GiftBox) {
                    if (err) {
@@ -84,7 +96,8 @@ module.exports = {
               return res.status(404).json({
                 message: 'No such Product'
               });
-            }
+            }});
+          });
             // const randomProductMedium = products[Math.floor(Math.random()*product.length)];
             // const randomProductHigh = products[Math.floor(Math.random()*product.length)];
           });
@@ -159,7 +172,7 @@ module.exports = {
 //         const randomProductMedium = products[Math.floor(Math.random()*products.length)];
 //         console.log(randomProductLow);
 //         const randomProductMediumId = randomProductMedium._id;
-//         console.log(randomProductMediumId);
+//         console.log(randomProductMed);
 //       });
 //       ProductModel.find({
 //         gender : gender,
