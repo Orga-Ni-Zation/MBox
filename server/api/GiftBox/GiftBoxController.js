@@ -56,6 +56,7 @@ module.exports = {
                console.log(randomProductLow);
                const randomProductLowId = randomProductLow._id;
                console.log(randomProductLowId);
+                
 
                var giftBox = new GiftBoxModel({
                     userId: req.body.userId,
@@ -138,18 +139,18 @@ module.exports = {
 };
 
 
-function getProductRandom(interest,gender){
-ProductModel.find({
-  gender : gender,
-  category: { $in: interest },
-  priceCategory: ['low']
-},  (err, products) => {
-     const randomProductLow = products[Math.floor(Math.random()*products.length)];
-     console.log(randomProductLow);
-     const randomProductLowId = randomProductLow._id;
-     console.log(randomProductLowId);
-
-   });
+// function getProductRandom(interest,gender){
+// ProductModel.find({
+//   gender : gender,
+//   category: { $in: interest },
+//   priceCategory: ['low']
+// },  (err, products) => {
+//      const randomProductLow = products[Math.floor(Math.random()*products.length)];
+//      console.log(randomProductLow);
+//      const randomProductLowId = randomProductLow._id;
+//      console.log(randomProductLowId);
+//
+//    });
 //    ProductModel.find({
 //      gender : gender,
 //      category: { $in: interest },
@@ -171,6 +172,6 @@ ProductModel.find({
 //            console.log(randomProductHighId);
 //
 //          });
-}
+// }
 //
 //
