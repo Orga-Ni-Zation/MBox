@@ -18,7 +18,7 @@ export class OrdersService {
   BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
   guList : Array<object> = []
-
+  giftsBox: GU
   constructor( private http: Http ) { }
 
   createBox(newBox): Observable<GU>{
@@ -46,8 +46,10 @@ export class OrdersService {
 
 
   detailBox(id){
-    return this.http.get(`${this.BASE_URL}:id}`, this.options)
-     .map(res => res.json());
+    return this.http.get(`${this.BASE_URL}/giftbox/${id}`, this.options)
+     .map(res => {
+       this.giftsBox = res.json();
+     })
   }
 
   handleError(e) {

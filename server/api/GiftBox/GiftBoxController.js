@@ -39,9 +39,9 @@ module.exports = {
 
 
   create: (req, res) => {
-    console.log('imprimiendo req.body.userId' + req.body.userId);
-    const userId = req.body.userId;
-    console.log("error" + userId);
+    console.log('imprimiendo req.body.userId => ' + req.body.userId);
+    const {userId} = req.body;
+    console.log("UserID => " + userId);
     User.findOne({
       _id: userId
     }, (err, user) => {
@@ -49,69 +49,71 @@ module.exports = {
         interest,
         gender
       } = user;
-      ProductModel.find({
-        gender: gender,
-        category: {
-          $in: interest
-        },
-        priceCategory: ['low']
-      }, (err, products) => {
-        const randomProductLow = products[Math.floor(Math.random() * products.length)];
-        console.log("hola amigo " + randomProductLow);
-        const randomProductLowId = randomProductLow._id;
-        console.log(randomProductLowId);
+      if(user.gender && user.interest){
         ProductModel.find({
           gender: gender,
           category: {
             $in: interest
           },
-          priceCategory: ['medium']
+          priceCategory: ['low']
         }, (err, products) => {
-          const randomProductMedium = products[Math.floor(Math.random() * products.length)];
-          console.log(randomProductMedium);
-          const randomProductMediumId = randomProductMedium._id;
-          console.log(randomProductMediumId);
+          const randomProductLow = products[Math.floor(Math.random() * products.length)];
+          console.log("hola amigo " + randomProductLow);
+          const randomProductLowId = randomProductLow._id;
+          console.log(randomProductLowId);
           ProductModel.find({
             gender: gender,
             category: {
               $in: interest
             },
-            priceCategory: ['high']
+            priceCategory: ['medium']
           }, (err, products) => {
-            const randomProductHigh = products[Math.floor(Math.random() * products.length)];
-            console.log(randomProductHigh);
-            const randomProductHighId = randomProductHigh._id;
-            console.log(randomProductHighId);
-            var giftBox = new GiftBoxModel({
-              userId: req.body.userId,
-              address: req.body.address,
-              recieve: req.body.recieve,
-              delivery: req.body.delivery,
-              productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
-            });
-            giftBox.save(function(err, GiftBox) {
+            const randomProductMedium = products[Math.floor(Math.random() * products.length)];
+            console.log(randomProductMedium);
+            const randomProductMediumId = randomProductMedium._id;
+            console.log(randomProductMediumId);
+            ProductModel.find({
+              gender: gender,
+              category: {
+                $in: interest
+              },
+              priceCategory: ['high']
+            }, (err, products) => {
+              const randomProductHigh = products[Math.floor(Math.random() * products.length)];
+              console.log(randomProductHigh);
+              const randomProductHighId = randomProductHigh._id;
+              console.log(randomProductHighId);
+              var giftBox = new GiftBoxModel({
+                userId: req.body.userId,
+                address: req.body.address,
+                recieve: req.body.recieve,
+                delivery: req.body.delivery,
+                productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
+              });
+              giftBox.save((err, GiftBox) =>{
+                if (err) {
+                  return res.status(500).json({
+                    message: 'Error when creating GiftBox',
+                    error: err
+                  });
+                }
+
+              });
               if (err) {
                 return res.status(500).json({
-                  message: 'Error when creating GiftBox',
+                  message: 'Error when getting Product by category.',
                   error: err
                 });
               }
-
+              if (!products.length) {
+                return res.status(404).json({
+                  message: 'No such Product'
+                });
+              }
             });
-            if (err) {
-              return res.status(500).json({
-                message: 'Error when getting Product by category.',
-                error: err
-              });
-            }
-            if (!products.length) {
-              return res.status(404).json({
-                message: 'No such Product'
-              });
-            }
           });
         });
-      });
+      }
     });
 
   },
@@ -136,7 +138,7 @@ module.exports = {
 
       GiftBox.productID = req.body.productID ? req.body.productID : GiftBox.productID;
 
-      GiftBox.save(function(err, GiftBox) {
+      GiftBox.save((err, GiftBox)=> {
         if (err) {
           return res.status(500).json({
             message: 'Error when updating GiftBox.',

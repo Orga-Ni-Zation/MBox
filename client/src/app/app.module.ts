@@ -22,6 +22,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
 import { OrderListComponent } from './order-list/order-list.component';
+import { DetailOrderComponent } from './detail-order/detail-order.component';
+
 
 
 
@@ -41,8 +43,8 @@ import { OrderListComponent } from './order-list/order-list.component';
     NewProductComponent,
     DetailProductComponent,
     EditProductComponent,
-    OrderListComponent
-
+    OrderListComponent,
+    DetailOrderComponent,
   ],
   imports: [
     BrowserModule,
