@@ -40,7 +40,7 @@ module.exports = {
     create: (req, res) => {
         console.log('imprimiendo req.body.userId' + req.body.userId);
          const userId = req.body.userId;
-         console.log(userId);
+         console.log("error"+userId);
          User.findOne({_id: userId}, (err, user) => {
            const {interest, gender} = user;
           ProductModel.find({
@@ -49,7 +49,7 @@ module.exports = {
             priceCategory: ['low']
           },  (err, products) => {
                const randomProductLow = products[Math.floor(Math.random()*products.length)];
-               console.log(randomProductLow);
+               console.log("hola amigo "+ randomProductLow);
                const randomProductLowId = randomProductLow._id;
                console.log(randomProductLowId);
          ProductModel.find({
@@ -59,7 +59,7 @@ module.exports = {
          },  (err, products) => {
               const randomProductMedium = products[Math.floor(Math.random()*products.length)];
               console.log(randomProductMedium);
-              const randomProductMediumId = randomProductLow._id;
+              const randomProductMediumId = randomProductMedium._id;
               console.log(randomProductMediumId);
         ProductModel.find({
           gender : gender,
@@ -68,7 +68,7 @@ module.exports = {
         },  (err, products) => {
              const randomProductHigh = products[Math.floor(Math.random()*products.length)];
              console.log(randomProductHigh);
-             const randomProductHighId = randomProductLow._id;
+             const randomProductHighId = randomProductHigh._id;
              console.log(randomProductHighId);
                var giftBox = new GiftBoxModel({
                     userId: req.body.userId,

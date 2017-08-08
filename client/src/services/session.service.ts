@@ -32,10 +32,12 @@ export class SessionService {
   }
 
   signup(newUser):Observable<User> {
+    console.log(newUser)
     return this.http.post(`${this.BASE_URL}/user/signup`, newUser, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
+
 
   login(username:string, password:string):Observable<User> {
     console.log(username,password);

@@ -26,6 +26,7 @@ export class ProductService {
     options: object = {withCredentials:true};
     productList: Array<object> = [];
 
+
     constructor(private http:Http) { }
 
 
@@ -37,9 +38,8 @@ export class ProductService {
         })
         .catch(this.handleError)
     }
-
     listProductByCategory(category):Observable<Product>{
-      return this.http.get(`${this.BASE_URL}/product/${category}`, this.options)
+      return this.http.get(`${this.BASE_URL}/product/${category}/`, this.options)
         .map(res => {
           console.log(res.json())
           return res.json();

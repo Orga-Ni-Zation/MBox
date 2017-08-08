@@ -1,0 +1,24 @@
+#leftPanel {
+  background: #0079ac;
+  color: #fff;
+  text-align: center;
+  min-height: 470px;
+}
+
+#rightPanel {
+  min-height: 415px;
+}
+#rightPanel > div > div > form > div:nth-child(7) > div:nth-child(2) > button{
+  background: #0079ac;
+  border: none;
+}
+
+
+/* Credit to bootsnipp.com for the css for the color graph */
+
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #0079ac;
+  border-radius: 5px;
+}

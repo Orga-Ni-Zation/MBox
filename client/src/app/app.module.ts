@@ -23,6 +23,10 @@ import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
 import { OrderListComponent } from './order-list/order-list.component';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,7 @@ import { OrderListComponent } from './order-list/order-list.component';
     RouterModule.forRoot(routes),
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

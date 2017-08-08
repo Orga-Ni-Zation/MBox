@@ -18,6 +18,7 @@ module.exports = {
 
     listbycategory: function (req, res) {
        var categorySearch = req.params.category;
+
       ProductModel.find({category: categorySearch}, function (err, product) {
 
         if (err) {
