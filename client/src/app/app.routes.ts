@@ -16,17 +16,12 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginFormComponent },
   { path: 'edit', component: EditComponent},
-  { path: 'home', component: HomeComponent,
-        children: [
-          { path: 'order', component: OrderComponent},
-          { path: 'shopdetails', component: ShopDetailComponent},
-        ]
-      },
-
-  { path: 'product', component: ProductListComponent,
-    children: [
-      { path: 'new', component: NewProductComponent},
-      { path: 'detail', component: DetailProductComponent},
-      { path: 'edit', component: EditProductComponent},
-  ]}
+  { path: 'home', component: HomeComponent},
+  { path: 'order', component: OrderComponent},
+  { path: 'shopdetails', component: ShopDetailComponent},
+  { path: 'product', component: ProductListComponent},
+  { path: 'new', component: NewProductComponent},
+  { path: 'detail', component: DetailProductComponent},
+  { path: 'edit', component: EditProductComponent},
+  
 ]

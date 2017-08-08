@@ -38,7 +38,7 @@ module.exports = {
 
 
     create: (req, res) => {
-        console.log('imprimiendo req.bode.userId' + req.body.userId);
+        console.log('imprimiendo req.body.userId' + req.body.userId);
          const userId = req.body.userId;
          console.log(userId);
          User.findOne({_id: userId}, (err, user) => {
@@ -98,8 +98,6 @@ module.exports = {
               });
             }});
           });
-            // const randomProductMedium = products[Math.floor(Math.random()*product.length)];
-            // const randomProductHigh = products[Math.floor(Math.random()*product.length)];
           });
         });
 
@@ -150,41 +148,3 @@ module.exports = {
         });
     }
 };
-
-
-// function getProductRandom(interest,gender){
-// ProductModel.find({
-//   gender : gender,
-//   category: { $in: interest },
-//   priceCategory: ['low']
-// },  (err, products) => {
-//      const randomProductLow = products[Math.floor(Math.random()*products.length)];
-//      console.log(randomProductLow);
-//      const randomProductLowId = randomProductLow._id;
-//      console.log(randomProductLowId);
-//
-//    });
-//    ProductModel.find({
-//      gender : gender,
-//      category: { $in: interest },
-//      priceCategory: ['medium']
-//    },  (err, products) => {
-//         const randomProductMedium = products[Math.floor(Math.random()*products.length)];
-//         console.log(randomProductLow);
-//         const randomProductMediumId = randomProductMedium._id;
-//         console.log(randomProductMed);
-//       });
-//       ProductModel.find({
-//         gender : gender,
-//         category: { $in: interest },
-//         priceCategory: ['high']
-//       },  (err, products) => {
-//            const randomProductHigh = products[Math.floor(Math.random()*products.length)];
-//            console.log(randomProductHigh);
-//            const randomProductHighId = randomProductHigh._id;
-//            console.log(randomProductHighId);
-//
-//          });
-// }
-//
-//
