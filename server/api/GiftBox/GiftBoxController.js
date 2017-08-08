@@ -59,7 +59,7 @@ module.exports = {
          },  (err, products) => {
               const randomProductMedium = products[Math.floor(Math.random()*products.length)];
               console.log(randomProductMedium);
-              const randomProductMediumId = randomProductLow._id;
+              const randomProductMediumId = randomProductMedium._id;
               console.log(randomProductMediumId);
         ProductModel.find({
           gender : gender,
@@ -68,7 +68,7 @@ module.exports = {
         },  (err, products) => {
              const randomProductHigh = products[Math.floor(Math.random()*products.length)];
              console.log(randomProductHigh);
-             const randomProductHighId = randomProductLow._id;
+             const randomProductHighId = randomProductHigh._id;
              console.log(randomProductHighId);
                var giftBox = new GiftBoxModel({
                     userId: req.body.userId,
