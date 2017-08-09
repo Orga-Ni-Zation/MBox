@@ -23,8 +23,7 @@ error: string;
   ngOnInit() {
     this.session.isLoggedIn().subscribe( result => this.user = result);
     this.product.listProduct().subscribe(result => this.allProducts=result)
-      console.log('se están imprimiendo los productos');
-      console.log('product list component dice : '+this.allProducts);
+    
   }
 
 }
