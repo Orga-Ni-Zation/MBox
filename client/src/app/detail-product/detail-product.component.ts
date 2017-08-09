@@ -25,7 +25,7 @@ export class DetailProductComponent implements OnInit {
           this.product = product;
         });
     });
-    console.log(this.product)
+    
 }
 
 }
