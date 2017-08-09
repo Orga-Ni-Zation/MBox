@@ -12,6 +12,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { DetailOrderComponent } from './detail-order/detail-order.component';
+import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component'
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'edit', component: EditComponent },
   { path: 'home', component: HomeComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'success', component: SuccesfullyBoughtComponent},
   { path: 'shopdetails', component: ShopDetailComponent },
   { path: 'product', component: ProductListComponent },
   { path: 'new', component: NewProductComponent },
