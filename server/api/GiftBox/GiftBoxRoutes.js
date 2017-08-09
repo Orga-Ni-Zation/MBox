@@ -6,7 +6,7 @@ router.get('/', GiftBoxController.list);
 router.get('/:id', GiftBoxController.show);
 router.post('/new', GiftBoxController.create);
 router.put('/:id', GiftBoxController.update);
-router.get('/user/:userId', GiftBoxController.listbyUser);
+router.get('/user/:id', GiftBoxController.listbyUser);
 router.delete('/:id', GiftBoxController.remove);
 
 module.exports = router;

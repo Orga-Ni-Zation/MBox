@@ -17,9 +17,10 @@ module.exports = {
   },
 
     listbyUser: function(req, res) {
-      var userSearch = req.params.userId;
+      console.log(req.params.id);
+      var userSearch = req.params.id;
 
-      ProductModel.find({
+      GiftBoxModel.find({
         userId: userSearch
       }, function(err, GiftBox) {
 
