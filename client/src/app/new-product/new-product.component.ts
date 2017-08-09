@@ -56,7 +56,7 @@ error: string;
       form.append('priceCategory', this.formInfo.priceCategory);
     };
     this.uploader.uploadAll();
-    // this.router.navigate(['/product'], this.formInfo );
+    this.router.navigate(['/product'], this.formInfo );
 }
 
   listByCategory(){
