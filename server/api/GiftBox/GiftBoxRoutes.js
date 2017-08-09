@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var GiftBoxController = require('./GiftBoxController.js');
+const express = require('express');
+const router = express.Router();
+const GiftBoxController = require('./GiftBoxController.js');
 
 
 router.get('/', GiftBoxController.list);

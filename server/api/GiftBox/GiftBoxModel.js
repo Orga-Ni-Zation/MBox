@@ -8,12 +8,22 @@ const GiftBoxSchema = new Schema({
 	address : { type: String },
 	delivery : { type: Date},
 	type : [{type: String, default: 'own'}],
-	status : [{type: String, default: 'in proccess'}]
+	status : [{type: String, default: 'in proccess'}],
+	imageUrl : { type: String, default: ''},
+	imageName: { type: String},
+
 }, {
 timestamps: {
   createdAt: 'created_at',
   updatedAt: 'updated_at'
 }
+});
+GiftBoxSchema.set('toJSON', { virtuals: true });
+GiftBoxSchema.virtual('imageURL').get(function() {
+  if(this.imageUrl.includes('http')){
+    return this.image;
+  }
+  return `http://localhost:3000${this.imageUrl}`;
 });
 
 module.exports = mongoose.model('GiftBox', GiftBoxSchema);

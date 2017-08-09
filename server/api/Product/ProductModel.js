@@ -7,6 +7,7 @@ const ProductSchema = new Schema({
 		type: String,
 		default: "https://s-media-cache-ak0.pinimg.com/originals/c0/c0/db/c0c0dbcc7433a245360cac8e071cce61.jpg"
 	},
+	imageName: String,
 	description: String,
 	category:{
 		type: Array,
@@ -27,6 +28,13 @@ const ProductSchema = new Schema({
 		createdAt: "created_at",
 		updatedAt: "updated_at"
 	}
+});
+ProductSchema.set('toJSON', { virtuals: true });
+ProductSchema.virtual('imageURL').get(function() {
+  if(this.imageUrl.includes('http')){
+    return this.image;
+  }
+  return `http://localhost:3000${this.imageUrl}`;
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

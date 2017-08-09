@@ -1,5 +1,6 @@
 const ProductModel = require('./ProductModel.js');
 const User = require('../User/UserModel');
+const upload = require('../../config/multer');
 
 
 module.exports = {
@@ -65,15 +66,15 @@ module.exports = {
 
   create: function(req, res) {
 
-    var Product = new ProductModel({
+    const Product = new ProductModel({
       name: req.body.name,
-      imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
       category: req.body.category,
       gender: req.body.gender,
       priceCategory: req.body.priceCategory,
-
+      specs: JSON.parse(req.body.specs) || [],
+      imageUrl: `/uploads/${req.file.filename}` || ''
     });
     console.log(req.body);
     console.log(Product);
