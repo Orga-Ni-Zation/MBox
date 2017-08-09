@@ -40,7 +40,6 @@ module.exports = {
 			stars : req.body.stars,
 			userID : req.body.userID,
 			giftBoxID : req.body.giftBoxID,
-      specs: JSON.parse(req.body.specs) || [],
       imageUrlReview: `/uploads/${req.file.filename}` || '',
         });
 

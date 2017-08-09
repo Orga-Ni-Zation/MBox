@@ -1,4 +1,26 @@
+<!-- <div *ngIf="session.user.role !== 'user'">
+  <h1>DASHBOARD</h1>
+  <br>
+  <a [routerLink]="['/complaint']">COMPLAINTS</a>
+  <br><br>
+  <a [routerLink]="['/alert']">ALERTS</a>
+  <br><br>
+  <a [routerLink]="['/house']">HOUSES</a>
+  <br><br>
+  <a [routerLink]="['/signup']" *ngIf="session.user.role == 'admin'">REGISTER NEW USER</a>
+  <br><br>
+</div>
 
+<div *ngIf="session.user.role == 'user'">
+  <p>Hola Usuario</p>
+  <a [routerLink]="['/complaint/add']">DENUNCIAR</a>
+  <br><br>
+  <a [routerLink]="['/alert/add']">ALERTAR</a>
+  <br><br>
+  <a [routerLink]="['/contact']">CONTACTO</a>
+  <br><br>
+</div>
+<button (click)="alert()">Alerta</button> -->
 <div *ngIf="user" class="container ">
 <div class="container" style="margin-top: 30px;">
     <div class="profile-head">
@@ -29,3 +51,4 @@
     <!--profile-head close-->
 </div>
 </div>
+<app-order-list></app-order-list>

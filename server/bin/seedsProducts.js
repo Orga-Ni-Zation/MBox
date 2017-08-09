@@ -20,7 +20,7 @@ const products = [{
   priceCategory: ['low'],
 },{
   name: 'wallet',
-  image: "https://ae01.alicdn.com/kf/HTB1AUbSOVXXXXa1XFXXq6xXFXXXE/Marca-de-f-brica-famosa-de-Negocios-Hombres-de-Cuero-Genuino-Cartera-Peque-a-Ultra-Delgado.jpg_50x50.jpg",
+  image: "http://pngimg.com/uploads/wallet/wallet_PNG7516.png",
   description: 'Exclusive Fashion Wallet for Men',
   category: ['accesory', 'fashion'],
   gender: ['male'],

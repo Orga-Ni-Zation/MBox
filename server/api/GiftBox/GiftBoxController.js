@@ -16,10 +16,33 @@ module.exports = {
       });
   },
 
+    listbyUser: function(req, res) {
+      var userSearch = req.params.userId;
+
+      ProductModel.find({
+        userId: userSearch
+      }, function(err, GiftBox) {
+
+        if (err) {
+          return res.status(500).json({
+            message: 'Error when getting Product by category.',
+            error: err
+          });
+        }
+        if (!GiftBox) {
+          return res.status(404).json({
+            message: 'No such Product'
+          });
+        }
+        res.status(200).json(GiftBox);
+      });
+    },
+
+
 
   show: function(req, res) {
     var id = req.params.id;
-    GiftBoxModel.findOne({
+    GiftBoxModel.find({
       _id: id
     }, function(err, GiftBox) {
       if (err) {
@@ -136,7 +159,8 @@ module.exports = {
         });
       }
 
-      GiftBox.productID = req.body.productID ? req.body.productID : GiftBox.productID;
+      // GiftBox.productID = req.body.productID ? req.body.productID : GiftBox.productID;
+
 
       GiftBox.save((err, GiftBox)=> {
         if (err) {

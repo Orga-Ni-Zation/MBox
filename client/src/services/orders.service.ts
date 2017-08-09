@@ -44,6 +44,14 @@ export class OrdersService {
     .catch(this.handleError);
   }
 
+  listBoxesByUserId(userId){
+    return this.http.get(`${this.BASE_URL}/giftbox/user/${userId}`, this.options)
+    .map(res => res.json()
+  )
+    .catch(this.handleError);
+  }
+
+
 
   detailBox(id){
     return this.http.get(`${this.BASE_URL}/giftbox/${id}`, this.options)
