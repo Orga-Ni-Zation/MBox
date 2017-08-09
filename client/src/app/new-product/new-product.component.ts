@@ -14,7 +14,7 @@ import {environment} from '../../environments/environment';
 })
 export class NewProductComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-     url: `${environment.BASE_URL}/api/Product`
+     url: `${environment.BASE_URL}/product/new/`
    });
 error: string;
   formInfo= {
@@ -25,7 +25,7 @@ error: string;
     gender:'',
     price:'',
     priceCategory:'',
-    specs: []
+
   }
   feedback:string;
 
@@ -44,18 +44,10 @@ error: string;
 
   }
 
-  addSpec(valor){
-    this.formInfo.specs.push(valor);
-  }
 
-  submit(){
-    this.uploader.onBuildItemForm = (item, form) => {
-      form.append('name', this.formInfo.name);
-      form.append('specs', JSON.stringify(this.formInfo.specs));
-    };
 
-   this.uploader.uploadAll();
-  }
+
+
   addProduct() {
     console.log('Funcion addProduct dentro del componente =>')
     console.log(this.formInfo)

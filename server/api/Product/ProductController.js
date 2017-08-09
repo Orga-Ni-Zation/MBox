@@ -73,8 +73,7 @@ module.exports = {
       category: req.body.category,
       gender: req.body.gender,
       priceCategory: req.body.priceCategory,
-      specs: JSON.parse(req.body.specs) || [],
-      imageUrl: `/uploads/${req.file.filename}` || ''
+      //imageUrl: `/uploads/${req.file.filename}` || ''
     });
     console.log(req.body);
     console.log(Product);
