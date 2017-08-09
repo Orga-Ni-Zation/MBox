@@ -7,7 +7,6 @@ const User = require('./UserModel');
 const authRoutes = express.Router();
 const bcryptSalt = 10;
 
-const upload = require ('../../config/multer');
 
 exports.listUser = function(req, res, next) {
   User.find()
@@ -65,7 +64,7 @@ exports.signUp = function(req, res, next) {
       country,
       address,
       phone,
-      imageUrl : `public/uploads/${req.file.filename}` || '',
+      imageUrl : `/uploads/${req.file.filename}` || '',
       imageName : req.file.orginalname
     });
     console.log(theUser);
@@ -106,7 +105,7 @@ exports.logIn = (req, res, next) =>{
           message: 'something went wrong :('
         });
       }
-      res.status(200).json(req.user);
+      return res.status(200).json(req.user);
     });
   })(req, res, next);
 };

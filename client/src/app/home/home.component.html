@@ -4,7 +4,7 @@
     <div class="profile-head">
         <!--col-md-4 col-sm-4 col-xs-12 close-->
         <div class="col-md- col-sm-4 col-xs-12">
-            <img src="https://ignaciosantiago.com/wp-content/uploads/2012/04/errores-perfil-linkedin-2.jpg" class="img-responsive"/>
+            <img [src]='"http://localhost:3000/"+user.imageUrl' class="img-responsive"/>
             <h6>{{user.username}}</h6>
             <div class="container"style="margin-left: 90px;">
                 <span class="btn btn-default uplod-file">

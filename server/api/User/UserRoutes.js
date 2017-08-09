@@ -1,7 +1,6 @@
 const express = require('express');
-var controller = require('./auth.controller');
+const controller = require('./auth.controller');
 const upload = require('../../config/multer');
-
 
 var router = express.Router();
 
@@ -13,7 +12,6 @@ router.post('/logout', controller.logOut);
 router.get('/private', controller.private);
 router.put('/:id/edit', controller.editUser);
 router.delete('/:id/delete', controller.removeUser);
-
 
 module.exports = router;
 
