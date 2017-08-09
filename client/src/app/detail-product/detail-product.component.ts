@@ -21,11 +21,9 @@ export class DetailProductComponent implements OnInit {
       this.products.getProductById(params.id)
         .subscribe((product) => {
           console.log("component de productos: "+ product)
-          console.log(product)
           this.product = product;
         });
     });
-    console.log(this.product)
 }
 
 }

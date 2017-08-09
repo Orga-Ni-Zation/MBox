@@ -88,7 +88,6 @@ module.exports = {
                 address: req.body.address,
                 recieve: req.body.recieve,
                 delivery: req.body.delivery,
-                specs: JSON.parse(req.body.specs) || [],
                 imageUrlGiftbox: `/uploads/${req.file.filename}` || '',
                 productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
               });
