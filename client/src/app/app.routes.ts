@@ -27,5 +27,5 @@ export const routes: Routes = [
   { path: 'editproduct', component: EditProductComponent },
   { path: 'orderslist', component: OrderListComponent },
   { path: 'orderdetail/:id', component: DetailOrderComponent },
-  // { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' }
 ]

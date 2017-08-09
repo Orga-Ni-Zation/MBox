@@ -64,7 +64,7 @@ error: string;
       (product) => {
         console.log('Producto creado => Entro en this.product componente crearProducto =>')
         console.log(this.product)
-        this.router.navigate(['/']);
+        this.router.navigate(['/product']);
       },
       (err) => console.log(err)
       )

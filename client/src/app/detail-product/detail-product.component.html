@@ -1,6 +1,53 @@
-<p>
-  detail-product works!
-</p>
+
 <div *ngIf="product" class="container">
-  <span class="tabul1"><strong> Product Name : </strong></span><span class="tabul2"> {{ product.name }}</span>
-</div>
+
+
+
+<div class="container">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="{{ product.imageUrl }}" /></div>
+
+						</div>
+
+
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{ product.name }}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<p class="product-description">{{ product.description }}</p>
+						<h4 class="price">current price: <span>$  {{ product.price }}</span></h4>
+						<p class="vote"><strong>Price Category:</strong><strong>  {{ product.priceCategory }}</strong>  </p>
+						<h5 class="sizes">sizes:
+							<span class="size" data-toggle="tooltip" title="small">{{product.created_at}}</span>
+
+						</h5>
+            <h5 class="sizes">Id:
+							<span class="size" data-toggle="tooltip" title="small">{{product._id}}</span>
+
+						</h5>
+
+						<div class="action">
+              <a [routerLink]="['/product']"  class="add-to-cart btn btn-default" >List Products</a>
+              <a [routerLink]="['/editproduct']"  class="add-to-cart btn btn-default" >Edit</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
