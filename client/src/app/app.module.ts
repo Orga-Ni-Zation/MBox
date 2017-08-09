@@ -23,9 +23,7 @@ import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
 import { OrderListComponent } from './order-list/order-list.component';
 import { DetailOrderComponent } from './detail-order/detail-order.component';
-
-
-
+import { FileSelectDirective } from "ng2-file-upload";
 
 
 
@@ -45,13 +43,14 @@ import { DetailOrderComponent } from './detail-order/detail-order.component';
     EditProductComponent,
     OrderListComponent,
     DetailOrderComponent,
+    FileSelectDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    
+
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
   bootstrap: [AppComponent],

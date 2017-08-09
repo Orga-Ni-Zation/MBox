@@ -1,11 +1,11 @@
 const express = require('express');
-var controller = require('./auth.controller');
-
+const controller = require('./auth.controller');
+const upload = require('../../config/multer');
 
 var router = express.Router();
 
 router.get('/' , controller.listUser);
-router.post('/signup', controller.signUp);
+router.post('/signup', upload.single('file'), controller.signUp);
 router.post('/login', controller.logIn);
 router.get('/loggedin' , controller.logStill);
 router.post('/logout', controller.logOut);

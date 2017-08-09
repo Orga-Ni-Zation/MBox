@@ -1,7 +1,7 @@
-var GiftBoxModel = require('./GiftBoxModel.js');
+const GiftBoxModel = require('./GiftBoxModel.js');
 const User = require('../User/UserModel');
 const ProductModel = require('../Product/ProductModel');
-
+const upload = require('../../config/multer');
 
 module.exports = {
 
@@ -88,6 +88,8 @@ module.exports = {
                 address: req.body.address,
                 recieve: req.body.recieve,
                 delivery: req.body.delivery,
+                specs: JSON.parse(req.body.specs) || [],
+                imageUrlGiftbox: `/uploads/${req.file.filename}` || '',
                 productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
               });
               giftBox.save((err, GiftBox) =>{
