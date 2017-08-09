@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-sm-6 form-group">
 
+
         <label>User Name</label>
         <input type="text" [(ngModel)]="formInfo.username" name="username" placeholder="username.." class="form-control">
         <p class="error"> {{ error }} </p>
@@ -21,6 +22,17 @@
         <input type="text" [(ngModel)]="formInfo.lastName" name="lastName" class="form-control" />
 
       </div>
+
+
+
+
+      <div class="col-sm-6 form-group">
+        <label for="uploaderImage">Upload Image</label>
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+
+        <p> {{ feedback }} </p>
+      </div>
+
       <div class="col-sm-6 form-group">
         <label for="birthday">Birthday</label>
         <input type="date" [(ngModel)]="formInfo.birthday" name="birthday" id="birthday" class="form-control">
