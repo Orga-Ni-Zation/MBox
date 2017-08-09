@@ -12,7 +12,8 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { DetailOrderComponent } from './detail-order/detail-order.component';
-import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component'
+import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component';
+import { OrderListByUserComponent } from './order-list-by-user/order-list-by-user.component'
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -29,5 +30,6 @@ export const routes: Routes = [
   { path: 'editproduct', component: EditProductComponent },
   { path: 'orderslist', component: OrderListComponent },
   { path: 'orderdetail/:id', component: DetailOrderComponent },
+  { path: 'orderlistbyuser/:id', component: OrderListByUserComponent },
   { path: '**', redirectTo: '' }
 ]
