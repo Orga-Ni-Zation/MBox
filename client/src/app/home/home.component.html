@@ -29,6 +29,12 @@
 </div>
 
 </div>
+<div *ngIf="role === admin" class="container ">
 
+<a [routerLink]="['/product']">Products</a>
+<a [routerLink]="['/orderslist']">Orders from all users</a>
+
+
+</div>
  <a [routerLink]="['/order']">Order Your Box</a>
 <app-order-list-by-user></app-order-list-by-user>

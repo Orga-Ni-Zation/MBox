@@ -1,5 +1,5 @@
 <p>
-  order-list works!
+<div *ngIf="role === admin" class="container ">
   <div class="list-giftboxes" *ngFor="let order of allBoxes | async">
     <a href="/orderdetail/{{order._id}}" class="order"> {{order.recieve}} </a>
     <a href="/orderdetail/{{order._id}}" class="order"> {{order.address}} </a>
@@ -54,3 +54,4 @@
     </div>
 </div>
   </div>
+</div>
