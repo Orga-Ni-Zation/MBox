@@ -16,6 +16,7 @@ export class OrderComponent implements OnInit {
     userId: '',
     recieve: '',
     address: '',
+    // status : [''],
   }
   user: any;
 

@@ -27,6 +27,7 @@ import { FileSelectDirective } from "ng2-file-upload";
 import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component';
 import { OrderListByUserComponent } from './order-list-by-user/order-list-by-user.component';
 import { PayComponent } from './pay/pay.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 
 
@@ -50,6 +51,7 @@ import { PayComponent } from './pay/pay.component';
     SuccesfullyBoughtComponent,
     OrderListByUserComponent,
     PayComponent,
+    EditOrderComponent,
   ],
   imports: [
     BrowserModule,

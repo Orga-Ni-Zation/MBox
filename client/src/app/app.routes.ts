@@ -15,7 +15,7 @@ import { DetailOrderComponent } from './detail-order/detail-order.component';
 import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component';
 import { OrderListByUserComponent } from './order-list-by-user/order-list-by-user.component'
 import { PayComponent } from './pay/pay.component'
-
+import { EditOrderComponent } from './edit-order/edit-order.component'
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -33,6 +33,7 @@ export const routes: Routes = [
   { path: 'orderslist', component: OrderListComponent },
   { path: 'orderdetail/:id', component: DetailOrderComponent },
   { path: 'orderlistbyuser/:id', component: OrderListByUserComponent },
+  { path: 'editorder/:id', component: EditOrderComponent},
   { path: 'pay', component: PayComponent },
   { path: '**', redirectTo: '' }
 ]

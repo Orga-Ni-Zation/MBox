@@ -12,10 +12,9 @@
             </div>
         </div>
         <a [routerLink]="['/order']">Order Your Box</a>
-        <!-- col-md-4 col-sm-4 col-xs-12 close -->
 
         <div class="col-md-5 col-sm-5 col-xs-12">
-            <!-- <h5>{{user.lastName}}</h5> -->
+            <h5>{{user.lastName}}</h5>
 
             <ul>
                 <li><span class="glyphicon glyphicon-briefcase"></span> 31 years</li>
@@ -25,13 +24,10 @@
                 <li><span class="glyphicon glyphicon-envelope"></span><a href="#" title="mail">{{user.email}}</a></li>
             </ul>
         </div>
-        <app-order-list-by-user></app-order-list-by-user>
 
-    <!--profile-head close-->
 </div>
 </div>
-<!--PARA SACAR LA LISTA DE LOS USERS-->
- <div class="list-giftboxes" *ngFor="let order of allBoxesById | async ">
-   <a  class="order"> {{order.address}} </a>
-   <a  class="order"> {{order.recieve}} </a>
+
 </div>
+
+<app-order-list-by-user></app-order-list-by-user>
