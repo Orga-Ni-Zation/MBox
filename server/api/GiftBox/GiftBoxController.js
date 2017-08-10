@@ -23,7 +23,7 @@ module.exports = {
       GiftBoxModel.find({
         userId: userSearch
       }, function(err, GiftBox) {
-
+        
         if (err) {
           return res.status(500).json({
             message: 'Error when getting Product by category.',

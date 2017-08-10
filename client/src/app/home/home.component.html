@@ -1,41 +1,20 @@
-<!-- <div *ngIf="session.user.role !== 'user'">
-  <h1>DASHBOARD</h1>
-  <br>
-  <a [routerLink]="['/complaint']">COMPLAINTS</a>
-  <br><br>
-  <a [routerLink]="['/alert']">ALERTS</a>
-  <br><br>
-  <a [routerLink]="['/house']">HOUSES</a>
-  <br><br>
-  <a [routerLink]="['/signup']" *ngIf="session.user.role == 'admin'">REGISTER NEW USER</a>
-  <br><br>
-</div>
+<div *ngIf="user" class="container">
 
-<div *ngIf="session.user.role == 'user'">
-  <p>Hola Usuario</p>
-  <a [routerLink]="['/complaint/add']">DENUNCIAR</a>
-  <br><br>
-  <a [routerLink]="['/alert/add']">ALERTAR</a>
-  <br><br>
-  <a [routerLink]="['/contact']">CONTACTO</a>
-  <br><br>
-</div>
-<button (click)="alert()">Alerta</button> -->
-<div *ngIf="user" class="container ">
+
 <div class="container" style="margin-top: 30px;">
     <div class="profile-head">
         <!--col-md-4 col-sm-4 col-xs-12 close-->
         <div class="col-md- col-sm-4 col-xs-12">
             <img [src]='"http://localhost:3000/"+user.imageUrl' class="img-responsive"/>
-            <h6>{{user.username}}</h6>
+           <h6>{{user.username}}</h6>
             <div class="container"style="margin-left: 90px;">
                 <span class="btn btn-default uplod-file">
-                      <a  [routerLink]="['/edit']" >Edit my Profile</a>
+                       <a  [routerLink]="['/edit']" >Edit my Profile</a>
                 </span>
             </div>
         </div>
         <a [routerLink]="['/order']">Order Your Box</a>
-        <!--col-md-4 col-sm-4 col-xs-12 close-->
+      
 
         <div class="col-md-5 col-sm-5 col-xs-12">
             <h5>{{user.lastName}}</h5>
@@ -49,11 +28,8 @@
             </ul>
         </div>
     </div>
-    <!--profile-head close-->
+
 </div>
-</div>
-<!--PARA SACAR LA LISTA DE LOS USERS-->
- <!-- <div class="list-giftboxes" *ngFor="let order of allBoxesById | async ">
-   <a  class="order"> {{order.address}} </a>
-   <a  class="order"> {{order.recieve}} </a>
-</div> -->
+ </div>
+
+<app-order-list-by-user></app-order-list-by-user>

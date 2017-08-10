@@ -21,6 +21,7 @@ export class OrderListComponent implements OnInit {
     private session: SessionService) {}
 
   ngOnInit() {
+    console.log(this.user);
     this.session.isLoggedIn().subscribe( result => this.user = result);
     this.allBoxes = this.orders.listBoxes();
       console.log('se están imprimiendo las ordenes de giftbox');
