@@ -36,7 +36,7 @@ export class OrderComponent implements OnInit {
       .subscribe(order => {
         console.log(order)
         console.log('la caja fue ordenada');
-        this.router.navigate(['/success']);
+        this.router.navigate(['/pay']);
       })
   }
 
