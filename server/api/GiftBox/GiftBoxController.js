@@ -23,7 +23,7 @@ module.exports = {
       GiftBoxModel.find({
         userId: userSearch
       }, function(err, GiftBox) {
-        
+
         if (err) {
           return res.status(500).json({
             message: 'Error when getting Product by category.',
@@ -112,6 +112,7 @@ module.exports = {
                 address: req.body.address,
                 recieve: req.body.recieve,
                 delivery: req.body.delivery,
+                status: req.body.status,
                 productsID: [randomProductLowId, randomProductMediumId, randomProductHighId]
               });
               giftBox.save()
@@ -145,6 +146,7 @@ module.exports = {
       }
 
       GiftBox.productID = req.body.productID ? req.body.productID : GiftBox.productID;
+      GiftBox.status = req.body.status ? req.body.status : GiftBox.status;
 
 
       GiftBox.save((err, GiftBox) => {
