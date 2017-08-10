@@ -12,13 +12,15 @@ export interface GU{
   recieve: string;
   address: string;
 }
+
 @Injectable()
 export class OrdersService {
   gu : GU;
   BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
-  guList : Array<object> = []
-  giftsBox: GU
+  guList : Array<object> = [];
+  giftsBox: GU;
+
   constructor( private http: Http ) { }
 
   createBox(newBox): Observable<GU>{
@@ -29,7 +31,7 @@ export class OrdersService {
   }
 
   editBox(formInfo, order){
-    return this.http.put(`${this.BASE_URL}/giftbox/${order._id}/edit`, formInfo, this.options)
+    return this.http.put(`${this.BASE_URL}/giftbox/${order}/edit`, formInfo, this.options)
     .map(res => {
       console.log('map despues de la respuesta del PUT servicio order');
       console.log(res.json())
@@ -43,6 +45,15 @@ export class OrdersService {
   )
     .catch(this.handleError);
   }
+
+  listBoxesByUserId(userId){
+
+    return this.http.get(`${this.BASE_URL}/giftbox/user/${userId}`, this.options)
+    .map(res => res.json()
+  )
+    .catch(this.handleError);
+  }
+
 
 
   detailBox(id){

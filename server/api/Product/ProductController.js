@@ -1,5 +1,6 @@
 const ProductModel = require('./ProductModel.js');
 const User = require('../User/UserModel');
+const upload = require('../../config/multer');
 
 
 module.exports = {
@@ -64,21 +65,22 @@ module.exports = {
 
 
   create: function(req, res) {
-
-    var Product = new ProductModel({
+// console.log("ENTRE a create");
+  // console.log("esto es body =" + req.body);
+    const Product = new ProductModel({
       name: req.body.name,
-      imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
       category: req.body.category,
       gender: req.body.gender,
       priceCategory: req.body.priceCategory,
-
+      imageUrl: `/uploads/${req.file.filename}` || '',
+      imageName: req.file.orginalname,
     });
     console.log(req.body);
     console.log(Product);
 
-    Product.save(function(err, Product) {
+    Product.save((err, Product)=> {
       if (err) {
         return res.status(500).json({
           message: 'Error when creating Product',
@@ -106,14 +108,6 @@ module.exports = {
           message: 'No such Product'
         });
       }
-
-      Product.name = req.body.name ? req.body.name : Product.name;
-      Product.imageUrl = req.body.imageUrl ? req.body.imageUrl : Product.imageUrl;
-      Product.price = req.body.price ? req.body.price : Product.price;
-      Product.description = req.body.description ? req.body.description : Product.description;
-      Product.gender = req.body.gender ? req.body.gender : Product.gender;
-      Product.category = req.body.category ? req.body.category : Product.category;
-      Product.priceCategory = req.body.priceCategory ? req.body.priceCategory : Product.priceCategory;
 
       Product.save(function(err, Product) {
         if (err) {

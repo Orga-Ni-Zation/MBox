@@ -7,13 +7,16 @@ const GiftBoxSchema = new Schema({
 	recieve :  { type: String},
 	address : { type: String },
 	delivery : { type: Date},
-	type : [{type: String, default: 'own'}],
-	status : [{type: String, default: 'in proccess'}]
+	type : {type: String, enum: ['own', 'gift'], default: 'own'},
+	status : {type: String,
+		enum: ['in proccess', 'order accepted', 'creating product', 'preparing shipment', 'shipped', 'completed' ],
+		default: 'in proccess'},
 }, {
 timestamps: {
   createdAt: 'created_at',
   updatedAt: 'updated_at'
 }
 });
+
 
 module.exports = mongoose.model('GiftBox', GiftBoxSchema);

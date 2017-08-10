@@ -7,6 +7,7 @@ const User = require('./UserModel');
 const authRoutes = express.Router();
 const bcryptSalt = 10;
 
+
 exports.listUser = function(req, res, next) {
   User.find()
     .then(userList => {
@@ -28,6 +29,8 @@ exports.signUp = function(req, res, next) {
   let country = req.body.country;
   let address = req.body.address;
   let phone = req.body.phone;
+  let role = req.body.role;
+  let imageUrl = `/uploads/${req.file.filename}`;
 
 
 
@@ -51,7 +54,7 @@ exports.signUp = function(req, res, next) {
 
     const salt = bcrypt.genSaltSync(10);
     const hashPass = bcrypt.hashSync(password, salt);
-
+    console.log('imprimiendo ====>>>>>> llegara?');
     const theUser = new User({
       username,
       email,
@@ -62,11 +65,8 @@ exports.signUp = function(req, res, next) {
       country,
       address,
       phone,
-
-
-
-
-
+      imageUrl : `/uploads/${req.file.filename}` || '',
+      imageName : req.file.orginalname
     });
     console.log(theUser);
     theUser.save((err) => {
@@ -76,6 +76,7 @@ exports.signUp = function(req, res, next) {
         });
         return;
       }
+
       req.login(theUser, (err) => {
         if (err) {
           res.status(500).json({
@@ -89,15 +90,15 @@ exports.signUp = function(req, res, next) {
     });
   });
 };
-exports.logIn = function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      return next(err);
-    }
 
-    if (!user) {
+exports.logIn = (req, res, next) =>{
+  console.log('hellooooo im tryignt to login');
+  passport.authenticate('local', (err, user, info) => {
+    if (err)
+      return next(err);
+
+    if (!user)
       return res.status(401).json(info);
-    }
 
     req.login(user, function(err) {
       if (err) {
@@ -105,7 +106,7 @@ exports.logIn = function(req, res, next) {
           message: 'something went wrong :('
         });
       }
-      res.status(200).json(req.user);
+      return res.status(200).json(req.user);
     });
   })(req, res, next);
 };
@@ -121,9 +122,11 @@ exports.editUser = function(req, res, next) {
     country: req.body.country,
     address: req.body.address,
     phone: req.body.phone,
+    imageUrl :req.body.imageUrl
+
 
   };
-  console.log("============================", req.params.id);
+  console.log("8============================D", req.params.id);
   User.findByIdAndUpdate(req.params.id, updates, (err) => {
     if (err) {
       console.log('error');
@@ -181,4 +184,5 @@ exports.removeUser = function(req, res) {
       message: 'impossible to remove the user',
       error: err
     }));
+
 };

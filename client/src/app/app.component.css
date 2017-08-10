@@ -1,53 +1,63 @@
-/* ***** NAV BAR ***** */
-.menu
-{
-background-color: #00547E;
-border-bottom: 4px solid #04A3ED;
-width:100%;
-height: auto;
-padding: 20px 10px;
-margin: 0px;
-z-index: 1;
-opacity: 0.9;
-}
+ /*NAV PRUEBA*/
 
-.menu  .navbar-nav > .active > a
-{
-background-color : #04A3ED;
-color: white;
-font-weight: bold;
-}
+ .navbar-login {
+   width: 305px;
+   padding: 10px;
+   padding-bottom: 0px;
+ }
 
-.menu  .navbar-nav >  li >  a
-{
-font-size: 13px;
-color: white;
-padding: 10px 35px;
+ .navbar-login-session {
+   padding: 10px;
+   padding-bottom: 0px;
+   padding-top: 0px;
+ }
 
-}
-.menu  .navbar-nav >  li >  a:hover
-{
-background-color: #04A3ED;
-}
+ .icon-size {
+   font-size: 87px;
+ }
 
-.navbar-header > a
-{
-font-family: 'Ubuntu Condensed', sans-serif;
-padding: 0px;
-margin: 0px;
-text-decoration: none;
-color: white;
-font-size: 25px;
-padding: 5px 30px;
-}
-.navbar-header > a:hover
-{
-text-decoration: none;
-color: #04A3ED;
-}
+ .navbar-default {
+   background-color: #00547E;
+   border-color: #121212;
+   padding: 10px;
+   color: white;
+   font-size: 20px;
+ }
 
-/*FOOTER*/
-.container {background-color:#00547E;color:white;}
-.container-fluid {background-color:#00547E}
-.container button {width:100%;}
-.container ul li {cursor:pointer;}
+   .navbar-default .navbar-nav>li>a {
+      color: white;
+  }
+  .navbar-brand > span{
+    font-size: 25px;
+    color:white;
+  }
+
+
+ /*FOOTER*/
+
+ .container-footer {
+   background-color: #00547E;
+   color: white;
+ }
+
+ .container-fluid {
+   background-color: #00547E
+ }
+
+ .container button {
+   width: 100%;
+ }
+
+ .container ul li {
+   cursor: pointer;
+ }
+ .row{
+   color:white;
+ }
+ .col-lg-8 {
+    width: 66.66666667%;
+    color: black;
+}
+.navbar-fixed-top{
+  margin-bottom: 200px;
+}

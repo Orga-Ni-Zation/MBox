@@ -13,32 +13,32 @@ import { ProductService } from '../../services/product.service'
 export class OrderComponent implements OnInit {
   error: string;
   formInfo = {
-    userId:'',
+    userId: '',
     recieve: '',
     address: '',
+    // status : [''],
   }
-  user:any;
+  user: any;
 
 
-  constructor(private orders: OrdersService, private product : ProductService, private session: SessionService, private router: Router) { }
+  constructor(private orders: OrdersService, private product: ProductService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
-      this.session.isLoggedIn().subscribe( result => this.user=result)
+    this.session.isLoggedIn().subscribe(result => this.user = result)
   }
 
-  createBox(){
+  createBox() {
     // console.log(this.formInfo.userId)
     this.formInfo.userId = this.user._id;
     console.log(this.formInfo.userId);
 
     this.orders.createBox(this.formInfo)
-      .subscribe(
-        (order) => {
-          console.log('la caja fue ordenada');
-          this.router.navigate(['/home']);
-        },
-        (err) => console.log(err)
-      )
+      // this.router.navigate(['/success']);
+      .subscribe(order => {
+        console.log(order)
+        console.log('la caja fue ordenada');
+        this.router.navigate(['/pay']);
+      })
   }
 
 

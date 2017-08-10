@@ -1,35 +1,39 @@
 require('dotenv').load();
-const express      = require('express');
-const path         = require('path');
-const favicon      = require('serve-favicon');
-const logger       = require('morgan');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const bodyParser   = require('body-parser');
-const layouts      = require('express-ejs-layouts');
-const session    = require('express-session');
+const bodyParser = require('body-parser');
+const layouts = require('express-ejs-layouts');
+const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const mongoose     = require('mongoose');
-const passport   = require('passport');
+const mongoose = require('mongoose');
+const passport = require('passport');
 const cors = require("cors");
 const app = express();
+const multer = require('multer');
+const upload = require('./config/multer');
+
 
 const dbUrl = process.env.MONGO_URL;
 console.time('db');
 mongoose.connect(dbUrl)
-  .then( () => {
+  .then(() => {
     console.log(`Connected to ${dbUrl}`);
     console.timeEnd('db');
   })
-  .catch( e => console.log(e));
+  .catch(e => console.log(e));
+
 
 var whitelist = ['http://localhost:4200'];
 var corsOptions = {
-    origin: function(origin, callback){
-        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-        callback(null, originIsWhitelisted);
-    },
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE']
+  origin: function(origin, callback) {
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE']
 };
 app.use(cors(corsOptions));
 
@@ -46,20 +50,29 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+
+
 
 app.use(session({
   secret: 'angular auth passport secret shh',
   resave: true,
   saveUninitialized: true,
-  cookie : { httpOnly: true, maxAge: 2419200000 },
-  store: new MongoStore({mongooseConnection: mongoose.connection, autoRemove:'ignore'})
+  cookie: {
+    httpOnly: true,
+    maxAge: 2419200000
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    autoRemove: 'ignore'
+  })
 }));
 
 
@@ -71,6 +84,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes')(app);
+
 
 app.use((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

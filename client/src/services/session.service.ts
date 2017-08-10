@@ -31,7 +31,8 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  signup(newUser): Observable<User> {
+  signup(newUser):Observable<User> {
+    console.log('signup user' + newUser)
     return this.http.post(`${this.BASE_URL}/user/signup`, newUser, this.options)
       .map(res => res.json())
       .catch(this.handleError);

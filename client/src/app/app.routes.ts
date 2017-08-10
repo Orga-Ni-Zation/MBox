@@ -12,6 +12,10 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { DetailOrderComponent } from './detail-order/detail-order.component';
+import { SuccesfullyBoughtComponent } from './succesfully-bought/succesfully-bought.component';
+import { OrderListByUserComponent } from './order-list-by-user/order-list-by-user.component'
+import { PayComponent } from './pay/pay.component'
+import { EditOrderComponent } from './edit-order/edit-order.component'
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -20,6 +24,7 @@ export const routes: Routes = [
   { path: 'edit', component: EditComponent },
   { path: 'home', component: HomeComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'success', component: SuccesfullyBoughtComponent},
   { path: 'shopdetails', component: ShopDetailComponent },
   { path: 'product', component: ProductListComponent },
   { path: 'new', component: NewProductComponent },
@@ -27,5 +32,8 @@ export const routes: Routes = [
   { path: 'editproduct', component: EditProductComponent },
   { path: 'orderslist', component: OrderListComponent },
   { path: 'orderdetail/:id', component: DetailOrderComponent },
-  // { path: '**', redirectTo: '' }
+  { path: 'orderlistbyuser/:id', component: OrderListByUserComponent },
+  { path: 'editorder/:id', component: EditOrderComponent},
+  { path: 'pay', component: PayComponent },
+  { path: '**', redirectTo: '' }
 ]

@@ -1,10 +1,12 @@
 <div class="" *ngFor="let product of allProducts">
-<div class="container">
+<div class="container margin-top">
+
 	<div class="row">
+
 		<div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <a [routerLink]="[product._id]">
-                            <img src="{{product.imageUrl}}" class="img-responsive img-box img-thumbnail">
+                            <img [src]='"http://localhost:3000/"+product.imageUrl' class="img-responsive img-box img-thumbnail">
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-9 col-md-9">
@@ -12,7 +14,7 @@
                             <div class="list-group-item">
                                 <div class="row-picture">
                                     <a [routerLink]="[product._id]" title="sintret">
-                                        <img class="circle img-thumbnail img-box" src="http://www.anp.com.uy/wps/wcm/connect/c50219bd-cff2-4e4b-9d7c-49fae769a4df/informacion+%281%29.jpg?MOD=AJPERES&CACHEID=c50219bd-cff2-4e4b-9d7c-49fae769a4df" alt="sintret">
+                                        <img class="circle img-thumbnail img-box" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpxFNIudkmFgUIG4KF37hCkd4lF8vDT9E2jCcSzjMm_S6BDiM" alt="sintret">
                                     </a>
                                 </div>
                                 <div class="row-content">

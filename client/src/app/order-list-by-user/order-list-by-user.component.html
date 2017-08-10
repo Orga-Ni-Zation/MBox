@@ -1,0 +1,52 @@
+<p>
+  order-list-by-user works!
+</p>
+<button type="button" (click)="listUserBoxes()" name="button">List your orders</button>
+<div class="list-giftboxes" *ngFor="let orderById of giftBoxesById | async">
+  <a href="/orderdetail/{{orderById._id}}" class="order"> {{orderById.recieve}} </a>
+  <a href="/orderdetail/{{orderById._id}}" class="order"> {{orderById.address}} </a>
+</div>
+<div class="list-giftboxes" *ngFor="let orderById of giftBoxesById | async">
+  <h1 class="text-center">My Boxes List: </h1>
+<div class="container">
+    <div class="row">
+		<div class="well">
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
+                <div class="media col-md-3">
+                    <figure class="pull-left">
+                        <img class="media-object img-rounded img-responsive"  src="http://cdn.shopify.com/s/files/1/0317/1509/products/Mystery_Box_grande.jpg?v=1418408240/350x250" alt="placehold.it/350x250" >
+                    </figure>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="list-group-item-heading"> Information: </h4>
+                    <br>
+                    <p class="list-group-item-text">Delivery : {{orderById.delivery | date: 'dd/MM/yyyy '}}</p>
+                    <br>
+                    <p class="list-group-item-text">Name: {{orderById.recieve}}</p>
+                    <br>
+                    <p class="list-group-item-text">Address: {{orderById.address}}</p>
+                    <br>
+                    <p class="list-group-item-text">Buyed: {{orderById.created_at | date: 'dd/MM/yyyy '}}</p>
+
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2> My Box ID: <small> {{orderById._id}} </small></h2>
+                    <a [routerLink]="['/order']" class="btn btn-default btn-lg btn-block"> Buy More </a>
+                    <div class="stars">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <p> Status <small> / </small> {{orderById.status}} </p>
+                </div>
+          </a>
+
+
+        </div>
+        </div>
+	</div>
+</div>
+</div>

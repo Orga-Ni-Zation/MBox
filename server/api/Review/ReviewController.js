@@ -1,8 +1,8 @@
-var ReviewModel = require('./ReviewModel.js');
-
+const ReviewModel = require('./ReviewModel.js');
+const upload = require ('../../config/multer');
 module.exports = {
 
-    list: function (req, res) {
+    list:  (req, res) => {
         ReviewModel.find(function (err, Reviews) {
             if (err) {
                 return res.status(500).json({
@@ -16,7 +16,7 @@ module.exports = {
 
     show: function (req, res) {
         var id = req.params.id;
-        ReviewModel.findOne({_id: id}, function (err, Review) {
+        ReviewModel.findOne({_id: id},  (err, Review) => {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting Review.',
@@ -39,8 +39,8 @@ module.exports = {
 			review : req.body.review,
 			stars : req.body.stars,
 			userID : req.body.userID,
-			giftBoxID : req.body.giftBoxID
-
+			giftBoxID : req.body.giftBoxID,
+      imageUrlReview: `/uploads/${req.file.filename}` || '',
         });
 
         Review.save(function (err, Review) {
