@@ -14,6 +14,7 @@ body {
   padding: 15px 5px;
   border-radius: 30px;
   margin-bottom: 40px;
+  margin-top: 100px;
 }
 
 .profile-head img {
@@ -130,4 +131,3 @@ body {
   color: #fff;
   background-color: #04A3ED;
 }
- 

@@ -3,7 +3,7 @@
 
 
 
-<div class="container">
+<div class="container margin-aPelo">
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
@@ -27,14 +27,14 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
-						<p class="product-description">{{ product.description }}</p>
+						<p class="price">{{ product.description }}</p>
 						<h4 class="price">current price: <span>$  {{ product.price }}</span></h4>
-						<p class="vote"><strong>Price Category:</strong><strong>  {{ product.priceCategory }}</strong>  </p>
-						<h5 class="sizes">sizes:
-							<span class="size" data-toggle="tooltip" title="small">{{product.created_at}}</span>
+						<h4 class="price">Price Category:<span>  {{ product.priceCategory }}</span>  </h4>
+						<h5 class="price">Created :
+							<span class="price" data-toggle="tooltip" title="small">{{product.created_at}}</span>
 
 						</h5>
-            <h5 class="sizes">Id:
+            <h5 class="price">Id:
 							<span class="size" data-toggle="tooltip" title="small">{{product._id}}</span>
 
 						</h5>
