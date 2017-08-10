@@ -1,9 +1,7 @@
 <div class="" *ngFor="let product of allProducts">
 <div class="container margin-top">
-
-	<div class="row">
-
-		<div class="row">
+    <div class="row">
+        <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <a [routerLink]="[product._id]">
                             <img [src]='"http://localhost:3000/"+product.imageUrl' class="img-responsive img-box img-thumbnail">
@@ -36,6 +34,6 @@
                     </div>
                 </div>
                 <hr>
-	</div>
+    </div>
 </div>
 </div>

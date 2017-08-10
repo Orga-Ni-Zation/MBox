@@ -1,4 +1,6 @@
 <div *ngIf="user" class="container ">
+
+
 <div class="container" style="margin-top: 30px;">
     <div class="profile-head">
         <!--col-md-4 col-sm-4 col-xs-12 close-->
@@ -24,7 +26,7 @@
 </div>
 </div>
 </div>
-<div *ngIf="role == !user" class="container ">
+<div *ngIf="role === admin && role === !user">
 <a [routerLink]="['/product']">Products</a>
 <a [routerLink]="['/orderslist']">Orders from all users</a>
 </div>

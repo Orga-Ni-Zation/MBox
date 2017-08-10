@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Product = require('../api/Product/ProductModel');
-mongoose.connect(`mongodb://localhost/mbox`);
 
+mongoose.connect("mongodb://admin:admin#@ds155529.mlab.com:55529/mbox")
+.then(() =>{
 const products = [{
   name: 'bottle',
   image: "https://ae01.alicdn.com/kf/HTB1zjDAJVXXXXaKXFXXq6xXFXXXO/KEAN-caliente-550-ML-Libre-de-BPA-a-prueba-de-Fugas-Port-til-Botella-de-Agua.jpg_50x50.jpg",
@@ -57,4 +58,5 @@ Product.create(products, (err, products) => {
   if (err){ throw(err); }
   console.log("Success", products);
   mongoose.connection.close();
+});
 });
