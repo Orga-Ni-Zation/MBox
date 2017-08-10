@@ -1,11 +1,6 @@
-<p>
-  order-list-by-user works!
-</p>
-<button type="button" (click)="listUserBoxes()" name="button">List your orders</button>
-<div class="list-giftboxes" *ngFor="let orderById of giftBoxesById | async">
-  <a href="/orderdetail/{{orderById._id}}" class="order"> {{orderById.recieve}} </a>
-  <a href="/orderdetail/{{orderById._id}}" class="order"> {{orderById.address}} </a>
-</div>
+
+<button class="btn btn-default btn-lg btn-block" type="button" (click)="listUserBoxes()" name="button">List your orders</button>
+
 <div class="list-giftboxes" *ngFor="let orderById of giftBoxesById | async">
   <h1 class="text-center">My Boxes List: </h1>
 <div class="container">
