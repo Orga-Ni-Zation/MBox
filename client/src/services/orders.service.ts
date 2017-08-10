@@ -31,7 +31,7 @@ export class OrdersService {
   }
 
   editBox(formInfo, order){
-    return this.http.put(`${this.BASE_URL}/giftbox/${order._id}/edit`, formInfo, this.options)
+    return this.http.put(`${this.BASE_URL}/giftbox/${order}/edit`, formInfo, this.options)
     .map(res => {
       console.log('map despues de la respuesta del PUT servicio order');
       console.log(res.json())

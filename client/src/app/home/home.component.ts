@@ -23,15 +23,8 @@ allBoxesById: Observable<Array<object>>;
   ngOnInit() {
     this.session.isLoggedIn().subscribe( result => this.user=result);
     this.orders.listBoxes().subscribe( result => this.giftBox=result);
-    console.log(this.orders)
+        console.log(this.orders)
 
-    /*PARA SACAR LAS CAJAS DE CADA USUARIO*/
-
-  
-    // this.allBoxesById = this.orders.listBoxesByUserId(this.userId);
-    //   console.log('se están imprimiendo las lista de usuario');
-    //   console.log(this.allBoxesById)
-    //   console.log('quuuuueueuueueeu saca aqui'+this.userId)
   }
 
 
