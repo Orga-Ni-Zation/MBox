@@ -1,50 +1,101 @@
-body {
-  padding-top: 30px;
-}
 
-.widget .panel-body {
-  padding: 0px;
+.item-job-list {
+    font-family: 'Cabin';
+    padding: 10px;
+    border: solid 2px #00547E;
 }
-
-.widget .list-group {
-  margin-bottom: 0;
+.block-pid::before {
+    content:"ID: ";
 }
-
-.widget .panel-title {
-  display: inline
+.block-application::before {
+    content:"Create: ";
 }
-
-.widget .label-info {
-  float: right;
+.block-type::before {
+    content:"Type: ";
 }
-
-.widget li.list-group-item {
-  border-radius: 0;
-  border: 0;
-  border-top: 1px solid #ddd;
+.block-product::before {
+    content:"Product: ";
 }
-
-.widget li.list-group-item:hover {
-  background-color: rgba(86, 61, 124, .1);
+.block-status::before {
+    content:"Status: ";
 }
-
-.widget .mic-info {
-  color: #666666;
-  font-size: 11px;
+.block-organization::before {
+    content: "ID: ";
 }
-
-.widget .action {
-  margin-top: 5px;
+.block-do-action {
+        list-style-type: none;
+        margin-left: 0px;
+        padding-left:0px;
 }
-
-.widget .comment-text {
-  font-size: 12px;
+.block-do-action li::before {
+        color: gray;
 }
-
-.widget .btn-block {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+.item-block-application-id::before { content:"Name: "; }
+.item-block-module-id::before { content: "Phone: "; }
+.item-block-class-id::before { content: "Email: "; }
+.item-block-action-id::before { content: "Address: "; }
+.block-hdr::before {
+    color: gray;
 }
-.margin-aPelo{
-  margin-top: 8%;
+.block-hdr {
+    color: black;
+}
+.block-last-execution::before {
+    content: "Name....: ";
+}
+.block-next-execution::before {
+    content: "Day....: ";
+}
+.block-recurring::before {
+    content: "Address: ";
+}
+.block-toolbar li {
+    min-width: 150px;
+    margin-top: 5px;
+}
+.block-col::before {
+   border: 1px solid #888;
+    display: block;
+    padding: 2px;
+}
+.block-col-1::before {
+    content: "Box Info:";
+    background-color: #fbb;
+}
+.block-col-2::before {
+    content: "User Info";
+    background-color: #bfb;
+}
+.block-col-3::before {
+    content: "Recieve Info";
+    background-color: #bbf;
+}
+.block-col-4::before {
+    content: "Actions";
+    background-color: #bbb;
+}
+.block-col {
+    margin-bottom:20px;
+    padding: 20px;
+    font-size: 18px;
+}
+.block-hdr {
+    margin-top: 10px;
+}
+.block-toolbar {
+    margin-top: 10px;
+}
+.block-hdr A {
+    position: absolute;
+    right: 10px;
+}
+.block-do-action  {
+    width: 100%;
+}
+.block-do-action  A {
+    position: absolute;
+    right: 10px;
+}
+.jumbotron{
+  margin-top: 5%;
 }

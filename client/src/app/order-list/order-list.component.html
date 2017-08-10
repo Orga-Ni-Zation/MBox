@@ -1,57 +1,52 @@
-
-<div *ngIf="role === admin" class="container ">
-
-<div class="margin-aPelo">
-
-
-    <div class="list-giftboxes" *ngFor="let order of allBoxes | async">
-  <div class="container">
-    <div class="row">
-        <div class="panel panel-default widget">
-            <div class="panel-heading">
-                <span class="glyphicon glyphicon-comment"></span>
-                <h3 class="panel-title">
-                    Admin List</h3>
-                <span class="label label-info">
-                    1</span>
+<div class=" jumbotron">
+  <div *ngIf="role === admin" class="container ">
+    <div class="margin-aPelo">
+      <div class="list-giftboxes" *ngFor="let order of allBoxes | async">
+        <div class="container">
+          <div class="row item-job-list ">
+            <div class="col-sm-3 col-md-3 block-col block-col-1">
+              <p class="block-pid block-hdr">{{order._id}}</p>
+              <p class="block-application block-hdr">
+                {{order.created_at | date: 'dd/MM/yyyy '}}</p>
+              <p class="block-product block-hdr">{{order.productsID[0]}}</p>
+              <p class="block-product block-hdr">{{order.productsID[1]}}</p>
+              <p class="block-product block-hdr">{{order.productsID[2]}}</p>
+              <p class="block-type block-hdr">{{order.type}}</p>
+              <p class="block-status block-hdr">{{order.status}}</p>
             </div>
-            <div class="panel-body">
-                <ul class="list-group">
-
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="http://www.japanuniquegifts.com/data/japan/product/20141004_9e3fee.jpg" class="img-circle img-responsive" alt="" /></div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">{{order._id}}</a>
-                                    <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                </div>
-                                <div class="action">
-                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
-                                        <span class="glyphicon glyphicon-ok"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> Details</a>
+            <div class="col-sm-3 col-md-3 block-col block-col-2">
+              <p class="block-organization block-hdr">{{order.userId}}</p>
+              <ul class="block-do-action">
+                <li class="item-block-application-id">{{user.lastName}} <a href=""><i class="glyphicon glyphicon-edit"></i></a></li>
+                <li class="item-block-module-id">{{user.phone}}<a href=""><i class="glyphicon glyphicon-edit"></i></a></li>
+                <li class="item-block-class-id">{{user.email}} <a href=""><i class="glyphicon glyphicon-edit"></i></a></li>
+                <li class="item-block-action-id">{{user.address}}<a href=""><i class="glyphicon glyphicon-edit"></i></a> </li>
+              </ul>
             </div>
+            <div class="col-sm-3 col-md-3 block-col block-col-3">
+              <p class="block-last-execution block-hdr">
+                {{order.recieve}}
+              </p>
+              <p class="block-next-execution block-hdr">
+                {{order.delivery | date: 'dd/MM/yyyy'}}
+                <a href=""><i class="glyphicon glyphicon-edit"></i></a>
+              </p>
+              <p class="block-recurring block-hdr">
+                {{order.address}}
+                <a href=""><i class="glyphicon glyphicon-edit"></i></a>
+              </p>
+            </div>
+            <div class="col-sm-3 col-md-3 block-col block-col-4">
+              <ul class="block-toolbar">
+                <a [routerLink]="['/orderdetail/${_id}']">
+                  <li class="btn btn-default btn-sm btn-success"><i class="fa fa-toggle-off"></i> Order Status</li>
+                </a>
+                <li class="btn btn-default btn-sm btn-primary"><i class="fa fa-play"></i> Run</li>
+                <li class="btn btn-default btn-sm"><i class="fa fa-clone"></i> Duplicate</li>
+                <li class="btn btn-default btn-sm"><i class="glyphicon glyphicon-list"></i> History</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-  </div>
-</div>

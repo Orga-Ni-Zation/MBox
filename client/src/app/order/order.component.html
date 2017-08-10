@@ -1,32 +1,27 @@
 <div class="container">
-    	<h1 class="well">ORDER NOW</h1>
-		<div class="col-lg-12 well">
-				<div class="row">
-					<div class="col-sm-6 form-group">
+        <h1 class="well">ORDER NOW</h1>
+        <div class="col-lg-12 well">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
             <label>Receiver Name </label>
             <input type="text" [(ngModel)]="formInfo.recieve" name="recieve" placeholder="Receiver Name" class="form-control" />
-
-					</div>
-					<div class="col-sm-6 form-group">
+                    </div>
+                    <div class="col-sm-6 form-group">
             <label for="date">Date</label>
             <input type="date" [(ngModel)]="formInfo.delivery" name="date" id="birthday" class="form-control">
-					</div>
-				</div>
+                    </div>
+                </div>
         <div class="row">
-				  <div class="col-sm-12 text-center">
+                  <div class="col-sm-12 text-center">
             <label> Address </label>
             <input type="address" [(ngModel)]="formInfo.address" name="address" placeholder="Address" class="form-control">
-				  </div>
-				</div>
+                  </div>
+                </div>
         <br><br>
-
-				<div class="row">
-				  <div class="col-sm-12 text-center">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
             <button class="btn btn-block btn-info" (click)="createBox()"> Order your box </button>
-				  </div>
-				</div>
-
-
-
-		</div>
-	</div>
+                  </div>
+                </div>
+        </div>
+    </div>
