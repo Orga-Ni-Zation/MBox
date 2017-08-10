@@ -29,6 +29,137 @@
 </div>
 
 </div>
+<div *ngIf="role === admin" class="container ">
 
+<a [routerLink]="['/product']">Products</a>
+<a [routerLink]="['/orderslist']">Orders from all users</a>
+
+
+</div>
  <a [routerLink]="['/order']">Order Your Box</a>
+ <div class="heading">
+   <header class="main-header">
+     <h1>Richard Lee Skinner</h1>
+     <h2>Front-End Web Developer</h2>
+   </header>
+ </div>
+
+ <div class="proficiencies">
+   <h3>Proficiencies</h3>
+   <div class="content-prof col">
+     <i class="fa fa-cogs fa-2x" aria-hidden="true"></i>
+     <p>Enter proficiencies of Javascript here in this box. A little bit more informtion about the skills here.
+       Mention learned frameworks.
+     </p>
+   </div>
+
+   <div class="content-prof col">
+     <i class="fa fa-tablet fa-2x" aria-hidden="true"></i>
+     <i class="fa fa-laptop fa-2x" aria-hidden="true"></i>
+     <i class="fa fa-desktop fa-2x" aria-hidden="true"></i>
+     <p>Responsive Design, clean and minimal mobile-first development. Focus on design and animation for Enhanced user experience.</p>
+   </div>
+
+   <div class="content-prof col">
+     <i class="fa fa-code fa-2x" aria-hidden="true"></i>
+     <p>CSS3/SASS, HTML5, CSS3 Animations, SVG, Bootstrap 4. I have lots of Proficiencies. Some of the best proficiencies.</p>
+   </div>
+ </div>
+
+ <div class="projects">
+   <h3>Projects</h3>
+   <div class="mobile-projects">
+     <img class="resize" src="http://lorempixel.com/1920/1080" alt="Project 1">
+     <p>
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+         <span><a href="#"> See More </a></span>
+     </p>
+     <img class="resize" src="http://lorempixel.com/1920/1080" alt="Project 1">
+     <p>
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+
+         <span><a href="#"> See More </a></span>
+     </p>
+     <img class="resize" src="http://lorempixel.com/1920/1080" alt="Project 1">
+     <p>
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+
+         <span><a href="#"> See More </a></span>
+     </p>
+     <img class="resize" src="https://lorempixel.com/1920/1080" alt="Project 1">
+     <p>
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+         <a href="#"> See More </a>
+     </p>
+   </div>
+
+   <!-- PORTFOLIO ZOOM IN TILES || VISIBLE AT 831PX -->
+
+   <div class="portfolio-links">
+     <div class="window one">
+       <h2 class="sub-info">Project</h2>
+       <p class="sub-info">
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+       </p>
+       <a href="#" class="sub-info">See More</a>
+     </div>
+
+     <div class="window two">
+       <h2 class="sub-info">Project</h2>
+       <p class="sub-info">
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+       </p>
+       <a href="#" class="sub-info">Learn More</a>
+     </div>
+
+     <div class="window three">
+       <h2 class="sub-info">Project</h2>
+       <p class="sub-info">
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+       </p>
+       <a href="#" class="sub-info">Learn More</a>
+     </div>
+
+     <div class="window four">
+       <h2 class="sub-info">Project</h2>
+       <p class="sub-info">
+         This is some information about your project.
+         This is some information about your project.
+         This is some information about your project.
+       </p>
+       <a href="#" class="sub-info">Learn More</a>
+     </div>
+   </div>
+   <!-- END OF PORTFOLIO ZOOM IN TILES || VISIBLE AT 831PX -->
+ </div>
+ <div class="about">
+   <h3>About Me</h3>
+   <p>This is where some information about me would be placed. Information about my interests
+     Or hobbies and maybe even a short anecdote.
+   </p>
+   <p>
+     Contact Information:
+     <a href="#">(555) 555-5555</a>
+     <a href="mailto:">Example@gmail.com</a>
+   </p>
+
+ </div>
+
+ <footer class="main-footer">
+   <p>Copyright Richard Skinner <span><i class="fa fa-copyright" aria-hidden="true"></i></span> 2017</p>
+ </footer>
 <app-order-list-by-user></app-order-list-by-user>

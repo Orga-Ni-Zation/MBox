@@ -131,3 +131,350 @@ body {
   color: #fff;
   background-color: #04A3ED;
 }
+/****************************
+GENERAL STYLES
+*****************************/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 0;
+	color: white;
+}
+
+h2 {
+	text-align: center;
+	color: white;
+}
+
+h3 {
+	text-align: center;
+	font-size: 25px;
+	padding: 10px 0 00;
+}
+
+li {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+
+a {
+	margin-top: 10px;
+	padding: 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: rgba(77, 148, 255, .4);
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	display: block;
+	height: inherit;
+	width: 100%;
+	font-weight: bold;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+a:hover {
+	background-color: rgba(77, 148, 255, 1);
+	color: white;
+}
+
+h3 {
+	margin-top: 0;
+	text-align: center;
+}
+
+
+
+
+/****************************
+HEADING STYLES
+*****************************/
+
+.heading {
+	height: 300px;
+	width: 100%;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+	background: url('http://lorempixel.com/1920/1080');
+	background-position: center;
+	background-size: 130%;
+	background-repeat: no-repeat;
+}
+
+.main-header {
+	padding-top: 90px;
+}
+
+
+
+
+/************************************
+PROFICIENCIES SECTION - MOBILE FIRST
+*************************************/
+
+.content-prof {
+	text-align: center;
+	border-bottom: 1px solid grey;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.content-prof:nth-child(4) {
+	border: none;
+}
+
+.fa {
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+/************************************
+PROJECTS SECTION - MOBILE FIRST
+*************************************/
+.portfolio-links {
+	display: none;
+}
+
+.projects h3 {
+	width: 80%;
+	margin: 10px auto;
+	padding-top: 5px;
+	border-top: 2px solid grey;
+}
+
+.resize {
+	width: 60%;
+	height: 60%;
+}
+
+.mobile-projects {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mobile-projects p {
+	text-align: left;
+	float: left;
+	width: 40%;
+	padding: 0 5px;
+}
+
+.mobile-projects img {
+	padding: 10px;
+}
+
+.mobile-projects img:nth-child(4n+1) {
+	float: left;
+}
+
+.mobile-projects img:nth-child(5) {
+	clear: left;
+}
+
+.mobile-projects img:nth-child(3n+4) {
+	float: right;
+}
+
+.about {
+	clear: both;
+}
+
+.main-footer {
+	clear: both;
+}
+
+/************************************
+ABOUT SECTION - MOBILE FIRST
+*************************************/
+
+.about h3 {
+	width: 80%;
+	margin: 20px auto;
+	padding-top: 5px;
+	border-top: 2px solid grey;
+}
+
+.about p {
+	text-align: center;
+}
+
+.about p a {
+	width: 50%;
+	margin: 5px auto;
+}
+
+
+
+/************************************
+FOOTER
+*************************************/
+
+.main-footer {
+	background-color: rgba(0,0,0, .4);
+	height: 100px;
+	text-align: center;
+}
+
+.main-footer li a {
+	text-decoration: none
+}
+
+/****************************
+MEDIA QUERIES
+*****************************/
+
+@media (min-width: 720px) {
+	h2{
+		color: white;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	.heading {
+	height: 25%;
+	width: 100%;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+	background: url('http://lorempixel.com/1920/1080');
+	background-position: center;
+	background-size: 130%;
+	background-repeat: no-repeat;
+	}
+
+	.main-header {
+		padding-bottom: 40px;
+	}
+
+	.content-prof.col {
+		display: inline-block;
+		margin: 0 -4px auto;
+		padding: 0 10px;
+		min-height: 146px;
+		border-bottom: none;
+	}
+
+	.content-prof:nth-child(3) {
+		padding-top: 20px;
+		border-left: 1px solid grey;
+		border-right: 1px solid grey;
+	}
+
+	.content-prof:nth-child(2n-1) {
+		padding-top: -20px;
+	}
+	.col {
+		width: 33.333%;
+	}
+
+}
+
+
+
+/*This styles the zooming project preview for desktops. Not available less than 830px*/
+
+@media (min-width: 830px) {
+	.mobile-projects {
+		display: none;
+	}
+
+	.portfolio-links a {
+		display: inline-block;
+		text-decoration: none;
+		color: white;
+		margin: 0 20rem auto;
+		width: 10rem;
+		height: 3.3rem;
+		padding: 1rem;
+		text-align: center;
+		border-radius: 10px;
+		background-color: rgba(77, 148, 255, .4);
+		transition: background-color .5s;
+}
+
+	.portfolio-links a:hover {
+		background-color: rgb(77, 148, 255);
+	}
+
+	.portfolio-links h2 {
+		margin: 0 4em;
+		padding-top: 4em;
+		padding-bottom: .25em;
+		text-align: center;
+		border-bottom: 2px solid white;
+		font-family: sans-serif;
+		font-size: 30px;
+		color: white;
+	}
+
+	.portfolio-links p {
+		margin: 0 9em;
+		text-align: center;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		font-family: sans-serif;
+		color: white;
+	}
+
+	.portfolio-links {
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.window {
+		margin: 1em auto;
+		border: 1px solid grey;
+		height: 20em;
+		width: 50em;
+		max-width: 100%;
+		background-repeat: no-repeat;
+		transition: background-color .5s, box-shadow 0.5s, background-size 1s;
+}
+
+	.sub-info {
+		visibility: hidden;
+		transition: visibility 0.1s;
+	}
+
+	.window:hover .sub-info {
+		visibility: visible;
+	}
+
+	.window:hover {
+		box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6), 3px 3px 10px 3px grey;
+		background-size: 150%;
+	}
+
+	.one {
+		background-image: url('http://lorempixel.com/1920/1080');
+		background-position: center;
+		background-size: 100%;
+	}
+
+	.two {
+		background-image: url('http://lorempixel.com/1920/1080');
+		background-position: center;
+		background-size: 100%;
+	}
+
+	.three {
+		background-image: url('http://lorempixel.com/1920/1080');
+		background-position: center;
+		background-size: 100%;
+	}
+
+	.four {
+		background-image: url('http://lorempixel.com/1920/1080');
+		background-position: center;
+		background-size: 100%;
+}
+}
