@@ -1,9 +1,9 @@
-<p>
+
 <div *ngIf="role === admin" class="container ">
-  <div class="list-giftboxes" *ngFor="let order of allBoxes | async">
-    <a href="/orderdetail/{{order._id}}" class="order"> {{order.recieve}} </a>
-    <a href="/orderdetail/{{order._id}}" class="order"> {{order.address}} </a>
-  </div>
+
+<div class="margin-aPelo">
+
+
     <div class="list-giftboxes" *ngFor="let order of allBoxes | async">
   <div class="container">
     <div class="row">
@@ -13,7 +13,7 @@
                 <h3 class="panel-title">
                     Admin List</h3>
                 <span class="label label-info">
-                    36</span>
+                    1</span>
             </div>
             <div class="panel-body">
                 <ul class="list-group">
@@ -21,7 +21,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-2 col-md-1">
-                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+                                <img src="http://www.japanuniquegifts.com/data/japan/product/20141004_9e3fee.jpg" class="img-circle img-responsive" alt="" /></div>
                             <div class="col-xs-10 col-md-11">
                                 <div>
                                     <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">{{order._id}}</a>
@@ -48,7 +48,7 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
+                <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> Details</a>
             </div>
         </div>
     </div>
