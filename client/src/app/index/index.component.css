@@ -246,6 +246,7 @@ bs-slider {
 .slide-text>a.btn-default {
   color: #000;
   font-weight: 400;
+  background: white;
   font-size: 13px;
   line-height: 15px;
   margin-right: 10px;

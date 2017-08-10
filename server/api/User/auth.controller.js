@@ -29,6 +29,7 @@ exports.signUp = function(req, res, next) {
   let country = req.body.country;
   let address = req.body.address;
   let phone = req.body.phone;
+  let role = req.body.role;
   let imageUrl = `/uploads/${req.file.filename}`;
 
 
@@ -121,7 +122,9 @@ exports.editUser = function(req, res, next) {
     country: req.body.country,
     address: req.body.address,
     phone: req.body.phone,
-    imageUrl: req.body.imageUrl
+    imageUrl :req.body.imageUrl
+
+
   };
   console.log("8============================D", req.params.id);
   User.findByIdAndUpdate(req.params.id, updates, (err) => {

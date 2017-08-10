@@ -9,8 +9,15 @@ import { Router } from '@angular/router'
 export class AppComponent {
   error : any;
   title = 'app';
+  user:any;
   constructor(private router: Router, private session:SessionService){ }
 
+  ngOnInit() {
+    this.session.isLoggedIn().subscribe( result => this.user=result);
+
+
+
+  }
   logout(){
       this.session.logout()
         .subscribe(
