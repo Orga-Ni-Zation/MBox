@@ -5,7 +5,7 @@ const ProductSchema = new Schema({
 	name: String,
 	imageUrl: {
 		type: String,
-		default: ""
+		default: "https://www.passmark.com/images/monitortestscreenshot5.gif"
 	},
 	imageName: String,
 	description: String,

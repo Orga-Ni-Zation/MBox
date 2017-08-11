@@ -26,19 +26,26 @@
 
 
 
-
-      <div class="col-sm-6 form-group">
-        <label for="uploaderImage">Upload Image</label>
-        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-
-        <p> {{ feedback }} </p>
-      </div>
-
       <div class="col-sm-6 form-group">
         <label for="birthday">Birthday</label>
         <input type="date" [(ngModel)]="formInfo.birthday" name="birthday" id="birthday" class="form-control">
 
       </div>
+    </div>
+    <div class="row">
+
+
+        <div class="col-sm-12 form-group">
+          <label for="uploaderImage">Upload Image</label>
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" class="form-control" />
+
+
+        </div>
+
+
+
+
+
     </div>
     <div class="row">
 
@@ -63,9 +70,18 @@
       <div class="col-sm-6 form-group">
         <label for="interest">Interests</label>
         <select class=" form-control" >
-          <option value="nnknj">Mustard</option>
-          <option value="jjdjdj">Ketchup</option>
+          <option value="nnknj">Male</option>
+          <option value="jjdjdj">Female</option>
+          <option value="kkdkndkndk">Sport</option>
+          <option value="nnknj">Tecnology</option>
+          <option value="jjdjdj">deporte</option>
+          <option value="kkdkndkndk">Fashion</option>
+          <option value="nnknj">Iphone6</option>
+          <option value="jjdjdj">sunglass</option>
           <option value="kkdkndkndk">Relish</option>
+          <option value="nnknj">Cat</option>
+          <option value="jjdjdj">Dog</option>
+          <option value="kkdkndkndk">Food</option>
   </select>
 
       </div>
