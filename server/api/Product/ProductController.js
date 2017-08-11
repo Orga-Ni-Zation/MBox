@@ -65,8 +65,6 @@ module.exports = {
 
 
   create: function(req, res) {
-// console.log("ENTRE a create");
-  // console.log("esto es body =" + req.body);
     const Product = new ProductModel({
       name: req.body.name,
       price: req.body.price,
@@ -77,8 +75,9 @@ module.exports = {
       imageUrl: `/uploads/${req.file.filename}` || '',
       imageName: req.file.orginalname,
     });
+    console.log(req.body.description);
     console.log(req.body);
-    console.log(Product);
+  
 
     Product.save((err, Product)=> {
       if (err) {

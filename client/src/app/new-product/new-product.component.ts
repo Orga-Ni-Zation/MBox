@@ -54,9 +54,10 @@ error: string;
       form.append('gender', this.formInfo.gender);
       form.append('price', this.formInfo.price);
       form.append('priceCategory', this.formInfo.priceCategory);
+      form.append('description', this.formInfo.description);
     };
     this.uploader.uploadAll();
-    this.router.navigate(['/product'], this.formInfo );
+    this.router.navigate(['/created'], this.formInfo );
 }
 
   listByCategory(){
