@@ -65,15 +65,22 @@ module.exports = {
 
 
   create: function(req, res) {
-// console.log("ENTRE a create");
-  // console.log("esto es body =" + req.body);
+    var priceCategory;
+    if(req.body.price < 6){
+      priceCategory = 'low';
+    }else if (req.body.price < 10) {
+      priceCategory = 'medium';
+    }else if (req.body.price >=10) {
+      priceCategory = 'high';
+    }
+  console.log(priceCategory);
     const Product = new ProductModel({
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
       category: req.body.category,
       gender: req.body.gender,
-      priceCategory: req.body.priceCategory,
+      priceCategory: priceCategory,
       imageUrl: `/uploads/${req.file.filename}` || '',
       imageName: req.file.orginalname,
     });

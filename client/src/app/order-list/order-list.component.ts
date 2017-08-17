@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
 import { SessionService } from '../../services/session.service';
-import { ProductService } from '../../services/product.service';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx'
+
+
 
 @Component({
   selector: 'app-order-list',

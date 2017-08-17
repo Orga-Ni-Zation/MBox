@@ -35,5 +35,5 @@ export const routes: Routes = [
   { path: 'orderlistbyuser/:id', component: OrderListByUserComponent },
   { path: 'editorder/:id', component: EditOrderComponent},
   { path: 'pay', component: PayComponent },
-  { path: '**', redirectTo: '' }
+  // { path: '**', redirectTo: '' }
 ]

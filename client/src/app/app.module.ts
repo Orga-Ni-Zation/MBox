@@ -58,7 +58,6 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-
   ],
   providers: [SessionService,OrdersService, ProductService, ReviewService],
   bootstrap: [AppComponent],

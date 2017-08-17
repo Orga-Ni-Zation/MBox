@@ -35,11 +35,17 @@
               <p class="block-recurring block-hdr">
                 {{order.address}}
                 <a href=""><i class="glyphicon glyphicon-edit"></i></a>
-              </p>
+
+
+
+
+
+
+
             </div>
             <div class="col-sm-3 col-md-3 block-col block-col-4">
               <ul class="block-toolbar">
-                <a [routerLink]="['/orderdetail/${_id}']">
+                <a [routerLink]="'./orderdetail/order._id}'">
                   <li class="btn btn-default btn-sm btn-success"><i class="fa fa-toggle-off"></i> Order Status</li>
                 </a>
                 <li class="btn btn-default btn-sm btn-primary"><i class="fa fa-play"></i> Run</li>

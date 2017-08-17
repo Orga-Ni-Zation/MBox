@@ -9,7 +9,6 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class EditOrderComponent implements OnInit {
   error: string;
-  user: any;
   formInfo = {
     status: '',
     }
@@ -38,10 +37,10 @@ export class EditOrderComponent implements OnInit {
 
   errorCb(err) {
     this.error = err;
-    this.user = null;
+    this.giftbox = null;
   }
   successCb(result) {
-    this.user = result;
+    this.giftbox = result;
     this.error = null;
   }
 }

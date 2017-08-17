@@ -43,6 +43,7 @@ module.exports = {
 
   show: function(req, res) {
     var id = req.params.id;
+    console.log('estoy imprimiendo id' + id);
     GiftBoxModel.find({
       _id: id
     }, function(err, GiftBox) {

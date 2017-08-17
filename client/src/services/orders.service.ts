@@ -54,14 +54,12 @@ export class OrdersService {
     .catch(this.handleError);
   }
 
-
-
   detailBox(id){
     return this.http.get(`${this.BASE_URL}/giftbox/${id}`, this.options)
-     .map(res => {
-       this.giftsBox = res.json();
-     })
+     .map(res => res.json());
   }
+
+  
 
   handleError(e) {
     console.log('Errrrrooooorrr =>' + e);
