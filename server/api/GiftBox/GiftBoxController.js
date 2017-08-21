@@ -73,14 +73,15 @@ module.exports = {
       _id: userId
     }, (err, user) => {
       const {
-        interest,
+        interests,
         gender
       } = user;
-      if (user.gender && user.interest) {
+
+      if (user.gender && user.interests) {
         ProductModel.find({
           gender: gender,
           category: {
-            $in: interest
+            $in: interests
           },
           priceCategory: ['low']
         }, (err, products) => {
@@ -91,7 +92,7 @@ module.exports = {
           ProductModel.find({
             gender: gender,
             category: {
-              $in: interest
+              $in: interests
             },
             priceCategory: ['medium']
           }, (err, products) => {
@@ -101,7 +102,7 @@ module.exports = {
             console.log(randomProductMediumId);
             ProductModel.find({
               gender: gender,
-              category: { $in: interest },
+              category: { $in: interests },
               priceCategory: ['high']
             }, (err, products) => {
               const randomProductHigh = products[Math.floor(Math.random() * products.length)];
@@ -123,6 +124,8 @@ module.exports = {
             });
           });
         });
+      }else{
+        console.log("don't have the product");
       }
     });
 

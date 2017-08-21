@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
     gender: '',
     role: '',
     birthday: '',
-    interests: [''],
+    interests: '',
     phone:'',
     address:'',
     country:'',
@@ -50,6 +50,8 @@ export class SignupComponent implements OnInit {
 
   signup() {
     console.log('===> estás aqui???')
+    let interests = this.formInfo.interests
+    console.log(interests)
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('username', this.formInfo.username);
       form.append('password', this.formInfo.password);

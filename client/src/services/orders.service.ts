@@ -24,11 +24,11 @@ export class OrdersService {
   constructor( private http: Http ) { }
 
   createBox(newBox): Observable<GU>{
-    console.log('mandando la petición a giftbox/new')
-    return this.http.post(`${this.BASE_URL}/giftbox/new`, newBox, this.options)
-    .map(res => res.json())
-    .catch(this.handleError);
-  }
+     console.log('mandando la petición a giftbox/new')
+     return this.http.post(`${this.BASE_URL}/giftbox/new`, newBox, this.options)
+     .map(res => res.json())
+     .catch(this.handleError);
+   }
 
   editBox(formInfo, order){
     return this.http.put(`${this.BASE_URL}/giftbox/${order}/edit`, formInfo, this.options)
@@ -59,7 +59,7 @@ export class OrdersService {
      .map(res => res.json());
   }
 
-  
+
 
   handleError(e) {
     console.log('Errrrrooooorrr =>' + e);

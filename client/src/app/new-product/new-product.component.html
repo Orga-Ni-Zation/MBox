@@ -32,23 +32,11 @@
             </select>
 
       </div>
-    </div>
-    <div class="row">
 
-      <!-- <div class="col-sm-6 form-group">
-        <label for="priceCategory">Price Category</label>
-        <select [(ngModel)]="formInfo.priceCategory" name="priceCategory" class="form-control">
-                          <option value="unknown">Select Category</option>
-                         <option value="low">Low</option>
-                          <option value="medium">Medium</option>
-                          <option value="high">High</option>
-                          </select>
 
-      </div> -->
       <div class="col-sm-6 form-group">
         <label for="category">Category</label>
-        <select [(ngModel)]="formInfo.category" multiple name="category" class="form-control">
-                          <option value="unknown">Select Category</option>
+        <select input [(ngModel)]="formInfo.category" multiple name="category" class="form-control category">
                          <option value="male">Male</option>
                           <option value="female">Female</option>
                           <option value="technology">Technology</option>

@@ -61,11 +61,14 @@
 
       </div>
       <div class="col-sm-6 form-group">
-        <label for="interest">Interests</label>
-        <select class=" form-control" >
-          <option value="nnknj">Mustard</option>
-          <option value="jjdjdj">Ketchup</option>
-          <option value="kkdkndkndk">Relish</option>
+        <label for="interests">Interests</label>
+        <select multiple [(ngModel)]='formInfo.interests' name="interests" class="form-control" >
+          <option value="technology">Technology</option>
+          <option value="fashion">Fashion</option>
+          <option value="kitchen">Kitchen</option>
+          <option value="pets">Pets</option>
+          <option value="sport">Sport</option>
+
   </select>
 
       </div>

@@ -32,6 +32,7 @@ export class OrderComponent implements OnInit {
     this.formInfo.userId = this.user._id;
     console.log(this.formInfo.userId);
 
+
     this.orders.createBox(this.formInfo)
       // this.router.navigate(['/success']);
       .subscribe(order => {

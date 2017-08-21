@@ -20,7 +20,7 @@ module.exports = {
 
 
 
-  listbycategory: function(req, res) {
+  listbycategory: (req, res) => {
     var categorySearch = req.params.category;
 
     ProductModel.find({
@@ -42,7 +42,7 @@ module.exports = {
     });
   },
 
-  show: function(req, res) {
+  show: (req, res) => {
     var id = req.params.id;
     console.log(id);
     ProductModel.findOne({
@@ -64,21 +64,27 @@ module.exports = {
   },
 
 
-  create: function(req, res) {
-    var priceCategory;
-    if(req.body.price < 6){
+  create: (req, res) => {
+    let priceCategory;
+    let lowCategory = 6;
+    let mediumCategory = 10;
+    let highCategory = 10;
+    if(req.body.price < lowCategory){
       priceCategory = 'low';
-    }else if (req.body.price < 10) {
+    }else if (req.body.price < mediumCategory) {
       priceCategory = 'medium';
-    }else if (req.body.price >=10) {
+    }else if (req.body.price >= highCategory) {
       priceCategory = 'high';
     }
+    let category = req.body.category;
+    category = category.split(",");
+    console.log('estoy imprimiendo category'+ category);
   console.log(priceCategory);
     const Product = new ProductModel({
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
-      category: req.body.category,
+      category: category,
       gender: req.body.gender,
       priceCategory: priceCategory,
       imageUrl: `/uploads/${req.file.filename}` || '',

@@ -46,14 +46,13 @@ error: string;
   }
 
   addProduct() {
-    console.log('===> estás aqui???')
-    console.log(this.formInfo);
+
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', this.formInfo.name);
       form.append('category', this.formInfo.category);
       form.append('gender', this.formInfo.gender);
       form.append('price', this.formInfo.price);
-      // form.append('priceCategory', this.formInfo.priceCategory);
+      form.append('description', this.formInfo.description)
     };
     this.uploader.uploadAll();
     this.router.navigate(['/product'], this.formInfo );
