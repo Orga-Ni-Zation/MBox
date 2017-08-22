@@ -69,10 +69,6 @@ export class ProductService {
        .map((res) => res.json());
    }
 
-    // deleteProduct(formInfo,product){
-    // return this.http.delete(`${this.BASE_URL}/product/${product._id}/delete`, formInfo ,this.options)
-    //    .map((res) => res.json());
-    // }
     handleError(e) {
       console.log('ERROR => ' + e)
       console.error("Error en la llamada al endpoint Product");

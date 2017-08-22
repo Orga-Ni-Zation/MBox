@@ -25,58 +25,50 @@
         </div>
 </div>
 </div>
+<div class="page-header">
+  <h1>How Its Works</h1>
 </div>
-<div *ngIf="role === admin && role === !user">
-<a [routerLink]="['/product']">Products</a>
-<a [routerLink]="['/orderslist']">Orders from all users</a>
+
+    <div class="container">
+    			<div class="row pricing">
+                        <div class="col-md-6">
+						<div class="well">
+							<h3><b>Buy a box for your friends?</b></h3>
+							<hr>
+							<p><b>Create an gift box. It's easy.</b></p>
+							<hr>
+							<p><b>Choose yourindustry and interests</b></p>
+							<hr>
+							<p><b>Tell us the candidate you’re looking for.</b></p>
+                            <hr>
+							<p><b>Tell us where you want your candidates delivered.</b></p>
+                            <hr>
+							<p><b>Only pay when someone applies. No more waste.</b></p>
+							<hr>
+							<a [routerLink]="['/order']" class="btn btn-default btn-block btn-pelo"> ORDER GIFT BOX</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="well">
+							<h3><b>Looking For A MBOX?</b></h3>
+							<hr>
+							<p><b>Buy your box. It’s so esay.</b></p>
+							<hr>
+							<p><b>Join the millions of users using MOBX.</b></p>
+							<hr>
+							<p><b>Tell us about yourself.</b></p>
+                            <hr>
+							<p><b>Tell us how you want to learn about new job openings.</b></p>
+                            <hr>
+							<p><b>One Click Apply to jobs anytime. Anywhere.</b></p>
+							<hr>
+							<a [routerLink]="['/order']" class="btn btn-default btn-block btn-pelo">ORDER YOUR BOX</a>
+						</div>
+					</div>
+        </div>
+     </div>
+
 </div>
- <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="wow fadeInRight" data-wow-delay="0.5s">
-                <h1 class="page-header">Welcome to Mbox</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <section class="wow fadeInDown" data-wow-delay="0.5s">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw fa-gift"></i> Your mBoxes</h4>
-            </div>
-            <div class="panel-body">
-              <p>Do you want to check the status of your boxes? You can check it here! If you need more info you can send us a mail</p>
-            </div>
-          </div>
-          <app-order-list-by-user></app-order-list-by-user>
-        </section>
-      </div>
-        <div class="col-md-4">
-            <div class="wow fadeInDown" data-wow-delay="0.5s" >
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> What is MBOX?</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>We are a site where we will send you gifts everytime depending your interests and tastes. Please access here and provide us with all your interests so we buy the best products for you </p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-            <div class="wow fadeInDown" data-wow-delay="0.5s">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                       <h4><i class="fa fa-fw fa-compass"></i> Order YOUR mBox</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Do you want more mBoxes? Order it here!</p>
-                        <a [routerLink]="['/order']" class="btn btn-default">Order</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+<app-order-list-by-user></app-order-list-by-user>

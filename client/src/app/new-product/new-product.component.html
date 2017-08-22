@@ -1,5 +1,4 @@
-<div *ngIf="role === admin" class="container ">
-<div class="container">
+<div class="container margin-aPelo">
   <h1 class="well">Crear Products</h1>
   <div class="col-lg-12 well">
     <div class="row">
@@ -33,10 +32,9 @@
 
       </div>
 
-
       <div class="col-sm-6 form-group">
         <label for="category">Category</label>
-        <select input [(ngModel)]="formInfo.category" multiple name="category" class="form-control category">
+        <select [(ngModel)]="formInfo.category" multiple name="category" class="form-control">
                          <option value="male">Male</option>
                           <option value="female">Female</option>
                           <option value="technology">Technology</option>
@@ -65,5 +63,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

@@ -1,3 +1,17 @@
-<p>
-  shop-detail works!
-</p>
+<div *ngIf="user" class="container margin-aPelo jumbotron">
+
+<div class="container ">
+	<div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+        <br><br> <h1 style="color:#0fad00">Success </h1>
+        <img src="https://vignette3.wikia.nocookie.net/minecraftpe/images/1/15/Admin.png/revision/latest?cb=20140529210417&path-prefix=es" class="">
+        <h3>ADMIN</h3>
+        <p style="font-size:20px;color:#5C5C5C;">Thank you for add a Magig Box .We have sent you an email <strong>"admin@gmail.com"</strong> with your details
+Please go to your above email now and login.</p>
+        <a [routerLink]="['/product']" class="btn btn-success">  Product List     </a>
+    <br><br>
+        </div>
+
+	</div>
+</div>
+</div>

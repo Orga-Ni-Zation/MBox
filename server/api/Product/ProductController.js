@@ -6,7 +6,7 @@ const upload = require('../../config/multer');
 module.exports = {
 
 
-  list: function(req, res) {
+  list: (req, res) => {
     ProductModel.find().then(Products => {
       res.json(Products);
     }).catch(err => {
@@ -25,7 +25,7 @@ module.exports = {
 
     ProductModel.find({
       category: categorySearch
-    }, function(err, product) {
+    }, (err, product) => {
 
       if (err) {
         return res.status(500).json({
@@ -47,7 +47,7 @@ module.exports = {
     console.log(id);
     ProductModel.findOne({
       _id: id
-    }, function(err, Product) {
+    }, (err, Product) => {
       if (err) {
         return res.status(500).json({
           message: 'Error when getting Product.',
@@ -90,8 +90,9 @@ module.exports = {
       imageUrl: `/uploads/${req.file.filename}` || '',
       imageName: req.file.orginalname,
     });
+    console.log(req.body.description);
     console.log(req.body);
-    console.log(Product);
+
 
     Product.save((err, Product)=> {
       if (err) {
@@ -105,7 +106,7 @@ module.exports = {
   },
 
 
-  update: function(req, res) {
+  update: (req, res) => {
     var id = req.params.id;
     ProductModel.findOne({
       _id: id

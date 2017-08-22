@@ -8,7 +8,7 @@ const authRoutes = express.Router();
 const bcryptSalt = 10;
 
 
-exports.listUser = function(req, res, next) {
+exports.listUser = (req, res, next) => {
   User.find()
     .then(userList => {
       res.json(userList);
@@ -18,7 +18,7 @@ exports.listUser = function(req, res, next) {
     });
 };
 
-exports.signUp = function(req, res, next) {
+exports.signUp = (req, res, next) => {
   let username = req.body.username;
   let lastName = req.body.lastName;
   let birthday = req.body.birthday;
@@ -112,11 +112,11 @@ exports.logIn = (req, res, next) =>{
   })(req, res, next);
 };
 
-exports.editUser = function(req, res, next) {
+exports.editUser = (req, res, next) => {
   const updates = {
-    username:      req.body.username,
-    email:         req.body.email,
-    password:      req.body.password,
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
     lastName: req.body.lastName,
     gender: req.body.gender,
     birthday: req.body.birthday,
@@ -143,7 +143,7 @@ exports.editUser = function(req, res, next) {
   });
 };
 
-exports.logOut = function(req, res, next) {
+exports.logOut = (req, res, next) => {
   console.log("he llegado a logout");
   req.logout();
   res.status(200).json({
@@ -151,7 +151,7 @@ exports.logOut = function(req, res, next) {
   });
 };
 
-exports.logStill = function(req, res, next) {
+exports.logStill = (req, res, next) => {
   if (req.isAuthenticated()) {
     res.status(200).json(req.user);
     return;
@@ -163,7 +163,7 @@ exports.logStill = function(req, res, next) {
 };
 
 
-exports.private = function(req, res, next) {
+exports.private = (req, res, next) => {
   if (req.isAuthenticated()) {
     res.json({
       message: 'This is a private message'
@@ -176,7 +176,7 @@ exports.private = function(req, res, next) {
   });
 };
 
-exports.removeUser = function(req, res) {
+exports.removeUser = (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then((list) => res.status(202).json({
       message: 'user removed successfully'
