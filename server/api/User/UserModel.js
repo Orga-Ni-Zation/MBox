@@ -26,8 +26,8 @@ const UserSchema = new Schema({
     ],
     default: "user"
   },
-	interest : {
-	type: Array, enum: TYPES, default: TYPES
+	interests : {
+	type: Array, enum: TYPES,
 	}
 }, {
   timestamps: {

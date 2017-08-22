@@ -65,19 +65,32 @@ module.exports = {
 
 
   create: function(req, res) {
+    let priceCategory;
+    let lowCategory = 6;
+    let mediumCategory = 10;
+    let highCategory = 10;
+    if(req.body.price < lowCategory){
+      priceCategory = 'low';
+    }else if (req.body.price < mediumCategory) {
+      priceCategory = 'medium';
+    }else if (req.body.price >= highCategory) {
+      priceCategory = 'high';
+    }
+    let category = req.body.category;
+    category = category.split(",");
     const Product = new ProductModel({
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
-      category: req.body.category,
+      category:category,
       gender: req.body.gender,
-      priceCategory: req.body.priceCategory,
+      priceCategory: priceCategory,
       imageUrl: `/uploads/${req.file.filename}` || '',
       imageName: req.file.orginalname,
     });
     console.log(req.body.description);
     console.log(req.body);
-  
+
 
     Product.save((err, Product)=> {
       if (err) {

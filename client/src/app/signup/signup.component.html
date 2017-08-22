@@ -69,19 +69,18 @@
       </div>
       <div class="col-sm-6 form-group">
         <label for="interest">Interests</label>
-        <select class=" form-control" >
-          <option value="nnknj">Male</option>
-          <option value="jjdjdj">Female</option>
-          <option value="kkdkndkndk">Sport</option>
-          <option value="nnknj">Tecnology</option>
-          <option value="jjdjdj">deporte</option>
-          <option value="kkdkndkndk">Fashion</option>
-          <option value="nnknj">Iphone6</option>
-          <option value="jjdjdj">sunglass</option>
-          <option value="kkdkndkndk">Relish</option>
-          <option value="nnknj">Cat</option>
-          <option value="jjdjdj">Dog</option>
-          <option value="kkdkndkndk">Food</option>
+        <select  [(ngModel)]="formInfo.interests"class="form-control" multiple >
+
+          <option value="sport">Sport</option>
+          <option value="technology">Tecnology</option>
+          <option value="fashion">Fashion</option>
+
+          <option value="iphone6">Iphone6</option>
+          <option value="sunglass">sunglass</option>
+          <option value="pet">Pet</option>
+          <option value="cat">Cat</option>
+          <option value="dog">Dog</option>
+          <option value="kitchen">Kitchen</option>
   </select>
 
       </div>

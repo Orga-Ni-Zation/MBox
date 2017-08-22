@@ -55,6 +55,7 @@ exports.signUp = function(req, res, next) {
     const salt = bcrypt.genSaltSync(10);
     const hashPass = bcrypt.hashSync(password, salt);
     console.log('imprimiendo ====>>>>>> llegara?');
+    interests = interests.split(",");
     const theUser = new User({
       username,
       email,
@@ -63,6 +64,7 @@ exports.signUp = function(req, res, next) {
       gender,
       birthday,
       country,
+      interests,
       address,
       phone,
       imageUrl : `/uploads/${req.file.filename}` || '',
