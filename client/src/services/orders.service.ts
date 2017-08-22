@@ -15,7 +15,7 @@ export interface GU{
 
 @Injectable()
 export class OrdersService {
-  gu : GU;
+  // gu : GU;
   BASE_URL:string=`${environment.BASE_URL}`;
   options:object = {withCredentials:true};
   guList : Array<object> = [];
@@ -56,7 +56,9 @@ export class OrdersService {
 
   detailBox(id){
     return this.http.get(`${this.BASE_URL}/giftbox/${id}`, this.options)
-     .map(res => res.json());
+     .map(res => {
+       this.giftsBox = res.json();
+     })
   }
 
 
